@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Maresinha 🌊</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===================== RESET ===================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* ===================== GLOBAL ===================== */
+:root {
+  /* Shared */
+  --ink: #1A1410;
+  --ink2: #5C4F43;
+  --ink3: #A8967E;
+  --border: rgba(26,20,16,0.1);
+  --shadow: 0 4px 32px rgba(26,20,16,0.08);
+
+  /* Treino palette */
+  --bg: #F7F3EE;
+  --surface: #FFFFFF;
+  --surface2: #F0EBE3;
+  --rose: #E8614A;
+  --blush: #F2A58E;
+  --sage: #7A9E7E;
+  --gold-t: #C9933A;
+  --lavender: #9B89B4;
+  --sky: #5B8DB8;
+
+  /* Dieta palette */
+  --cream: #FDFAF5;
+  --warm: #F5EFE3;
+  --green: #4A7C59;
+  --green-light: #EAF2EC;
+  --terracotta: #C4674A;
+  --terra-light: #FAF0EC;
+  --gold-d: #B8892A;
+  --gold-light: #FBF5E6;
+  --blue: #3A6B8A;
+  --blue-light: #EAF2F8;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::after {
+  content:'';
+  position:fixed; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:9999;
+}
+
+/* ===================== HERO MARESINHA ===================== */
+.hero-maresinha {
+  background: var(--ink);
+  padding: 56px 24px 70px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-maresinha::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(232,97,74,0.28) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 20%, rgba(74,124,89,0.22) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 90%, rgba(91,141,184,0.18) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 60%, rgba(201,147,58,0.15) 0%, transparent 35%);
+}
+
+/* Wave decoration */
+.hero-maresinha::after {
+  content: '🌊';
+  position:absolute;
+  font-size: 260px;
+  right: -40px;
+  bottom: -40px;
+  opacity: 0.04;
+  filter: grayscale(1);
+}
+
+.hero-inner-m { position:relative; z-index:1; max-width:680px; margin:0 auto; }
+
+.hero-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.brand-wave { font-size: 16px; }
+
+.hero-m-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 13vw, 100px);
+  font-weight: 900;
+  color: white;
+  line-height: 0.95;
+  margin-bottom: 12px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-m-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, #F2A58E, #E8614A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-m-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 4vw, 28px);
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 36px;
+  font-weight: 600;
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero-m-stats {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hms { text-align:center; }
+.hms-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #F2A58E;
+  line-height: 1;
+}
+.hms-lbl { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing:1.5px; text-transform:uppercase; margin-top:4px; }
+.hms-div { width:1px; height:36px; background:rgba(255,255,255,0.1); align-self:center; }
+
+/* ===================== MAIN NAV ===================== */
+.main-nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+.main-nav-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.main-nav-btn {
+  flex: 1;
+  padding: 20px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink2);
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.main-nav-btn::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:20px; right:20px;
+  height:3px;
+  border-radius:3px 3px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.main-nav-btn.treino-active { color: var(--rose); }
+.main-nav-btn.treino-active::after { background: var(--rose); transform: scaleX(1); }
+.main-nav-btn.dieta-active { color: var(--green); }
+.main-nav-btn.dieta-active::after { background: var(--green); transform: scaleX(1); }
+
+.nav-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.nb-treino { background: #FFF0EE; color: var(--rose); }
+.nb-dieta { background: var(--green-light); color: var(--green); }
+
+/* ===================== SECTIONS ===================== */
+.section-wrap { display:none; }
+.section-wrap.active { display:block; animation: fadeUp 0.35s ease; }
+
+/* ===================== TREINO STYLES ===================== */
+.treino-wrap {
+  background: var(--bg);
+}
+
+/* Sub tabs (ABCDE) */
+.tabs-wrap {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 65px;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.tabs {
+  display: flex;
+  max-width: 820px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display:none; }
+
+.tab-btn {
+  flex: 1;
+  min-width: 80px;
+  padding: 16px 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink2);
+  position: relative;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.tab-btn::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:10px; right:10px;
+  height:3px;
+  border-radius:3px 3px 0 0;
+  background: var(--rose);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.tab-btn.active { color: var(--ink); }
+.tab-btn.active::after { transform: scaleX(1); }
+
+.tab-letter {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.treino-content { max-width: 820px; margin: 0 auto; padding: 36px 20px 70px; }
+
+/* workout header */
+.workout-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+.workout-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+.workout-name { font-family:'Playfair Display',serif; font-size:clamp(26px,5vw,40px); font-weight:900; line-height:1.1; margin-bottom:10px; }
+.workout-focus { display:inline-flex; align-items:center; gap:6px; background:var(--surface2); border-radius:8px; padding:6px 14px; font-size:13px; font-weight:500; color:var(--ink2); }
+.kcal-badge { background:var(--ink); color:white; border-radius:16px; padding:18px 22px; text-align:center; min-width:110px; }
+.kcal-range { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; line-height:1; }
+.kcal-unit { font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+
+/* meta row */
+.meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:28px; }
+.meta-item { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 12px; text-align:center; }
+.meta-val { font-size:16px; font-weight:700; }
+.meta-lbl { font-size:10px; color:var(--ink2); text-transform:uppercase; letter-spacing:1px; margin-top:3px; }
+
+/* exercise */
+.ex-section-title { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink2); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.ex-list { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+
+.ex-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px;
+  display:grid; grid-template-columns:36px 1fr auto auto; align-items:center; gap:12px;
+  transition:all 0.2s; cursor:pointer; text-decoration:none; color:inherit;
+}
+.ex-card:hover { transform:translateX(4px); box-shadow:var(--shadow); }
+.ex-n { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:16px; color:white; flex-shrink:0; }
+.ex-name-txt { font-size:14px; font-weight:600; margin-bottom:3px; }
+.ex-sets { font-size:12px; color:var(--ink2); }
+.ex-kcal-col { text-align:right; }
+.ex-kcal-val { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; }
+.ex-kcal-lbl { font-size:10px; color:var(--ink2); text-transform:uppercase; letter-spacing:1px; }
+.ex-yt { width:30px; height:30px; background:#FF0000; border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-size:10px; flex-shrink:0; text-decoration:none; transition:transform 0.2s; }
+.ex-yt:hover { transform:scale(1.1); }
+
+/* band tag */
+.band-tag { display:inline-flex; align-items:center; gap:4px; background:#FFF3E0; border:1px solid #FFCC80; color:#E65100; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; margin-top:4px; white-space:nowrap; }
+.band-info { background:linear-gradient(135deg,#FFF8F0,#FFF3E0); border:1.5px solid #FFCC80; border-radius:14px; padding:16px 18px; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+.band-icon { font-size:26px; flex-shrink:0; }
+.band-info-title { font-size:13px; font-weight:700; color:#E65100; margin-bottom:2px; }
+.band-info-desc { font-size:12px; color:#8D5524; line-height:1.5; }
+
+/* total bar */
+.total-bar { border-radius:16px; padding:22px 26px; display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; color:white; }
+.total-bar-label { font-size:12px; opacity:0.8; margin-bottom:4px; }
+.total-bar-val { font-family:'Playfair Display',serif; font-size:34px; font-weight:900; line-height:1; }
+.total-bar-sub { font-size:12px; opacity:0.6; margin-top:4px; }
+.total-bar-icon { font-size:44px; opacity:0.25; }
+
+/* tips box */
+.tips-box { background:var(--surface2); border-radius:14px; padding:20px 22px; margin-bottom:20px; }
+.tips-box-title { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--ink2); margin-bottom:12px; }
+.tip-line { display:flex; gap:10px; align-items:flex-start; font-size:13px; line-height:1.6; color:var(--ink2); margin-bottom:8px; }
+.tip-dot { width:6px; height:6px; border-radius:50%; margin-top:6px; flex-shrink:0; }
+
+/* week grid */
+.week-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:32px 0 0; padding-top:32px; border-top:1px solid var(--border); }
+.week-card { border-radius:12px; padding:14px 10px; text-align:center; border:2px solid transparent; cursor:pointer; transition:all 0.2s; }
+.week-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+.wk-letter { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; line-height:1; margin-bottom:4px; }
+.wk-name { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+.wk-kcal { font-size:11px; opacity:0.65; }
+
+/* workout panel */
+.workout-panel { display:none; animation: fadeUp 0.35s ease; }
+.workout-panel.active { display:block; }
+
+/* ===================== DIETA STYLES ===================== */
+.dieta-wrap { background: var(--cream); }
+.dieta-content { max-width: 720px; margin: 0 auto; padding: 36px 20px 70px; }
+
+/* macro section */
+.macro-section { background:var(--ink); border-radius:20px; padding:26px; margin-bottom:28px; color:white; }
+.macro-title { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+.macro-kcal { font-family:'Cormorant Garamond',serif; font-size:50px; font-weight:700; line-height:1; color:#A8D5B0; margin-bottom:4px; }
+.macro-kcal span { font-size:20px; color:rgba(255,255,255,0.35); }
+.macro-sub { font-size:13px; color:rgba(255,255,255,0.38); margin-bottom:24px; }
+.macro-bars { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.macro-label { font-size:11px; color:rgba(255,255,255,0.38); text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; }
+.macro-bar-wrap { background:rgba(255,255,255,0.07); border-radius:100px; height:6px; margin-bottom:5px; overflow:hidden; }
+.macro-bar-fill { height:100%; border-radius:100px; width:0; transition:width 1.5s cubic-bezier(0.4,0,0.2,1); }
+.macro-val { font-size:13px; font-weight:600; }
+
+/* day tabs */
+.day-tabs { display:flex; gap:8px; margin-bottom:24px; overflow-x:auto; scrollbar-width:none; padding-bottom:4px; }
+.day-tabs::-webkit-scrollbar { display:none; }
+.day-tab { flex-shrink:0; border:1.5px solid var(--border); background:white; border-radius:12px; padding:9px 16px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; color:var(--ink2); cursor:pointer; transition:all 0.2s; }
+.day-tab.active { background:var(--ink); border-color:var(--ink); color:white; }
+.day-tab:hover:not(.active) { border-color:var(--ink); }
+
+/* meal card */
+.section-heading { display:flex; align-items:center; gap:10px; margin-bottom:12px; margin-top:24px; }
+.meal-icon { width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
+.meal-label { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+.meal-time { font-size:12px; color:var(--ink3); margin-left:auto; }
+
+.meal-card { background:white; border:1px solid var(--border); border-radius:14px; padding:18px 20px; margin-bottom:8px; transition:box-shadow 0.2s; }
+.meal-card:hover { box-shadow:var(--shadow); }
+.meal-name { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; margin-bottom:10px; line-height:1.2; }
+.meal-items { margin-bottom:12px; }
+.meal-item { display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--ink2); padding:3px 0; border-bottom:1px dashed rgba(28,23,18,0.06); line-height:1.4; }
+.meal-item:last-child { border-bottom:none; }
+.item-bullet { width:5px; height:5px; border-radius:50%; margin-top:5px; flex-shrink:0; }
+.meal-foot { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.macro-chip { font-size:11px; font-weight:600; padding:4px 10px; border-radius:20px; }
+.chip-kcal { background:var(--warm); color:var(--ink); }
+.chip-p { background:var(--blue-light); color:var(--blue); }
+.chip-c { background:var(--gold-light); color:var(--gold-d); }
+.chip-g { background:var(--green-light); color:var(--green); }
+.tip-inline { margin-left:auto; font-size:11px; color:var(--ink3); font-style:italic; }
+
+/* day total */
+.day-total { background:var(--green); color:white; border-radius:14px; padding:20px 22px; display:flex; justify-content:space-between; align-items:center; margin-top:20px; }
+.dt-label { font-size:11px; opacity:0.7; margin-bottom:3px; letter-spacing:1px; text-transform:uppercase; }
+.dt-val { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:700; line-height:1; }
+.dt-sub { font-size:11px; opacity:0.6; margin-top:2px; }
+.dt-icon { font-size:36px; opacity:0.22; }
+
+/* day panel */
+.day-panel { display:none; }
+.day-panel.active { display:block; animation: fadeUp 0.3s ease; }
+
+/* weekly summary */
+.week-summary { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:32px; padding-top:32px; border-top:1px solid var(--border); }
+.ws-card { background:white; border:1.5px solid var(--border); border-radius:10px; padding:12px 6px; text-align:center; cursor:pointer; transition:all 0.2s; }
+.ws-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--green); }
+.ws-day { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--ink3); margin-bottom:3px; }
+.ws-kcal { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:var(--green); }
+.ws-sub { font-size:9px; color:var(--ink3); }
+
+/* rules */
+.rules { margin-top:28px; background:var(--warm); border-radius:16px; padding:24px; }
+.rules-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:700; margin-bottom:16px; }
+.rule-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.rule-item { background:white; border-radius:12px; padding:12px 14px; font-size:13px; color:var(--ink2); line-height:1.5; display:flex; gap:10px; align-items:flex-start; }
+.rule-emoji { font-size:16px; flex-shrink:0; }
+.avoid-section { margin-top:16px; background:#FEF5F3; border:1px solid #F5C5BB; border-radius:12px; padding:18px 20px; }
+.avoid-title { font-size:12px; font-weight:700; color:var(--terracotta); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; }
+.avoid-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+.avoid-item { background:white; border-radius:8px; padding:8px 10px; font-size:12px; color:var(--terracotta); font-weight:500; text-align:center; border:1px solid #F5C5BB; }
+
+/* goal card */
+.goal-card { margin-top:18px; background:var(--ink); border-radius:16px; padding:24px; color:white; display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; }
+.gc-label { font-size:11px; opacity:0.4; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+.gc-val { font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:700; color:#A8D5B0; line-height:1; }
+.gc-sub { font-size:12px; opacity:0.45; margin-top:5px; }
+.gc-badge { background:rgba(168,213,176,0.12); border:1px solid rgba(168,213,176,0.22); border-radius:12px; padding:14px 18px; text-align:center; }
+.gc-badge-num { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700; color:#A8D5B0; line-height:1; }
+.gc-badge-lbl { font-size:10px; opacity:0.4; text-transform:uppercase; letter-spacing:1px; margin-top:3px; }
+
+/* ===================== SYNERGY SECTION ===================== */
+.synergy {
+  background: linear-gradient(135deg, var(--ink) 0%, #2a1f18 100%);
+  margin: 0;
+  padding: 48px 24px;
+  color: white;
+  text-align: center;
+}
+
+.synergy-inner { max-width: 680px; margin: 0 auto; }
+
+.synergy-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 6vw, 46px);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.synergy-title em { font-style:italic; color:#A8D5B0; }
+
+.synergy-sub { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 36px; }
+
+.synergy-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.syn-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 22px 18px;
+}
+
+.syn-icon { font-size: 32px; margin-bottom: 12px; }
+.syn-name { font-family:'Playfair Display',serif; font-size: 20px; font-weight:700; margin-bottom:6px; }
+.syn-val { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.6; }
+
+.syn-plus {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.15);
+}
+
+.synergy-result {
+  background: linear-gradient(135deg, rgba(74,124,89,0.3), rgba(168,213,176,0.15));
+  border: 1px solid rgba(168,213,176,0.3);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.sr-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+.sr-val { font-family:'Playfair Display',serif; font-size: clamp(36px,8vw,60px); font-weight:900; color:#A8D5B0; line-height:1; }
+.sr-sub { font-size:13px; color:rgba(255,255,255,0.4); margin-top:6px; }
+
+.syn-pills { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:24px; }
+.syn-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:100px; padding:6px 16px; font-size:12px; color:rgba(255,255,255,0.6); }
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:600px){
+  .meta-row { grid-template-columns:repeat(2,1fr); }
+  .week-grid { grid-template-columns:repeat(3,1fr); }
+  .workout-header { grid-template-columns:1fr; }
+  .kcal-badge { display:none; }
+  .ex-card { grid-template-columns:32px 1fr auto; }
+  .ex-yt { display:none; }
+  .rule-grid { grid-template-columns:1fr; }
+  .avoid-grid { grid-template-columns:repeat(2,1fr); }
+  .week-summary { grid-template-columns:repeat(4,1fr); }
+  .goal-card { grid-template-columns:1fr; }
+  .macro-bars { grid-template-columns:1fr; gap:8px; }
+  .synergy-grid { grid-template-columns:1fr; }
+  .syn-plus { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO MARESINHA ===== -->
+<div class="hero-maresinha">
+  <div class="hero-inner-m">
+    <div class="hero-brand"><span class="brand-wave">🌊</span> Projeto Maresinha <span class="brand-wave">🌊</span></div>
+    <div class="hero-m-title">Mare<em>sinha</em></div>
+    <div class="hero-m-sub">Treinos · Dieta · Transformação</div>
+    <div class="hero-m-stats">
+      <div class="hms"><div class="hms-val">5</div><div class="hms-lbl">Treinos ABCDE</div></div>
+      <div class="hms-div"></div>
+      <div class="hms-val" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#F2A58E;">−2kg</div>
+      <div class="hms-div"></div>
+      <div class="hms"><div class="hms-val">7</div><div class="hms-lbl">Dias de dieta</div></div>
+      <div class="hms-div"></div>
+      <div class="hms"><div class="hms-val">63kg</div><div class="hms-lbl">Peso atual</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SYNERGY SECTION ===== -->
+<div class="synergy">
+  <div class="synergy-inner">
+    <div class="synergy-title">Treino <em>+</em> Dieta</div>
+    <div class="synergy-sub">A combinação perfeita para emagrecer 2kg por mês com saúde</div>
+    <div class="synergy-grid">
+      <div class="syn-card">
+        <div class="syn-icon">💪</div>
+        <div class="syn-name">Treinos ABCDE</div>
+        <div class="syn-val">~2.000–2.400 kcal queimadas por semana com mini band</div>
+      </div>
+      <div class="syn-plus">+</div>
+      <div class="syn-card">
+        <div class="syn-icon">🥗</div>
+        <div class="syn-name">Dieta Maresinha</div>
+        <div class="syn-val">~1.450 kcal/dia · sem lactose · antiinflamatória</div>
+      </div>
+    </div>
+    <div class="synergy-result">
+      <div class="sr-label">🔥 Déficit mensal estimado</div>
+      <div class="sr-val">~14.000 kcal</div>
+      <div class="sr-sub">equivale a aproximadamente 2kg de gordura por mês · 63kg · 165cm</div>
+    </div>
+    <div class="syn-pills">
+      <span class="syn-pill">🍑 Glúteos definidos</span>
+      <span class="syn-pill">💪 Abdômen trabalhado</span>
+      <span class="syn-pill">🚫 Sem lactose</span>
+      <span class="syn-pill">🟠 Mini band incluída</span>
+      <span class="syn-pill">⚡ Mais energia</span>
+      <span class="syn-pill">💧 Reduz inchaço</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN NAV ===== -->
+<div class="main-nav">
+  <div class="main-nav-inner">
+    <button class="main-nav-btn treino-active" id="btn-treino" onclick="showSection('treino')">
+      💪 Treinos ABCDE
+      <span class="nav-badge nb-treino">300–600 kcal</span>
+    </button>
+    <button class="main-nav-btn" id="btn-dieta" onclick="showSection('dieta')">
+      🥗 Dieta Semanal
+      <span class="nav-badge nb-dieta">1.450 kcal/dia</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============================= TREINO SECTION ============================= -->
+<div class="section-wrap active" id="sec-treino">
+<div class="treino-wrap">
+
+<!-- Sub-tabs ABCDE -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(0)"><span class="tab-letter" style="color:#E8614A">A</span>Cardio Core</button>
+    <button class="tab-btn" onclick="showTab(1)"><span class="tab-letter" style="color:#7A9E7E">B</span>Glúteo I</button>
+    <button class="tab-btn" onclick="showTab(2)"><span class="tab-letter" style="color:#9B89B4">C</span>Abdômen</button>
+    <button class="tab-btn" onclick="showTab(3)"><span class="tab-letter" style="color:#5B8DB8">D</span>Glúteo II</button>
+    <button class="tab-btn" onclick="showTab(4)"><span class="tab-letter" style="color:#C9933A">E</span>Corpo Todo</button>
+  </div>
+</div>
+
+<div class="treino-content">
+
+<!-- TREINO A -->
+<div class="workout-panel active" id="panel-0">
+  <div class="workout-header">
+    <div>
+      <div class="workout-label" style="color:#E8614A">Treino A · Segunda-feira</div>
+      <div class="workout-name">Cardio + Core</div>
+      <div class="workout-focus">🔥 Foco: Emagrecimento + Abdômen</div>
+    </div>
+    <div class="kcal-badge"><div class="kcal-range" style="color:#E8614A">300–370</div><div class="kcal-unit">kcal</div></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-item"><div class="meta-val">8</div><div class="meta-lbl">Exercícios</div></div>
+    <div class="meta-item"><div class="meta-val">~45'</div><div class="meta-lbl">Duração</div></div>
+    <div class="meta-item"><div class="meta-val">30s</div><div class="meta-lbl">Descanso</div></div>
+    <div class="meta-item"><div class="meta-val">Médio</div><div class="meta-lbl">Nível</div></div>
+  </div>
+  <div class="ex-section-title">Exercícios</div>
+  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino A</div><div class="band-info-desc">Use nos exercícios marcados para ativar glúteo médio e intensificar a queima. Coloque acima dos joelhos.</div></div></div>
+  <div class="ex-list">
+    <a class="ex-card" href="https://youtube.com/results?search_query=polichinelo+exercicio+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">1</div><div><div class="ex-name-txt">Polichinelo</div><div class="ex-sets">4 × 40 reps · aquecimento</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">30–40</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=escalada+no+chao+abdominal+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">2</div><div><div class="ex-name-txt">Escalada no Chão</div><div class="ex-sets">5 × 30 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">50–65</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+abdominal+execucao+correta" target="_blank"><div class="ex-n" style="background:#E8614A">3</div><div><div class="ex-name-txt">Prancha</div><div class="ex-sets">4 × 50 segundos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">25–35</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank"><div class="ex-n" style="background:#E8614A">4</div><div><div class="ex-name-txt">Burpee</div><div class="ex-sets">4 × 12 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">55–70</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=abdominal+bicicleta+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">5</div><div><div class="ex-name-txt">Abdominal Bicicleta</div><div class="ex-sets">4 × 20 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+pernas+deitado+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">6</div><div><div class="ex-name-txt">Elevação de Pernas</div><div class="ex-sets">4 × 15 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">25–32</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=abducao+quadril+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">7</div><div><div class="ex-name-txt">Abdução com Mini Band</div><div class="ex-sets">4 × 25 reps · em pé</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">28–36</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">8</div><div><div class="ex-name-txt">Agachamento com Mini Band</div><div class="ex-sets">4 × 20 reps · joelhos para fora</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">35–45</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+  </div>
+  <div class="total-bar" style="background:linear-gradient(135deg,#E8614A,#ff9a7a)"><div><div class="total-bar-label">Total · Treino A</div><div class="total-bar-val">300–370 kcal</div><div class="total-bar-sub">63kg · 165cm · ~45 min</div></div><div class="total-bar-icon">🔥</div></div>
+  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#E8614A"></div>Faça em circuito com 30s de descanso para manter o coração acelerado</div><div class="tip-line"><div class="tip-dot" style="background:#E8614A"></div>No agachamento com mini band: empurre os joelhos para fora ativamente</div><div class="tip-line"><div class="tip-dot" style="background:#E8614A"></div>💡 Combine com o cardáprio de Segunda da Dieta Maresinha!</div></div>
+</div>
+
+<!-- TREINO B -->
+<div class="workout-panel" id="panel-1">
+  <div class="workout-header">
+    <div>
+      <div class="workout-label" style="color:#7A9E7E">Treino B · Terça-feira</div>
+      <div class="workout-name">Glúteo I + Posterior</div>
+      <div class="workout-focus">🍑 Foco: Glúteo + Posterior de coxa</div>
+    </div>
+    <div class="kcal-badge"><div class="kcal-range" style="color:#7A9E7E">420–490</div><div class="kcal-unit">kcal</div></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-item"><div class="meta-val">8</div><div class="meta-lbl">Exercícios</div></div>
+    <div class="meta-item"><div class="meta-val">~55'</div><div class="meta-lbl">Duração</div></div>
+    <div class="meta-item"><div class="meta-val">45s</div><div class="meta-lbl">Descanso</div></div>
+    <div class="meta-item"><div class="meta-val">Médio</div><div class="meta-lbl">Nível</div></div>
+  </div>
+  <div class="ex-section-title">Exercícios</div>
+  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino B</div><div class="band-info-desc">A mini band é essencial! Use nos exercícios marcados para maximizar ativação do glúteo médio e aumentar a queima em até 20%.</div></div></div>
+  <div class="ex-list">
+    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+sumo+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">1</div><div><div class="ex-name-txt">Agachamento Sumô</div><div class="ex-sets">5 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">75–92</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+quadril+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">2</div><div><div class="ex-name-txt">Elevação de Quadril</div><div class="ex-sets">5 × 15 reps · pausa 2s</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">70–88</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=avanco+execucao+correta" target="_blank"><div class="ex-n" style="background:#7A9E7E">3</div><div><div class="ex-name-txt">Avanço</div><div class="ex-sets">4 × 20 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">70–85</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+pelvica+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">4</div><div><div class="ex-name-txt">Elevação Pélvica</div><div class="ex-sets">4 × 20 reps · pausa 2s</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">48–60</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=coice+de+gluteo+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">5</div><div><div class="ex-name-txt">Coice de Glúteo</div><div class="ex-sets">4 × 20 cada perna</div><span class="band-tag">🟠 Mini Band nos tornozelos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">55–68</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+bulgaro+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">6</div><div><div class="ex-name-txt">Agachamento Búlgaro</div><div class="ex-sets">4 × 12 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">60–75</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=abducao+quadril+mini+band+deitado" target="_blank"><div class="ex-n" style="background:#7A9E7E">7</div><div><div class="ex-name-txt">Abdução de Quadril</div><div class="ex-sets">4 × 25 reps · deitada</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">35–44</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=subida+no+degrau+gluteo+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">8</div><div><div class="ex-name-txt">Subida no Degrau</div><div class="ex-sets">4 × 15 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+  </div>
+  <div class="total-bar" style="background:linear-gradient(135deg,#5a8060,#7A9E7E)"><div><div class="total-bar-label">Total · Treino B</div><div class="total-bar-val">420–490 kcal</div><div class="total-bar-sub">63kg · 165cm · ~55 min</div></div><div class="total-bar-icon">🍑</div></div>
+  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#7A9E7E"></div>Contraia o glúteo no pico de cada movimento por 1–2 segundos</div><div class="tip-line"><div class="tip-dot" style="background:#7A9E7E"></div>Na elevação de quadril com mini band: joelhos empurrados para fora o tempo todo</div><div class="tip-line"><div class="tip-dot" style="background:#7A9E7E"></div>💡 Combine com o salmão da Dieta de Terça — rico em ômega-3 para recuperação!</div></div>
+</div>
+
+<!-- TREINO C -->
+<div class="workout-panel" id="panel-2">
+  <div class="workout-header">
+    <div>
+      <div class="workout-label" style="color:#9B89B4">Treino C · Quarta-feira</div>
+      <div class="workout-name">Abdômen Completo</div>
+      <div class="workout-focus">💪 Foco: Núcleo profundo + definição</div>
+    </div>
+    <div class="kcal-badge"><div class="kcal-range" style="color:#9B89B4">310–390</div><div class="kcal-unit">kcal</div></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-item"><div class="meta-val">9</div><div class="meta-lbl">Exercícios</div></div>
+    <div class="meta-item"><div class="meta-val">~50'</div><div class="meta-lbl">Duração</div></div>
+    <div class="meta-item"><div class="meta-val">30s</div><div class="meta-lbl">Descanso</div></div>
+    <div class="meta-item"><div class="meta-val">Médio</div><div class="meta-lbl">Nível</div></div>
+  </div>
+  <div class="ex-section-title">Exercícios</div>
+  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino C</div><div class="band-info-desc">Adiciona resistência na elevação de pernas e inseto morto para ativar o núcleo profundo com mais intensidade.</div></div></div>
+  <div class="ex-list">
+    <a class="ex-card" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank"><div class="ex-n" style="background:#9B89B4">1</div><div><div class="ex-name-txt">Burpee</div><div class="ex-sets">4 × 12 reps · ativação</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">55–70</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=rolinho+abdominal+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">2</div><div><div class="ex-name-txt">Rolinho</div><div class="ex-sets">4 × 15 reps · pausa 2s frente</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">28–35</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+toque+ombro+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">3</div><div><div class="ex-name-txt">Prancha c/ Toque no Ombro</div><div class="ex-sets">4 × 25 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">30–40</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=inseto+morto+core+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">4</div><div><div class="ex-name-txt">Inseto Morto</div><div class="ex-sets">4 × 20 cada lado</div><span class="band-tag">🟠 Mini Band nos pés</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+pernas+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">5</div><div><div class="ex-name-txt">Elevação de Pernas</div><div class="ex-sets">4 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=abdominal+curto+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">6</div><div><div class="ex-name-txt">Abdominal Curto</div><div class="ex-sets">4 × 25 reps · pausa 5s</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">22–30</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+lateral+execucao+correta" target="_blank"><div class="ex-n" style="background:#9B89B4">7</div><div><div class="ex-name-txt">Prancha Lateral</div><div class="ex-sets">4 × 45s cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">25–32</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=giro+russo+abdominal+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">8</div><div><div class="ex-name-txt">Giro Russo</div><div class="ex-sets">4 × 20 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">28–35</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+60+segundos+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">9</div><div><div class="ex-name-txt">Prancha Final</div><div class="ex-sets">4 × 60 segundos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">25–32</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+  </div>
+  <div class="total-bar" style="background:linear-gradient(135deg,#7a6898,#9B89B4)"><div><div class="total-bar-label">Total · Treino C</div><div class="total-bar-val">310–390 kcal</div><div class="total-bar-sub">63kg · 165cm · ~50 min</div></div><div class="total-bar-icon">💪</div></div>
+  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#9B89B4"></div>Expire no esforço, inspire no retorno</div><div class="tip-line"><div class="tip-dot" style="background:#9B89B4"></div>Não puxe o pescoço no crunch — mãos atrás das orelhas levemente</div><div class="tip-line"><div class="tip-dot" style="background:#9B89B4"></div>💡 Combine com a Sopa Detox de Quarta — hidratante e leve!</div></div>
+</div>
+
+<!-- TREINO D -->
+<div class="workout-panel" id="panel-3">
+  <div class="workout-header">
+    <div>
+      <div class="workout-label" style="color:#5B8DB8">Treino D · Quinta-feira</div>
+      <div class="workout-name">Glúteo II + HIIT</div>
+      <div class="workout-focus">🔥🍑 Foco: Glúteo + Queima intensa</div>
+    </div>
+    <div class="kcal-badge"><div class="kcal-range" style="color:#5B8DB8">510–600</div><div class="kcal-unit">kcal</div></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-item"><div class="meta-val">9</div><div class="meta-lbl">Exercícios</div></div>
+    <div class="meta-item"><div class="meta-val">~60'</div><div class="meta-lbl">Duração</div></div>
+    <div class="meta-item"><div class="meta-val">30s</div><div class="meta-lbl">Descanso</div></div>
+    <div class="meta-item"><div class="meta-val">Alto</div><div class="meta-lbl">Nível</div></div>
+  </div>
+  <div class="ex-section-title">Exercícios</div>
+  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino D — HIIT</div><div class="band-info-desc">Treino mais intenso! A mini band eleva ainda mais a ativação muscular. Use em todos os exercícios marcados.</div></div></div>
+  <div class="ex-list">
+    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+jump+squat+mini+band" target="_blank"><div class="ex-n" style="background:#5B8DB8">1</div><div><div class="ex-name-txt">Agachamento com Salto</div><div class="ex-sets">5 × 15 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">90–108</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+quadril+unilateral+mini+band" target="_blank"><div class="ex-n" style="background:#5B8DB8">2</div><div><div class="ex-name-txt">Elevação de Quadril Unilateral</div><div class="ex-sets">4 × 15 cada perna</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">65–80</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank"><div class="ex-n" style="background:#5B8DB8">3</div><div><div class="ex-name-txt">Burpee</div><div class="ex-sets">4 × 15 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">70–90</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=avanco+com+joelho+alto+execucao" target="_blank"><div class="ex-n" style="background:#5B8DB8">4</div><div><div class="ex-name-txt">Avanço com Joelho Alto</div><div class="ex-sets">4 × 20 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">65–80</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=coice+gluteo+mini+band+extensao" target="_blank"><div class="ex-n" style="background:#5B8DB8">5</div><div><div class="ex-name-txt">Coice + Extensão</div><div class="ex-sets">4 × 20 cada perna</div><span class="band-tag">🟠 Mini Band nos tornozelos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">60–72</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+bale+mini+band+pulso" target="_blank"><div class="ex-n" style="background:#5B8DB8">6</div><div><div class="ex-name-txt">Agachamento Balé com Pulso</div><div class="ex-sets">4 × 30 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">50–62</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=escalada+no+chao+execucao" target="_blank"><div class="ex-n" style="background:#5B8DB8">7</div><div><div class="ex-name-txt">Escalada no Chão</div><div class="ex-sets">4 × 30 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">45–55</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=abducao+lateral+mini+band+deitado" target="_blank"><div class="ex-n" style="background:#5B8DB8">8</div><div><div class="ex-name-txt">Abdução Lateral</div><div class="ex-sets">4 × 25 cada lado</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">35–44</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+dinamica+execucao" target="_blank"><div class="ex-n" style="background:#5B8DB8">9</div><div><div class="ex-name-txt">Prancha Dinâmica</div><div class="ex-sets">4 × 20 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+  </div>
+  <div class="total-bar" style="background:linear-gradient(135deg,#3d6e99,#5B8DB8)"><div><div class="total-bar-label">Total · Treino D</div><div class="total-bar-val">510–600 kcal</div><div class="total-bar-sub">63kg · 165cm · ~60 min</div></div><div class="total-bar-icon">⚡</div></div>
+  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#5B8DB8"></div>Treino mais intenso — hidrate-se muito bem</div><div class="tip-line"><div class="tip-dot" style="background:#5B8DB8"></div>Se ficar difícil, tire o salto do agachamento</div><div class="tip-line"><div class="tip-dot" style="background:#5B8DB8"></div>💡 Coma a banana com pasta de amendoim da Dieta de Quinta como pré-treino!</div></div>
+</div>
+
+<!-- TREINO E -->
+<div class="workout-panel" id="panel-4">
+  <div class="workout-header">
+    <div>
+      <div class="workout-label" style="color:#C9933A">Treino E · Sexta-feira</div>
+      <div class="workout-name">Corpo Todo + Finalização</div>
+      <div class="workout-focus">🌟 Foco: Corpo todo + queima final</div>
+    </div>
+    <div class="kcal-badge"><div class="kcal-range" style="color:#C9933A">450–540</div><div class="kcal-unit">kcal</div></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-item"><div class="meta-val">9</div><div class="meta-lbl">Exercícios</div></div>
+    <div class="meta-item"><div class="meta-val">~55'</div><div class="meta-lbl">Duração</div></div>
+    <div class="meta-item"><div class="meta-val">40s</div><div class="meta-lbl">Descanso</div></div>
+    <div class="meta-item"><div class="meta-val">Médio+</div><div class="meta-lbl">Nível</div></div>
+  </div>
+  <div class="ex-section-title">Exercícios</div>
+  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino E</div><div class="band-info-desc">Fechamento da semana com mini band para manter intensidade alta. Você consegue! 💪</div></div></div>
+  <div class="ex-list">
+    <a class="ex-card" href="https://youtube.com/results?search_query=pular+corda+sem+corda+exercicio" target="_blank"><div class="ex-n" style="background:#C9933A">1</div><div><div class="ex-name-txt">Pular Corda (simulado)</div><div class="ex-sets">3 × 150 pulos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">60–75</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+sumo+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">2</div><div><div class="ex-name-txt">Agachamento Sumô</div><div class="ex-sets">4 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">60–76</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=flexao+de+braco+execucao+iniciante" target="_blank"><div class="ex-n" style="background:#C9933A">3</div><div><div class="ex-name-txt">Flexão de Braço</div><div class="ex-sets">4 × 12 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">40–50</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+quadril+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">4</div><div><div class="ex-name-txt">Elevação de Quadril</div><div class="ex-sets">4 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">60–75</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=escalada+no+chao+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">5</div><div><div class="ex-name-txt">Escalada no Chão</div><div class="ex-sets">4 × 30 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">45–55</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=abdominal+bicicleta+execucao+correta" target="_blank"><div class="ex-n" style="background:#C9933A">6</div><div><div class="ex-name-txt">Abdominal Bicicleta</div><div class="ex-sets">4 × 25 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">35–45</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=avanco+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">7</div><div><div class="ex-name-txt">Avanço</div><div class="ex-sets">4 × 15 cada perna</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">55–68</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+60+segundos+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">8</div><div><div class="ex-name-txt">Prancha</div><div class="ex-sets">4 × 60 segundos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+    <a class="ex-card" href="https://youtube.com/results?search_query=polichinelo+exercicio+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">9</div><div><div class="ex-name-txt">Polichinelo Final</div><div class="ex-sets">3 × 50 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">25–32</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+  </div>
+  <div class="total-bar" style="background:linear-gradient(135deg,#a07020,#C9933A)"><div><div class="total-bar-label">Total · Treino E</div><div class="total-bar-val">450–540 kcal</div><div class="total-bar-sub">63kg · 165cm · ~55 min</div></div><div class="total-bar-icon">🌟</div></div>
+  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#C9933A"></div>Treino de fechamento da semana — celebre cada série concluída!</div><div class="tip-line"><div class="tip-dot" style="background:#C9933A"></div>Mini band no avanço: puxe o joelho para fora ao subir</div><div class="tip-line"><div class="tip-dot" style="background:#C9933A"></div>💡 Aproveite o smoothie de abacate e cacau da Dieta de Sexta como lanche pós-treino!</div></div>
+</div>
+
+<!-- WEEK OVERVIEW TREINO -->
+<div class="week-grid">
+  <div class="week-card" style="background:#FFF5F3;border-color:#E8614A" onclick="showTab(0)"><div class="wk-letter" style="color:#E8614A">A</div><div class="wk-name" style="color:#E8614A">Cardio</div><div class="wk-kcal">300–370 kcal</div><div style="font-size:9px;color:#999;margin-top:3px">Segunda</div></div>
+  <div class="week-card" style="background:#F3F8F4;border-color:#7A9E7E" onclick="showTab(1)"><div class="wk-letter" style="color:#7A9E7E">B</div><div class="wk-name" style="color:#7A9E7E">Glúteo I</div><div class="wk-kcal">420–490 kcal</div><div style="font-size:9px;color:#999;margin-top:3px">Terça</div></div>
+  <div class="week-card" style="background:#F5F4F9;border-color:#9B89B4" onclick="showTab(2)"><div class="wk-letter" style="color:#9B89B4">C</div><div class="wk-name" style="color:#9B89B4">Abdômen</div><div class="wk-kcal">310–390 kcal</div><div style="font-size:9px;color:#999;margin-top:3px">Quarta</div></div>
+  <div class="week-card" style="background:#F3F6FA;border-color:#5B8DB8" onclick="showTab(3)"><div class="wk-letter" style="color:#5B8DB8">D</div><div class="wk-name" style="color:#5B8DB8">Glúteo II</div><div class="wk-kcal">510–600 kcal</div><div style="font-size:9px;color:#999;margin-top:3px">Quinta</div></div>
+  <div class="week-card" style="background:#FBF7F0;border-color:#C9933A" onclick="showTab(4)"><div class="wk-letter" style="color:#C9933A">E</div><div class="wk-name" style="color:#C9933A">Corpo Todo</div><div class="wk-kcal">450–540 kcal</div><div style="font-size:9px;color:#999;margin-top:3px">Sexta</div></div>
+</div>
+
+<!-- WEEKLY TOTAL TREINO -->
+<div style="margin-top:16px;background:var(--ink);color:white;border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;">
+  <div><div style="font-size:11px;opacity:0.4;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">🔥 Total semanal treinos</div>
+  <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:900;line-height:1;color:#F2A58E">1.990–2.390 kcal</div>
+  <div style="font-size:12px;opacity:0.4;margin-top:5px">5 dias de treino · com mini band</div></div>
+  <div style="text-align:right"><div style="font-size:10px;opacity:0.35;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">+ dieta =</div><div style="font-size:20px;font-weight:700;color:#F2A58E">−2kg/mês</div></div>
+</div>
+
+</div><!-- end treino-content -->
+</div><!-- end treino-wrap -->
+</div><!-- end sec-treino -->
+
+<!-- ============================= DIETA SECTION ============================= -->
+<div class="section-wrap" id="sec-dieta">
+<div class="dieta-wrap">
+<div class="dieta-content">
+
+  <!-- MACROS -->
+  <div class="macro-section">
+    <div class="macro-title">🎯 Meta calórica diária</div>
+    <div class="macro-kcal">1.450 <span>kcal/dia</span></div>
+    <div class="macro-sub">Déficit de ~500 kcal/dia · ~2kg/mês combinado com os treinos ABCDE</div>
+    <div class="macro-bars">
+      <div><div class="macro-label">Proteína</div><div class="macro-bar-wrap"><div class="macro-bar-fill" style="background:#A8D5B0" data-w="75"></div></div><div class="macro-val" style="color:#A8D5B0">110g · 30%</div></div>
+      <div><div class="macro-label">Carboidrato</div><div class="macro-bar-wrap"><div class="macro-bar-fill" style="background:#F5D78A" data-w="55"></div></div><div class="macro-val" style="color:#F5D78A">160g · 44%</div></div>
+      <div><div class="macro-label">Gordura boa</div><div class="macro-bar-wrap"><div class="macro-bar-fill" style="background:#F0A888" data-w="40"></div></div><div class="macro-val" style="color:#F0A888">50g · 26%</div></div>
+    </div>
+  </div>
+
+  <!-- DAY TABS -->
+  <div class="day-tabs">
+    <button class="day-tab active" onclick="showDay(0)">Segunda</button>
+    <button class="day-tab" onclick="showDay(1)">Terça</button>
+    <button class="day-tab" onclick="showDay(2)">Quarta</button>
+    <button class="day-tab" onclick="showDay(3)">Quinta</button>
+    <button class="day-tab" onclick="showDay(4)">Sexta</button>
+    <button class="day-tab" onclick="showDay(5)">Sábado</button>
+    <button class="day-tab" onclick="showDay(6)">Domingo</button>
+  </div>
+
+  <!-- SEGUNDA -->
+  <div class="day-panel active" id="day-0">
+    <div style="background:linear-gradient(135deg,#FFF5F3,#FFF0EE);border:1.5px solid #F5C5BB;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--terracotta);display:flex;align-items:center;gap:8px;">
+      💪 <strong>Treino A hoje!</strong> Mingau de aveia dá energia para o cardio. Smoothie proteico como pré ou pós-treino.
+    </div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--gold-light)">☀️</div><div class="meal-label" style="color:var(--gold-d)">Café da manhã</div><div class="meal-time">07h00</div></div>
+    <div class="meal-card"><div class="meal-name">Mingau de Aveia com Frutas</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>5 col. de aveia em flocos</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>200ml de leite de amêndoas sem açúcar</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>1 banana pequena fatiada + 1 col. de mel + chia</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~340 kcal</span><span class="macro-chip chip-p">P: 10g</span><span class="macro-chip chip-c">C: 58g</span><span class="macro-chip chip-g">G: 8g</span><span class="tip-inline">✓ Sem lactose</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--green-light)">🍎</div><div class="meal-label" style="color:var(--green)">Lanche manhã</div><div class="meal-time">10h00</div></div>
+    <div class="meal-card"><div class="meal-name">Fruta + Pasta de Amendoim</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--green)"></div>1 maçã média</div><div class="meal-item"><div class="item-bullet" style="background:var(--green)"></div>2 col. de pasta de amendoim integral</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~210 kcal</span><span class="macro-chip chip-p">P: 7g</span><span class="macro-chip chip-c">C: 24g</span><span class="macro-chip chip-g">G: 10g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--blue-light)">🍽️</div><div class="meal-label" style="color:var(--blue)">Almoço</div><div class="meal-time">13h00</div></div>
+    <div class="meal-card"><div class="meal-name">Frango Grelhado com Arroz Integral e Legumes</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>150g de peito de frango grelhado com ervas</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>4 col. arroz integral + 3 col. feijão carioca</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>Salada à vontade + azeite e limão</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~450 kcal</span><span class="macro-chip chip-p">P: 42g</span><span class="macro-chip chip-c">C: 40g</span><span class="macro-chip chip-g">G: 10g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--terra-light)">🌿</div><div class="meal-label" style="color:var(--terracotta)">Lanche tarde</div><div class="meal-time">16h30</div></div>
+    <div class="meal-card"><div class="meal-name">Smoothie Verde Proteico</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>200ml leite de coco light + 1 scoop whey isolado sem lactose</div><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>1 punhado espinafre + ½ banana congelada + gelo</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~220 kcal</span><span class="macro-chip chip-p">P: 26g</span><span class="macro-chip chip-c">C: 18g</span><span class="macro-chip chip-g">G: 4g</span><span class="tip-inline">✓ Pré ou pós-treino A</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:#F3F0FA">🌙</div><div class="meal-label" style="color:#7B68B5">Jantar</div><div class="meal-time">19h30</div></div>
+    <div class="meal-card"><div class="meal-name">Omelete de Legumes + Batata Doce</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>3 ovos + tomate, pimentão e cebola refogados</div><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>150g batata doce + salada de rúcula com azeite</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~340 kcal</span><span class="macro-chip chip-p">P: 22g</span><span class="macro-chip chip-c">C: 28g</span><span class="macro-chip chip-g">G: 14g</span></div></div>
+    <div class="day-total"><div><div class="dt-label">Total · Segunda</div><div class="dt-val">~1.560 kcal</div><div class="dt-sub">P: 107g · C: 168g · G: 46g</div></div><div class="dt-icon">🥗</div></div>
+  </div>
+
+  <!-- TERÇA -->
+  <div class="day-panel" id="day-1">
+    <div style="background:linear-gradient(135deg,#F3F8F4,#EAF2EC);border:1.5px solid #B5D5BC;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--green);display:flex;align-items:center;gap:8px;">
+      🍑 <strong>Treino B hoje!</strong> Salmão com ômega-3 é perfeito para recuperação muscular pós-treino de glúteo.
+    </div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--gold-light)">☀️</div><div class="meal-label" style="color:var(--gold-d)">Café da manhã</div><div class="meal-time">07h00</div></div>
+    <div class="meal-card"><div class="meal-name">Tapioca Proteica com Ovo e Abacate</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>2 tapiocas + 2 ovos mexidos temperados</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>¼ abacate amassado com limão e sal</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~360 kcal</span><span class="macro-chip chip-p">P: 16g</span><span class="macro-chip chip-c">C: 36g</span><span class="macro-chip chip-g">G: 17g</span><span class="tip-inline">✓ Sem lactose</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--green-light)">🍎</div><div class="meal-label" style="color:var(--green)">Lanche manhã</div><div class="meal-time">10h00</div></div>
+    <div class="meal-card"><div class="meal-name">Mix de Castanhas + Fruta</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--green)"></div>20g de mix (castanha-do-pará, nozes, amêndoas) + 1 pera</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~190 kcal</span><span class="macro-chip chip-p">P: 4g</span><span class="macro-chip chip-c">C: 22g</span><span class="macro-chip chip-g">G: 10g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--blue-light)">🍽️</div><div class="meal-label" style="color:var(--blue)">Almoço</div><div class="meal-time">13h00</div></div>
+    <div class="meal-card"><div class="meal-name">Salmão Assado com Quinoa e Brócolis</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>140g salmão assado com limão e alho</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>4 col. quinoa + 1 xíc. brócolis + salada</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~460 kcal</span><span class="macro-chip chip-p">P: 40g</span><span class="macro-chip chip-c">C: 30g</span><span class="macro-chip chip-g">G: 18g</span><span class="tip-inline">🐟 Ômega-3 pós-treino B</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--terra-light)">🌿</div><div class="meal-label" style="color:var(--terracotta)">Lanche tarde</div><div class="meal-time">16h30</div></div>
+    <div class="meal-card"><div class="meal-name">Iogurte de Coco com Granola</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>200g iogurte de coco + 2 col. granola + morangos</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~200 kcal</span><span class="macro-chip chip-p">P: 5g</span><span class="macro-chip chip-c">C: 28g</span><span class="macro-chip chip-g">G: 8g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:#F3F0FA">🌙</div><div class="meal-label" style="color:#7B68B5">Jantar</div><div class="meal-time">19h30</div></div>
+    <div class="meal-card"><div class="meal-name">Frango ao Curry com Arroz e Abobrinha</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>130g frango ao curry com leite de coco light</div><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>3 col. arroz integral + abobrinha refogada</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~350 kcal</span><span class="macro-chip chip-p">P: 30g</span><span class="macro-chip chip-c">C: 30g</span><span class="macro-chip chip-g">G: 12g</span></div></div>
+    <div class="day-total"><div><div class="dt-label">Total · Terça</div><div class="dt-val">~1.560 kcal</div><div class="dt-sub">P: 95g · C: 146g · G: 65g</div></div><div class="dt-icon">🐟</div></div>
+  </div>
+
+  <!-- QUARTA -->
+  <div class="day-panel" id="day-2">
+    <div style="background:#F3F0FA;border:1.5px solid #C5BBC5;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#7B68B5;display:flex;align-items:center;gap:8px;">
+      💪 <strong>Treino C hoje!</strong> Sopa detox no jantar ajuda na recuperação e reduz inchaço após o treino de abdômen.
+    </div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--gold-light)">☀️</div><div class="meal-label" style="color:var(--gold-d)">Café da manhã</div><div class="meal-time">07h00</div></div>
+    <div class="meal-card"><div class="meal-name">Panqueca de Banana com Ovo</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>2 bananas + 3 ovos batidos + canela</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>1 col. mel para finalizar + café preto</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~320 kcal</span><span class="macro-chip chip-p">P: 18g</span><span class="macro-chip chip-c">C: 38g</span><span class="macro-chip chip-g">G: 10g</span><span class="tip-inline">✓ Sem lactose</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--green-light)">🍎</div><div class="meal-label" style="color:var(--green)">Lanche manhã</div><div class="meal-time">10h00</div></div>
+    <div class="meal-card"><div class="meal-name">Vitamina de Frutas Vermelhas</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--green)"></div>150g frutas vermelhas + 200ml leite de amêndoas + linhaça</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~160 kcal</span><span class="macro-chip chip-p">P: 4g</span><span class="macro-chip chip-c">C: 26g</span><span class="macro-chip chip-g">G: 5g</span><span class="tip-inline">🫐 Antioxidante</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--blue-light)">🍽️</div><div class="meal-label" style="color:var(--blue)">Almoço</div><div class="meal-time">13h00</div></div>
+    <div class="meal-card"><div class="meal-name">Carne Magra com Lentilha e Legumes Assados</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>130g patinho grelhado + 5 col. lentilha</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>Cenoura, beterraba e cebola assados + salada</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~440 kcal</span><span class="macro-chip chip-p">P: 42g</span><span class="macro-chip chip-c">C: 36g</span><span class="macro-chip chip-g">G: 12g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--terra-light)">🌿</div><div class="meal-label" style="color:var(--terracotta)">Lanche tarde</div><div class="meal-time">16h30</div></div>
+    <div class="meal-card"><div class="meal-name">Ovo Cozido + Torrada Integral</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>2 ovos cozidos + 2 fatias pão integral + tomate</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~220 kcal</span><span class="macro-chip chip-p">P: 16g</span><span class="macro-chip chip-c">C: 20g</span><span class="macro-chip chip-g">G: 8g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:#F3F0FA">🌙</div><div class="meal-label" style="color:#7B68B5">Jantar</div><div class="meal-time">19h30</div></div>
+    <div class="meal-card"><div class="meal-name">Sopa Detox de Legumes com Frango</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>100g frango desfiado + caldo com cenoura, batata, chuchu</div><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>Couve + salsinha + limão para finalizar</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~290 kcal</span><span class="macro-chip chip-p">P: 24g</span><span class="macro-chip chip-c">C: 28g</span><span class="macro-chip chip-g">G: 6g</span><span class="tip-inline">💧 Detox pós-treino C</span></div></div>
+    <div class="day-total"><div><div class="dt-label">Total · Quarta</div><div class="dt-val">~1.430 kcal</div><div class="dt-sub">P: 104g · C: 148g · G: 41g</div></div><div class="dt-icon">🥦</div></div>
+  </div>
+
+  <!-- QUINTA -->
+  <div class="day-panel" id="day-3">
+    <div style="background:linear-gradient(135deg,#EAF2F8,#ddeef8);border:1.5px solid #B5CDD8;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--blue);display:flex;align-items:center;gap:8px;">
+      ⚡ <strong>Treino D hoje — o mais intenso!</strong> Banana com pasta de amendoim como pré-treino às 16h. Omelete com atum como pós-treino.
+    </div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--gold-light)">☀️</div><div class="meal-label" style="color:var(--gold-d)">Café da manhã</div><div class="meal-time">07h00</div></div>
+    <div class="meal-card"><div class="meal-name">Açaí Bowl Proteico</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>200g açaí puro + 1 scoop proteína vegetal</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>Banana, morango, kiwi + granola + chia</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~380 kcal</span><span class="macro-chip chip-p">P: 22g</span><span class="macro-chip chip-c">C: 50g</span><span class="macro-chip chip-g">G: 10g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--green-light)">🍎</div><div class="meal-label" style="color:var(--green)">Lanche manhã</div><div class="meal-time">10h00</div></div>
+    <div class="meal-card"><div class="meal-name">Cenoura Baby + Homus</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--green)"></div>100g cenoura baby + 3 col. homus</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~160 kcal</span><span class="macro-chip chip-p">P: 6g</span><span class="macro-chip chip-c">C: 18g</span><span class="macro-chip chip-g">G: 7g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--blue-light)">🍽️</div><div class="meal-label" style="color:var(--blue)">Almoço</div><div class="meal-time">13h00</div></div>
+    <div class="meal-card"><div class="meal-name">Tilápia Grelhada com Batata Doce e Aspargos</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>160g tilápia grelhada + 180g batata doce assada</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>Aspargos ou vagem + salada verde</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~420 kcal</span><span class="macro-chip chip-p">P: 36g</span><span class="macro-chip chip-c">C: 44g</span><span class="macro-chip chip-g">G: 8g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--terra-light)">🌿</div><div class="meal-label" style="color:var(--terracotta)">Pré-treino D</div><div class="meal-time">16h00</div></div>
+    <div class="meal-card"><div class="meal-name">Banana com Pasta de Amendoim</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>1 banana média + 1,5 col. pasta de amendoim</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~200 kcal</span><span class="macro-chip chip-p">P: 5g</span><span class="macro-chip chip-c">C: 26g</span><span class="macro-chip chip-g">G: 8g</span><span class="tip-inline">⚡ Energia para o Treino D!</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:#F3F0FA">🌙</div><div class="meal-label" style="color:#7B68B5">Jantar pós-treino</div><div class="meal-time">20h00</div></div>
+    <div class="meal-card"><div class="meal-name">Omelete Recheada + Salada Completa</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>3 ovos + atum, tomate e cebola</div><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>Salada com grão-de-bico e cenoura ralada</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~310 kcal</span><span class="macro-chip chip-p">P: 30g</span><span class="macro-chip chip-c">C: 18g</span><span class="macro-chip chip-g">G: 12g</span><span class="tip-inline">🏋️ Pós-treino D ideal</span></div></div>
+    <div class="day-total"><div><div class="dt-label">Total · Quinta</div><div class="dt-val">~1.470 kcal</div><div class="dt-sub">P: 99g · C: 156g · G: 45g</div></div><div class="dt-icon">⚡</div></div>
+  </div>
+
+  <!-- SEXTA -->
+  <div class="day-panel" id="day-4">
+    <div style="background:linear-gradient(135deg,#FBF7F0,#f5edd8);border:1.5px solid #E8CC8A;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--gold-d);display:flex;align-items:center;gap:8px;">
+      🌟 <strong>Treino E hoje!</strong> Smoothie de abacate e cacau é perfeito pós-treino Corpo Todo. Wrap leve no jantar.
+    </div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--gold-light)">☀️</div><div class="meal-label" style="color:var(--gold-d)">Café da manhã</div><div class="meal-time">07h00</div></div>
+    <div class="meal-card"><div class="meal-name">Overnight Oats com Frutas</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>5 col. aveia + 200ml leite de aveia (de molho na noite anterior)</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>1 col. pasta de amendoim + frutas vermelhas + canela</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~350 kcal</span><span class="macro-chip chip-p">P: 12g</span><span class="macro-chip chip-c">C: 50g</span><span class="macro-chip chip-g">G: 10g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--green-light)">🍎</div><div class="meal-label" style="color:var(--green)">Lanche manhã</div><div class="meal-time">10h00</div></div>
+    <div class="meal-card"><div class="meal-name">Fruta + Chá Detox</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--green)"></div>1 laranja + chá de hibisco sem açúcar</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~80 kcal</span><span class="macro-chip chip-p">P: 1g</span><span class="macro-chip chip-c">C: 20g</span><span class="macro-chip chip-g">G: 0g</span><span class="tip-inline">💧 Reduz inchaço</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--blue-light)">🍽️</div><div class="meal-label" style="color:var(--blue)">Almoço</div><div class="meal-time">13h00</div></div>
+    <div class="meal-card"><div class="meal-name">Bowl de Frango com Grão-de-bico</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>150g frango grelhado + 5 col. grão-de-bico temperado</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>Pimentão, cebola, tomate + arroz integral</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~460 kcal</span><span class="macro-chip chip-p">P: 44g</span><span class="macro-chip chip-c">C: 42g</span><span class="macro-chip chip-g">G: 10g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--terra-light)">🌿</div><div class="meal-label" style="color:var(--terracotta)">Pós-treino E</div><div class="meal-time">16h30</div></div>
+    <div class="meal-card"><div class="meal-name">Smoothie de Abacate e Cacau</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>½ abacate + 200ml leite de amêndoas + 1 col. cacau 100%</div><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>1 tâmara para adoçar + gelo</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~230 kcal</span><span class="macro-chip chip-p">P: 4g</span><span class="macro-chip chip-c">C: 18g</span><span class="macro-chip chip-g">G: 16g</span><span class="tip-inline">🍫 Pós-treino E</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:#F3F0FA">🌙</div><div class="meal-label" style="color:#7B68B5">Jantar leve</div><div class="meal-time">19h30</div></div>
+    <div class="meal-card"><div class="meal-name">Wrap de Alface com Atum e Abacate</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>2 folhas alface grandes + 1 lata atum em água</div><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>¼ abacate + tomate, pepino e limão</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~280 kcal</span><span class="macro-chip chip-p">P: 32g</span><span class="macro-chip chip-c">C: 8g</span><span class="macro-chip chip-g">G: 14g</span></div></div>
+    <div class="day-total"><div><div class="dt-label">Total · Sexta</div><div class="dt-val">~1.400 kcal</div><div class="dt-sub">P: 93g · C: 138g · G: 50g</div></div><div class="dt-icon">🌟</div></div>
+  </div>
+
+  <!-- SÁBADO -->
+  <div class="day-panel" id="day-5">
+    <div style="background:linear-gradient(135deg,#F3F8F4,#EAF2EC);border:1.5px solid #B5D5BC;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--green);display:flex;align-items:center;gap:8px;">
+      🎉 <strong>Sábado — Descanso ativo!</strong> Caminhada leve de 30min. Dia mais flexível mas sem exageros.
+    </div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--gold-light)">☀️</div><div class="meal-label" style="color:var(--gold-d)">Brunch</div><div class="meal-time">08h30</div></div>
+    <div class="meal-card"><div class="meal-name">Brunch Proteico de Fim de Semana</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>3 ovos + 2 fatias pão integral + ¼ abacate</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>Tomate fatiado + suco de laranja natural</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~420 kcal</span><span class="macro-chip chip-p">P: 22g</span><span class="macro-chip chip-c">C: 40g</span><span class="macro-chip chip-g">G: 18g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--blue-light)">🍽️</div><div class="meal-label" style="color:var(--blue)">Almoço</div><div class="meal-time">13h00</div></div>
+    <div class="meal-card"><div class="meal-name">Churrasco Saudável com Salada</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>200g proteína magra (frango, peixe ou carne magra)</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>Salada rica + 4 col. arroz integral ou mandioca</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~480 kcal</span><span class="macro-chip chip-p">P: 42g</span><span class="macro-chip chip-c">C: 36g</span><span class="macro-chip chip-g">G: 16g</span><span class="tip-inline">🎉 Dia social!</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--terra-light)">🌿</div><div class="meal-label" style="color:var(--terracotta)">Lanche tarde</div><div class="meal-time">16h00</div></div>
+    <div class="meal-card"><div class="meal-name">Fruta + Água de Coco</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>1 fatia melancia + 300ml água de coco natural</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~130 kcal</span><span class="macro-chip chip-p">P: 2g</span><span class="macro-chip chip-c">C: 30g</span><span class="macro-chip chip-g">G: 0g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:#F3F0FA">🌙</div><div class="meal-label" style="color:#7B68B5">Jantar</div><div class="meal-time">20h00</div></div>
+    <div class="meal-card"><div class="meal-name">Macarrão de Arroz com Frango e Tomate</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>80g macarrão de arroz + 100g frango desfiado</div><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>Molho de tomate caseiro com manjericão</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~380 kcal</span><span class="macro-chip chip-p">P: 28g</span><span class="macro-chip chip-c">C: 50g</span><span class="macro-chip chip-g">G: 6g</span></div></div>
+    <div class="day-total"><div><div class="dt-label">Total · Sábado</div><div class="dt-val">~1.410 kcal</div><div class="dt-sub">P: 94g · C: 156g · G: 40g</div></div><div class="dt-icon">🎉</div></div>
+  </div>
+
+  <!-- DOMINGO -->
+  <div class="day-panel" id="day-6">
+    <div style="background:linear-gradient(135deg,#FFF8F0,#FFF3E0);border:1.5px solid #FFCC80;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#E65100;display:flex;align-items:center;gap:8px;">
+      🌙 <strong>Domingo — Recarga e descanso!</strong> Prepare os ingredientes da semana. Durma bem para começar a segunda com energia.
+    </div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--gold-light)">☀️</div><div class="meal-label" style="color:var(--gold-d)">Café da manhã</div><div class="meal-time">09h00</div></div>
+    <div class="meal-card"><div class="meal-name">Vitamina de Cacau com Aveia</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>300ml leite de amêndoas + 3 col. aveia + 1 col. cacau 100%</div><div class="meal-item"><div class="item-bullet" style="background:var(--gold-d)"></div>1 banana + 1 col. pasta de amendoim</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~360 kcal</span><span class="macro-chip chip-p">P: 12g</span><span class="macro-chip chip-c">C: 52g</span><span class="macro-chip chip-g">G: 12g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--blue-light)">🍽️</div><div class="meal-label" style="color:var(--blue)">Almoço</div><div class="meal-time">13h00</div></div>
+    <div class="meal-card"><div class="meal-name">Frango Assado com Batata Doce e Legumes</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>180g frango assado com ervas e alho</div><div class="meal-item"><div class="item-bullet" style="background:var(--blue)"></div>200g batata doce + mix legumes assados + salada</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~480 kcal</span><span class="macro-chip chip-p">P: 40g</span><span class="macro-chip chip-c">C: 48g</span><span class="macro-chip chip-g">G: 12g</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:var(--terra-light)">🌿</div><div class="meal-label" style="color:var(--terracotta)">Lanche tarde</div><div class="meal-time">16h00</div></div>
+    <div class="meal-card"><div class="meal-name">Chocolate 70% + Castanhas</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:var(--terracotta)"></div>2 quadradinhos de chocolate 70% (sem lactose) + 15g castanha</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~170 kcal</span><span class="macro-chip chip-p">P: 4g</span><span class="macro-chip chip-c">C: 10g</span><span class="macro-chip chip-g">G: 12g</span><span class="tip-inline">🍫 Prazer sem culpa</span></div></div>
+    <div class="section-heading"><div class="meal-icon" style="background:#F3F0FA">🌙</div><div class="meal-label" style="color:#7B68B5">Jantar leve</div><div class="meal-time">19h30</div></div>
+    <div class="meal-card"><div class="meal-name">Sopa Creme de Abóbora com Frango</div><div class="meal-items"><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>Creme de abóbora com leite de coco light + gengibre</div><div class="meal-item"><div class="item-bullet" style="background:#7B68B5"></div>100g frango desfiado + torrada integral</div></div><div class="meal-foot"><span class="macro-chip chip-kcal">~320 kcal</span><span class="macro-chip chip-p">P: 26g</span><span class="macro-chip chip-c">C: 32g</span><span class="macro-chip chip-g">G: 10g</span><span class="tip-inline">🌙 Prepara para a semana</span></div></div>
+    <div class="day-total"><div><div class="dt-label">Total · Domingo</div><div class="dt-val">~1.330 kcal</div><div class="dt-sub">P: 82g · C: 142g · G: 46g</div></div><div class="dt-icon">🏠</div></div>
+  </div>
+
+  <!-- WEEK SUMMARY DIETA -->
+  <div class="week-summary">
+    <div class="ws-card" onclick="showDay(0)"><div class="ws-day">Seg</div><div class="ws-kcal">1.560</div><div class="ws-sub">kcal</div></div>
+    <div class="ws-card" onclick="showDay(1)"><div class="ws-day">Ter</div><div class="ws-kcal">1.560</div><div class="ws-sub">kcal</div></div>
+    <div class="ws-card" onclick="showDay(2)"><div class="ws-day">Qua</div><div class="ws-kcal">1.430</div><div class="ws-sub">kcal</div></div>
+    <div class="ws-card" onclick="showDay(3)"><div class="ws-day">Qui</div><div class="ws-kcal">1.470</div><div class="ws-sub">kcal</div></div>
+    <div class="ws-card" onclick="showDay(4)"><div class="ws-day">Sex</div><div class="ws-kcal">1.400</div><div class="ws-sub">kcal</div></div>
+    <div class="ws-card" onclick="showDay(5)"><div class="ws-day">Sáb</div><div class="ws-kcal">1.410</div><div class="ws-sub">kcal</div></div>
+    <div class="ws-card" onclick="showDay(6)"><div class="ws-day">Dom</div><div class="ws-kcal">1.330</div><div class="ws-sub">kcal</div></div>
+  </div>
+
+  <!-- RULES -->
+  <div class="rules" style="margin-top:28px">
+    <div class="rules-title">📋 Regras de Ouro</div>
+    <div class="rule-grid">
+      <div class="rule-item"><div class="rule-emoji">💧</div><div><strong>2–3L de água/dia.</strong> Um copo ao acordar e antes de cada refeição.</div></div>
+      <div class="rule-item"><div class="rule-emoji">🕐</div><div><strong>Não fique +4h sem comer.</strong> Evita compulsão e mantém o metabolismo ativo.</div></div>
+      <div class="rule-item"><div class="rule-emoji">🥩</div><div><strong>Proteína em toda refeição.</strong> Preserva músculo e aumenta saciedade.</div></div>
+      <div class="rule-item"><div class="rule-emoji">🥗</div><div><strong>Metade do prato: vegetais.</strong> Poucas calorias, muito volume.</div></div>
+      <div class="rule-item"><div class="rule-emoji">😴</div><div><strong>7–8h de sono por noite.</strong> Regula hormônios da fome.</div></div>
+      <div class="rule-item"><div class="rule-emoji">📅</div><div><strong>Sem "dia perdido".</strong> 1 refeição fora do plano não desfaz o mês.</div></div>
+    </div>
+  </div>
+
+  <div class="avoid-section">
+    <div class="avoid-title">🚫 Evitar ao máximo</div>
+    <div class="avoid-grid">
+      <div class="avoid-item">Refrigerante</div>
+      <div class="avoid-item">Fritura</div>
+      <div class="avoid-item">Ultraprocessados</div>
+      <div class="avoid-item">Álcool frequente</div>
+      <div class="avoid-item">Açúcar refinado</div>
+      <div class="avoid-item">Fast food</div>
+    </div>
+  </div>
+
+  <div class="goal-card">
+    <div>
+      <div class="gc-label">Meta do mês</div>
+      <div class="gc-val">−2 kg</div>
+      <div class="gc-sub">Dieta + Treino ABCDE = ~14.000 kcal de déficit/mês</div>
+    </div>
+    <div class="gc-badge">
+      <div class="gc-badge-num">~500</div>
+      <div class="gc-badge-lbl">kcal/dia déficit</div>
+      <div style="margin-top:8px;border-top:1px solid rgba(168,213,176,0.2);padding-top:8px;">
+        <div class="gc-badge-num" style="font-size:18px">12 meses</div>
+        <div class="gc-badge-lbl">→ até −24kg*</div>
+      </div>
+    </div>
+  </div>
+  <div style="font-size:11px;color:var(--ink3);margin-top:8px;">*Com consistência. Consulte um nutricionista para acompanhamento individualizado.</div>
+
+</div><!-- end dieta-content -->
+</div><!-- end dieta-wrap -->
+</div><!-- end sec-dieta -->
+
+<script>
+// Main section toggle
+function showSection(sec) {
+  document.querySelectorAll('.section-wrap').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-' + sec).classList.add('active');
+
+  const btnT = document.getElementById('btn-treino');
+  const btnD = document.getElementById('btn-dieta');
+  btnT.className = 'main-nav-btn' + (sec==='treino' ? ' treino-active' : '');
+  btnD.className = 'main-nav-btn' + (sec==='dieta' ? ' dieta-active' : '');
+
+  if(sec==='dieta') {
+    setTimeout(() => {
+      document.querySelectorAll('.macro-bar-fill').forEach(el => { el.style.width = el.dataset.w + '%'; });
+    }, 200);
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// Treino tabs (ABCDE)
+function showTab(idx) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.workout-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  const wrap = document.querySelector('.tabs-wrap');
+  window.scrollTo({top: wrap.offsetTop - 10, behavior:'smooth'});
+}
+
+// Dieta day tabs
+function showDay(idx) {
+  document.querySelectorAll('.day-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+  document.querySelectorAll('.day-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  const dt = document.querySelector('.day-tabs');
+  window.scrollTo({top: dt.offsetTop - 80, behavior:'smooth'});
+}
+
+// Animate macro bars on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.macro-bar-fill').forEach(el => { el.style.width = el.dataset.w + '%'; });
+  }, 500);
+});
+</script>
+</body>
+</html>
