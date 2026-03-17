@@ -7,197 +7,210 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231C1C1F'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' font-weight='900' font-style='italic' text-anchor='middle' fill='%23F2A58E'%3EM%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* === O CSS que você enviou está preservado abaixo com os ajustes de transição === */
-        * { margin:0; padding:0; box-sizing:border-box; }
+        /* ===================== RESET & VARIÁVEIS ===================== */
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+        
         :root {
-            --ink: #1A1410; --ink2: #5C4F43; --ink3: #A8967E; --border: rgba(26,20,16,0.1);
-            --shadow: 0 4px 32px rgba(26,20,16,0.08); --bg: #F7F3EE; --surface: #FFFFFF;
-            --rose: #E8614A; --blush: #F2A58E; --green: #4A7C59; --cream: #FDFAF5;
+            --ink: #1A1410; --ink2: #5C4F43; --ink3: #A8967E;
+            --border: rgba(26,20,16,0.1); --shadow: 0 4px 32px rgba(26,20,16,0.08);
+            --bg: #F7F3EE; --surface: #FFFFFF; --rose: #E8614A; --blush: #F2A58E;
+            --green: #4A7C59; --green-light: #EAF2EC; --cream: #FDFAF5;
+            --warm: #F5EFE3; --terracotta: #C4674A;
         }
 
-        body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
+        body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; transition: background 0.4s ease; }
 
-        /* Animação de entrada */
+        /* ===================== HERO ===================== */
+        .hero-maresinha { background: var(--ink); padding: 56px 24px 70px; text-align: center; position: relative; overflow: hidden; }
+        .hero-maresinha::before {
+            content:''; position:absolute; inset:0;
+            background: radial-gradient(circle at 15% 50%, rgba(232,97,74,0.15) 0%, transparent 50%);
+        }
+        .hero-inner-m { position:relative; z-index:1; max-width:680px; margin:0 auto; }
+        .hero-m-title { font-family: 'Playfair Display', serif; font-size: clamp(40px, 10vw, 80px); font-weight: 900; color: white; line-height: 0.95; margin-bottom: 12px; }
+        .hero-m-title em { font-style: italic; color: var(--blush); }
+        .hero-m-sub { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: rgba(255,255,255,0.4); font-weight: 600; }
+
+        /* ===================== NAVEGAÇÃO ===================== */
+        .main-nav { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+        .main-nav-inner { max-width: 820px; margin: 0 auto; display: flex; }
+        .main-nav-btn { flex: 1; padding: 20px 10px; border: none; background: none; cursor: pointer; font-size: 13px; font-weight: 700; color: var(--ink2); transition: all 0.3s; position: relative; }
+        .main-nav-btn::after { content:''; position:absolute; bottom:0; left:20%; right:20%; height:3px; border-radius:3px 3px 0 0; transform: scaleX(0); transition: transform 0.3s; }
+        
+        .main-nav-btn.active.treino-btn { color: var(--rose); }
+        .main-nav-btn.active.treino-btn::after { background: var(--rose); transform: scaleX(1); }
+        .main-nav-btn.active.dieta-btn { color: var(--green); }
+        .main-nav-btn.active.dieta-btn::after { background: var(--green); transform: scaleX(1); }
+        .main-nav-btn.active.snacks-btn { color: #C8622A; }
+        .main-nav-btn.active.snacks-btn::after { background: #C8622A; transform: scaleX(1); }
+
+        /* ===================== CONTEÚDO E SEÇÕES ===================== */
+        .section-wrap { display: none; animation: fadeUp 0.4s ease forwards; }
+        .section-wrap.active { display: block; }
+
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero */
-        .hero-maresinha { background: var(--ink); padding: 60px 24px; text-align: center; position: relative; color: white; }
-        .hero-m-title { font-family: 'Playfair Display', serif; font-size: clamp(40px, 10vw, 80px); font-weight: 900; }
-        .hero-m-title em { font-style: italic; color: var(--blush); }
+        .container { max-width: 820px; margin: 0 auto; padding: 30px 20px 80px; }
 
-        /* Navegação Principal */
-        .main-nav { background: white; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
-        .main-nav-inner { max-width: 800px; margin: 0 auto; display: flex; }
-        .main-nav-btn { flex: 1; padding: 20px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--ink2); transition: 0.3s; }
-        .main-nav-btn.active { color: var(--rose); border-bottom: 3px solid var(--rose); }
-
-        /* Treino Overview e Cards ABCDE */
-        .treino-overview { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .treino-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        /* ===================== CARDS (TREINO/DIETA) ===================== */
+        .card { background: white; border: 1px solid var(--border); border-radius: 18px; padding: 20px; margin-bottom: 15px; transition: 0.3s; }
+        .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
         
-        .tw-card { 
-            background: white; border: 1.5px solid var(--border); border-radius: 16px; 
-            overflow: hidden; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .badge-treino { background: #FFF0EE; color: var(--rose); }
+        .badge-dieta { background: var(--green-light); color: var(--green); }
 
-        /* TRANSICAO FLUIDA SOLICITADA */
-        .tw-drawer { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1); 
-            background: var(--cream);
-        }
-
-        /* Estado aberto (Fixado ou Hover) */
-        .tw-card.topen .tw-drawer, .tw-card:hover .tw-drawer { 
-            max-height: 1200px; /* Valor alto para acomodar o conteúdo */
-        }
-
-        .tw-card.topen { border-color: var(--rose); box-shadow: var(--shadow); transform: translateY(-4px); }
-
-        .tw-head { padding: 25px; text-align: center; }
-        .tw-letter { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--rose); }
-        .tw-name { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-
-        .tw-din { padding: 20px; }
-        .tw-ex { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 13px; }
-        .tw-total { background: var(--ink); color: white; padding: 15px; border-radius: 10px; margin-top: 15px; display: flex; justify-content: space-between; }
-
-        /* Esconder seções inicialmente */
-        .section-wrap { display: none; }
-        .section-wrap.active { display: block; animation: fadeUp 0.5s ease forwards; }
+        /* ===================== SNACKS (DARK MODE EFFECT) ===================== */
+        #snacks.active ~ style { background: #0D0D0F; } /* Simulação de troca de fundo */
+        .snacks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .snack-card { background: #1C1C1F; color: #F5F0E8; border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 20px; }
+        
+        /* ===================== UTILS ===================== */
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .title-font { font-family: 'Playfair Display', serif; }
     </style>
 </head>
 <body>
 
     <header class="hero-maresinha">
         <div class="hero-inner-m">
-            <div class="hero-brand">🌊 PROJETO MARESINHA</div>
-            <h1 class="hero-m-title">Corpo & <em>Mente</em></h1>
-            <p class="hero-m-sub">Seu guia pessoal de evolução</p>
+            <div class="hero-m-title">Projeto <br><em>Maresinha</em></div>
+            <p class="hero-m-sub">Protocolo de Treino & Nutrição 2026</p>
         </div>
     </header>
 
     <nav class="main-nav">
         <div class="main-nav-inner">
-            <button class="main-nav-btn active" onclick="showSection('treino')">TREINOS</button>
-            <button class="main-nav-btn" onclick="showSection('dieta')">DIETA</button>
+            <button class="main-nav-btn active treino-btn" onclick="showSection('treino', this)">TREINO</button>
+            <button class="main-nav-btn dieta-btn" onclick="showSection('dieta', this)">DIETA</button>
+            <button class="main-nav-btn snacks-btn" onclick="showSection('snacks', this)">SNACKS</button>
         </div>
     </nav>
 
-    <main id="treino" class="section-wrap active">
-        <div class="treino-overview">
-            <div class="treino-grid">
-                
-                <div class="tw-card" onclick="toggleCard(this)">
-                    <div class="tw-head">
-                        <div class="tw-letter">A</div>
-                        <div class="tw-name">Inferiores (Foco Glúteo)</div>
-                        <div class="tw-hint">Toque para expandir</div>
+    <section id="treino" class="section-wrap active">
+        <div class="container">
+            <div class="card">
+                <span class="badge badge-treino">Treino A • Inferiores</span>
+                <h2 class="title-font">Foco em Quadríceps</h2>
+                <p style="color: var(--ink2); font-size: 14px; margin-top: 8px;">Duração estimada: 65 min • Intensidade Alta</p>
+                <hr style="margin: 15px 0; opacity: 0.1;">
+                <div class="flex-between">
+                    <div>
+                        <div style="font-weight: 700;">Agachamento Livre</div>
+                        <div style="font-size: 12px; color: var(--ink3);">4 séries x 10-12 reps</div>
                     </div>
-                    <div class="tw-drawer">
-                        <div class="tw-din">
-                            <div class="tw-ex"><span>Agachamento Búlgaro</span> <span>3x12</span></div>
-                            <div class="tw-ex"><span>Elevação Pélvica</span> <span>4x10</span></div>
-                            <div class="tw-ex"><span>Cadeira Abdutora</span> <span>3x15</span></div>
-                            <div class="tw-total">
-                                <span>Estimativa</span>
-                                <strong>450 kcal</strong>
-                            </div>
-                        </div>
-                    </div>
+                    <div style="font-family: serif; font-weight: 900; color: var(--rose);">85 kcal</div>
                 </div>
-
-                <div class="tw-card" onclick="toggleCard(this)">
-                    <div class="tw-head">
-                        <div class="tw-letter">B</div>
-                        <div class="tw-name">Superiores & Cardio</div>
-                    </div>
-                    <div class="tw-drawer">
-                        <div class="tw-din">
-                            <div class="tw-ex"><span>Puxada Aberta</span> <span>3x12</span></div>
-                            <div class="tw-ex"><span>Desenvolvimento</span> <span>3x10</span></div>
-                            <div class="tw-ex"><span>Esteira (HIIT)</span> <span>20 min</span></div>
-                            <div class="tw-total"><span>Estimativa</span><strong>380 kcal</strong></div>
-                        </div>
-                    </div>
+            </div>
+            
+            <div class="card">
+                <span class="badge badge-treino">Acessório</span>
+                <h2 class="title-font">Cadeira Extensora</h2>
+                <div class="flex-between" style="margin-top: 10px;">
+                    <div style="font-size: 13px;">3 séries (Drop-set na última)</div>
+                    <div style="font-family: serif; font-weight: 900; color: var(--rose);">40 kcal</div>
                 </div>
-
-                <div class="tw-card" onclick="toggleCard(this)">
-                    <div class="tw-head">
-                        <div class="tw-letter">C</div>
-                        <div class="tw-name">Inferiores (Cadeia Posterior)</div>
-                    </div>
-                    <div class="tw-drawer">
-                        <div class="tw-din">
-                            <div class="tw-ex"><span>Stiff</span> <span>4x12</span></div>
-                            <div class="tw-ex"><span>Mesa Flexora</span> <span>3x15</span></div>
-                            <div class="tw-ex"><span>Afundo</span> <span>3x10</span></div>
-                            <div class="tw-total"><span>Estimativa</span><strong>420 kcal</strong></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tw-card" onclick="toggleCard(this)">
-                    <div class="tw-head">
-                        <div class="tw-letter">D</div>
-                        <div class="tw-name">Core & Mobilidade</div>
-                    </div>
-                    <div class="tw-drawer">
-                        <div class="tw-din">
-                            <div class="tw-ex"><span>Prancha Abdominal</span> <span>3x60s</span></div>
-                            <div class="tw-ex"><span>Deadbug</span> <span>3x15</span></div>
-                            <div class="tw-ex"><span>Yoga Flow</span> <span>15 min</span></div>
-                            <div class="tw-total"><span>Estimativa</span><strong>200 kcal</strong></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tw-card" onclick="toggleCard(this)">
-                    <div class="tw-head">
-                        <div class="tw-letter">E</div>
-                        <div class="tw-name">Full Body (Queima Máxima)</div>
-                    </div>
-                    <div class="tw-drawer">
-                        <div class="tw-din">
-                            <div class="tw-ex"><span>Burpees</span> <span>3x10</span></div>
-                            <div class="tw-ex"><span>Kettlebell Swing</span> <span>4x15</span></div>
-                            <div class="tw-ex"><span>Remada Curvada</span> <span>3x12</span></div>
-                            <div class="tw-total"><span>Estimativa</span><strong>500 kcal</strong></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </main>
+    </section>
 
-    <main id="dieta" class="section-wrap">
-        <div class="treino-overview">
-            <h2 style="font-family: 'Playfair Display', serif;">Plano Alimentar</h2>
-            <p>Seção de dieta em desenvolvimento...</p>
+    <section id="dieta" class="section-wrap">
+        <div class="container">
+            <div class="card" style="background: var(--ink); color: white;">
+                <div class="flex-between">
+                    <div>
+                        <p style="font-size: 11px; opacity: 0.5; letter-spacing: 1px;">META DIÁRIA</p>
+                        <h1 class="title-font" style="font-size: 32px; color: var(--blush);">1.650 <span style="font-size: 16px;">kcal</span></h1>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="font-size: 11px; opacity: 0.5;">PROTEÍNA</p>
+                        <p style="font-weight: 700;">120g</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="flex-between">
+                    <span class="badge badge-dieta">Café da Manhã</span>
+                    <span style="font-size: 12px; color: var(--ink3);">08:30</span>
+                </div>
+                <h3 class="title-font">Panqueca de Aveia & Whey</h3>
+                <ul style="list-style: none; margin-top: 10px; font-size: 13px; color: var(--ink2);">
+                    <li style="padding: 4px 0; border-bottom: 1px dashed #eee;">• 30g de aveia em flocos</li>
+                    <li style="padding: 4px 0; border-bottom: 1px dashed #eee;">• 1 ovo + 2 claras</li>
+                    <li style="padding: 4px 0;">• 15g de pasta de amendoim</li>
+                </ul>
+            </div>
         </div>
-    </main>
+    </section>
+
+    <section id="snacks" class="section-wrap">
+        <div class="container">
+            <div style="margin-bottom: 25px;">
+                <h2 class="title-font" style="font-size: 28px;">Snacks Inteligentes 🌙</h2>
+                <p style="font-size: 14px; opacity: 0.6;">Opções rápidas para controle de ansiedade.</p>
+            </div>
+            
+            <div class="snacks-grid">
+                <div class="snack-card">
+                    <div class="flex-between">
+                        <span style="font-size: 30px;">🍫</span>
+                        <div style="text-align: right;">
+                            <div class="title-font" style="font-size: 20px;">95 kcal</div>
+                            <div style="font-size: 10px; opacity: 0.5;">PER SERVING</div>
+                        </div>
+                    </div>
+                    <h3 class="title-font" style="margin: 15px 0 8px;">Chocolate Amargo + Nuts</h3>
+                    <p style="font-size: 12px; opacity: 0.6; line-height: 1.5;">2 quadradinhos (85%) + 3 amêndoas. Ideal para o pico de cortisol às 16h.</p>
+                </div>
+
+                <div class="snack-card">
+                    <div class="flex-between">
+                        <span style="font-size: 30px;">🍓</span>
+                        <div style="text-align: right;">
+                            <div class="title-font" style="font-size: 20px;">110 kcal</div>
+                            <div style="font-size: 10px; opacity: 0.5;">PER SERVING</div>
+                        </div>
+                    </div>
+                    <h3 class="title-font" style="margin: 15px 0 8px;">Iogurte Skyr c/ Morango</h3>
+                    <p style="font-size: 12px; opacity: 0.6; line-height: 1.5;">Alto teor proteico para saciedade prolongada antes do treino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
-        // Função para alternar entre Treino e Dieta
-        function showSection(id) {
-            document.querySelectorAll('.section-wrap').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.main-nav-btn').forEach(b => b.classList.remove('active'));
+        function showSection(sectionId, btn) {
+            // Esconder todas as seções
+            document.querySelectorAll('.section-wrap').forEach(section => {
+                section.classList.remove('active');
+            });
             
-            document.getElementById(id).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
+            // Remover estado ativo de todos os botões
+            document.querySelectorAll('.main-nav-btn').forEach(b => {
+                b.classList.remove('active');
+            });
 
-        // Função para fixar o card aberto (Transição Max-Height)
-        function toggleCard(card) {
-            // Remove 'topen' de outros cards para fechar se quiser (Opcional)
-            // document.querySelectorAll('.tw-card').forEach(c => { if(c !== card) c.classList.remove('topen'); });
+            // Mostrar a seção desejada
+            document.getElementById(sectionId).classList.add('active');
             
-            card.classList.toggle('topen');
+            // Ativar o botão clicado
+            btn.classList.add('active');
+
+            // Ajuste de cores do Body para o modo Snacks
+            if(sectionId === 'snacks') {
+                document.body.style.background = '#0D0D0F';
+                document.body.style.color = '#F5F0E8';
+            } else {
+                document.body.style.background = '#F7F3EE';
+                document.body.style.color = '#1A1410';
+            }
+
+            // Scroll suave para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
