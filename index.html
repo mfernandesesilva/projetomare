@@ -221,6 +221,48 @@ body::after {
 .main-nav-btn.snacks-active::after { background: #C8622A; transform: scaleX(1); }
 .nb-snacks { background: rgba(200,98,42,0.12); color: #C8622A; }
 
+/* ── COMPACT TREINO OVERVIEW ── */
+.treino-overview { max-width:960px; margin:0 auto; padding:28px 18px 70px; }
+.treino-week-bar { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:22px; }
+.tw-card { background:var(--surface); border:1.5px solid var(--border); border-radius:16px; overflow:hidden; cursor:pointer; transition:transform 0.22s,box-shadow 0.22s; }
+.tw-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+.tw-head { padding:18px 14px 14px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:3px; }
+.tw-letter { font-family:'Playfair Display',serif; font-size:38px; font-weight:900; line-height:1; }
+.tw-name { font-size:11px; font-weight:700; color:var(--ink2); text-transform:uppercase; letter-spacing:1px; }
+.tw-day { font-size:10px; color:var(--ink3); margin-bottom:2px; }
+.tw-kcal-pill { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-top:2px; }
+.tw-hint { font-size:10px; color:var(--ink3); margin-top:4px; transition:opacity 0.2s; }
+.tw-card:hover .tw-hint,.tw-card.topen .tw-hint { opacity:0; height:0; margin:0; overflow:hidden; }
+.tw-drawer { max-height:0; overflow:hidden; transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1); border-top:0px solid var(--border); }
+.tw-card:hover .tw-drawer,.tw-card.topen .tw-drawer { max-height:900px; border-top-width:1px; }
+.tw-din { padding:13px 13px 15px; }
+.tw-focus { font-size:11px; color:var(--ink2); font-style:italic; margin-bottom:8px; }
+.tw-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin-bottom:10px; }
+.tw-mi { background:var(--cream); border-radius:7px; padding:5px 3px; text-align:center; }
+.tw-mv { font-size:11px; font-weight:700; }
+.tw-ml { font-size:9px; color:var(--ink3); text-transform:uppercase; letter-spacing:0.6px; }
+.tw-band { display:flex; align-items:center; gap:6px; background:#FFF8F0; border:1px solid #F5D5A8; border-radius:7px; padding:6px 9px; font-size:10px; color:#8A5A20; margin-bottom:9px; }
+.tw-exlist { display:flex; flex-direction:column; gap:4px; margin-bottom:10px; }
+.tw-ex { display:flex; align-items:center; gap:7px; padding:6px 8px; border-radius:8px; background:var(--cream); text-decoration:none; color:var(--ink); transition:background 0.15s; font-size:12px; }
+.tw-ex:hover { background:rgba(0,0,0,0.05); }
+.tw-exn { width:18px; height:18px; border-radius:5px; font-size:9px; font-weight:800; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.tw-exinfo { flex:1; min-width:0; }
+.tw-exname { font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:11px; }
+.tw-exsets { font-size:10px; color:var(--ink2); margin-top:1px; }
+.tw-exkcal { font-size:10px; font-weight:700; flex-shrink:0; }
+.tw-btag { font-size:9px; background:#FFF3E8; color:#C27820; border-radius:4px; padding:1px 4px; display:inline-block; margin-top:1px; }
+.tw-total { display:flex; justify-content:space-between; align-items:center; border-radius:8px; padding:9px 12px; color:white; }
+.tw-tlbl { font-size:9px; opacity:0.65; text-transform:uppercase; letter-spacing:1px; }
+.tw-tval { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; line-height:1; }
+.tw-tsub { font-size:9px; opacity:0.45; margin-top:1px; }
+.tw-tico { font-size:22px; opacity:0.22; }
+.tw-tips { margin-top:9px; }
+.tw-tip { font-size:11px; color:var(--ink2); display:flex; gap:5px; margin-bottom:3px; }
+.tw-tipdot { width:4px; height:4px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+@media(max-width:700px){ .treino-week-bar{grid-template-columns:1fr 1fr;} .tw-meta{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:420px){ .treino-week-bar{grid-template-columns:1fr;} }
+
+
 /* ── RECIPE DRAWER in diet ── */
 .meal-recipe-btn {
   display:flex;align-items:center;justify-content:center;gap:6px;
@@ -661,264 +703,169 @@ body::after {
 @media(max-width:600px){
   .meta-row { grid-template-columns:repeat(2,1fr); }
   .week-grid { grid-template-columns:repeat(3,1fr); }
-  .workout-header { grid-template-columns:1fr; }
-  .kcal-badge { display:none; }
-  .ex-card { grid-template-columns:32px 1fr auto; }
-  .ex-yt { display:none; }
-  .rule-grid { grid-template-columns:1fr; }
-  .avoid-grid { grid-template-columns:repeat(2,1fr); }
-  .week-summary { grid-template-columns:repeat(4,1fr); }
-  .goal-card { grid-template-columns:1fr; }
-  .macro-bars { grid-template-columns:1fr; gap:8px; }
-  .synergy-grid { grid-template-columns:1fr; }
-  .syn-plus { display:none; }
-}
-</style>
-</head>
-<body>
+  .workout-header { grid-<div class="treino-overview">
 
-<!-- ===== HERO MARESINHA ===== -->
-<div class="hero-maresinha">
-  <div class="hero-inner-m">
-    <div class="hero-brand"><span class="brand-wave">🌊</span> Projeto Maresinha <span class="brand-wave">🌊</span></div>
-    <div class="hero-m-title">Mare<em>sinha</em></div>
-    <div class="hero-m-sub">Treinos · Dieta · Transformação</div>
-    <div class="hero-m-stats">
-      <div class="hms"><div class="hms-val">5</div><div class="hms-lbl">Treinos ABCDE</div></div>
-      <div class="hms-div"></div>
-      <div class="hms-val" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#F2A58E;">−3kg</div>
-      <div class="hms-div"></div>
-      <div class="hms"><div class="hms-val">7</div><div class="hms-lbl">Dias de dieta</div></div>
-      <div class="hms-div"></div>
-      <div class="hms"><div class="hms-val">63kg</div><div class="hms-lbl">Peso atual</div></div>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:4px;">Semana completa · ABCDE</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);">2.000–2.400 kcal queimadas / semana</div>
+      <div style="font-size:12px;color:var(--ink2);margin-top:3px;">Passe o mouse (ou toque) em cada treino para ver os exercícios</div>
+    </div>
+    <div style="display:flex;gap:7px;flex-wrap:wrap;">
+      <div style="text-align:center;background:var(--cream);border-radius:9px;padding:8px 12px;"><div style="font-size:15px;font-weight:700;font-family:'Playfair Display',serif;">5</div><div style="font-size:9px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;">Treinos</div></div>
+      <div style="text-align:center;background:var(--cream);border-radius:9px;padding:8px 12px;"><div style="font-size:15px;font-weight:700;font-family:'Playfair Display',serif;">~4h</div><div style="font-size:9px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;">por semana</div></div>
+      <div style="text-align:center;background:#FFF8F0;border-radius:9px;padding:8px 12px;"><div style="font-size:15px;">🟠</div><div style="font-size:9px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;">Mini band</div></div>
     </div>
   </div>
-</div>
 
-<!-- ===== SYNERGY SECTION ===== -->
-<div class="synergy">
-  <div class="synergy-inner">
-    <div class="synergy-title">Treino <em>+</em> Dieta</div>
-    <div class="synergy-sub">A combinação perfeita para emagrecer 3kg de gordura por mês com saúde</div>
-    <div class="synergy-grid">
-      <div class="syn-card">
-        <div class="syn-icon">💪</div>
-        <div class="syn-name">Treinos ABCDE</div>
-        <div class="syn-val">~2.000–2.400 kcal/sem (ABCDE) + 3.360 kcal/sem (bike 1h/dia) = ~5.400 kcal/sem</div>
+  <div class="treino-week-bar">
+    <div class="tw-card" onclick="toggleTwCard(this)">
+  <div class="tw-head">
+    <div class="tw-letter" style="color:#E8614A">A</div>
+    <div class="tw-name">Cardio Core</div>
+    <div class="tw-day">Segunda</div>
+    <div class="tw-kcal-pill" style="background:#E8614A22;color:#E8614A">300–370 kcal</div>
+    <div class="tw-hint">👆 ver exercícios ▾</div>
+  </div>
+  <div class="tw-drawer">
+    <div class="tw-din">
+      <div class="tw-focus">🔥 Cardio + Abdômen intenso</div>
+      <div class="tw-meta">
+        <div class="tw-mi"><div class="tw-mv">8</div><div class="tw-ml">Exerc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">~45'</div><div class="tw-ml">Duração</div></div>
+        <div class="tw-mi"><div class="tw-mv">30s</div><div class="tw-ml">Desc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">Médio</div><div class="tw-ml">Nível</div></div>
       </div>
-      <div class="syn-plus">+</div>
-      <div class="syn-card">
-        <div class="syn-icon">🥗</div>
-        <div class="syn-name">Dieta Maresinha</div>
-        <div class="syn-val">~1.800 kcal/dia · sem lactose · alta proteína · antiinflamatória</div>
+      <div class="tw-band">🟠 Mini Band acima dos joelhos</div>
+      <div class="tw-exlist"><a class="tw-ex" href="https://youtube.com/results?search_query=polichinelo+exercicio+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">1</div><div class="tw-exinfo"><div class="tw-exname">Polichinelo</div><div class="tw-exsets">4×40 reps </div></div><div class="tw-exkcal" style="color:#E8614A">30–40</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=escalada+no+chao+abdominal+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">2</div><div class="tw-exinfo"><div class="tw-exname">Escalada no Chão</div><div class="tw-exsets">5×30 cada lado </div></div><div class="tw-exkcal" style="color:#E8614A">50–65</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=prancha+abdominal+execucao+correta" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">3</div><div class="tw-exinfo"><div class="tw-exname">Prancha</div><div class="tw-exsets">4×50 seg </div></div><div class="tw-exkcal" style="color:#E8614A">25–35</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">4</div><div class="tw-exinfo"><div class="tw-exname">Burpee</div><div class="tw-exsets">4×12 reps </div></div><div class="tw-exkcal" style="color:#E8614A">55–70</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=abdominal+bicicleta+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">5</div><div class="tw-exinfo"><div class="tw-exname">Abdominal Bicicleta</div><div class="tw-exsets">4×20 cada lado </div></div><div class="tw-exkcal" style="color:#E8614A">30–38</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=elevacao+de+pernas+deitado+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">6</div><div class="tw-exinfo"><div class="tw-exname">Elevação de Pernas</div><div class="tw-exsets">4×15 reps </div></div><div class="tw-exkcal" style="color:#E8614A">25–32</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=abducao+quadril+mini+band+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">7</div><div class="tw-exinfo"><div class="tw-exname">Abdução Mini Band</div><div class="tw-exsets">4×25 reps em pé <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#E8614A">28–36</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=agachamento+mini+band+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#E8614A">8</div><div class="tw-exinfo"><div class="tw-exname">Agachamento Mini Band</div><div class="tw-exsets">4×20 reps <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#E8614A">35–45</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a></div>
+      <div class="tw-total" style="background:linear-gradient(135deg,#C8411A,#E8614A)">
+        <div><div class="tw-tlbl">Treino A</div><div class="tw-tval">300–370 kcal</div><div class="tw-tsub">63kg · ~~45'</div></div>
+        <div class="tw-tico">🔥</div>
       </div>
-    </div>
-    <div class="synergy-result">
-      <div class="sr-label">🔥 Déficit mensal estimado</div>
-      <div class="sr-val">~23.100 kcal</div>
-      <div class="sr-sub">equivale a aproximadamente 3kg de gordura por mês · 63kg · 165cm · +1h bike/dia</div>
-    </div>
-    <div class="syn-pills">
-      <span class="syn-pill">🍑 Glúteos definidos</span>
-      <span class="syn-pill">💪 Abdômen trabalhado</span>
-      <span class="syn-pill">🚫 Sem lactose</span>
-      <span class="syn-pill">🟠 Mini band incluída</span>
-      <span class="syn-pill">🚴 Bike 1h/dia</span>
-      <span class="syn-pill">⚡ Mais energia</span>
-      <span class="syn-pill">💧 Reduz inchaço</span>
+      <div class="tw-tips"><div class="tw-tip"><div class="tw-tipdot" style="background:#E8614A"></div>Circuito com 30s descanso para manter coração acelerado</div><div class="tw-tip"><div class="tw-tipdot" style="background:#E8614A"></div>No agachamento: empurre os joelhos ativamente para fora</div></div>
     </div>
   </div>
 </div>
-
-<!-- ===== MAIN NAV ===== -->
-<div class="main-nav">
-  <div class="main-nav-inner">
-    <button class="main-nav-btn treino-active" id="btn-treino" onclick="showSection('treino')">
-      💪 Treinos ABCDE
-      <span class="nav-badge nb-treino">300–600 kcal</span>
-    </button>
-    <button class="main-nav-btn" id="btn-dieta" onclick="showSection('dieta')">
-      🥗 Dieta Semanal
-      <span class="nav-badge nb-dieta">1.800 kcal/dia</span>
-    </button>
-    <button class="main-nav-btn" id="btn-snacks" onclick="showSection('snacks')">
-      🍫 Receitas & Snacks
-      <span class="nav-badge nb-snacks">Anti-ansiedade</span>
-    </button>
+    <div class="tw-card" onclick="toggleTwCard(this)">
+  <div class="tw-head">
+    <div class="tw-letter" style="color:#7A9E7E">B</div>
+    <div class="tw-name">Glúteo I</div>
+    <div class="tw-day">Terça</div>
+    <div class="tw-kcal-pill" style="background:#7A9E7E22;color:#7A9E7E">420–490 kcal</div>
+    <div class="tw-hint">👆 ver exercícios ▾</div>
   </div>
-</div>
-
-<!-- ============================= TREINO SECTION ============================= -->
-<div class="section-wrap active" id="sec-treino">
-<div class="treino-wrap">
-
-<!-- Sub-tabs ABCDE -->
-<div class="tabs-wrap">
-  <div class="tabs">
-    <button class="tab-btn active" onclick="showTab(0)"><span class="tab-letter" style="color:#E8614A">A</span>Cardio Core</button>
-    <button class="tab-btn" onclick="showTab(1)"><span class="tab-letter" style="color:#7A9E7E">B</span>Glúteo I</button>
-    <button class="tab-btn" onclick="showTab(2)"><span class="tab-letter" style="color:#9B89B4">C</span>Abdômen</button>
-    <button class="tab-btn" onclick="showTab(3)"><span class="tab-letter" style="color:#5B8DB8">D</span>Glúteo II</button>
-    <button class="tab-btn" onclick="showTab(4)"><span class="tab-letter" style="color:#C9933A">E</span>Corpo Todo</button>
-  </div>
-</div>
-
-<div class="treino-content">
-
-<!-- TREINO A -->
-<div class="workout-panel active" id="panel-0">
-  <div class="workout-header">
-    <div>
-      <div class="workout-label" style="color:#E8614A">Treino A · Segunda-feira</div>
-      <div class="workout-name">Cardio + Core</div>
-      <div class="workout-focus">🔥 Foco: Emagrecimento + Abdômen</div>
+  <div class="tw-drawer">
+    <div class="tw-din">
+      <div class="tw-focus">🍑 Glúteo + Posterior de coxa</div>
+      <div class="tw-meta">
+        <div class="tw-mi"><div class="tw-mv">8</div><div class="tw-ml">Exerc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">~55'</div><div class="tw-ml">Duração</div></div>
+        <div class="tw-mi"><div class="tw-mv">40s</div><div class="tw-ml">Desc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">Médio</div><div class="tw-ml">Nível</div></div>
+      </div>
+      <div class="tw-band">🟠 Mini Band nos tornozelos e joelhos</div>
+      <div class="tw-exlist"><a class="tw-ex" href="https://youtube.com/results?search_query=agachamento+sumo+execucao+gluteo" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">1</div><div class="tw-exinfo"><div class="tw-exname">Agachamento Sumô</div><div class="tw-exsets">4×25 reps <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#7A9E7E">60–75</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=elevacao+quadril+gluteo+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">2</div><div class="tw-exinfo"><div class="tw-exname">Elevação de Quadril</div><div class="tw-exsets">4×20 reps + pausa <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#7A9E7E">55–68</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=avanco+perna+execucao+gluteo" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">3</div><div class="tw-exinfo"><div class="tw-exname">Avanço</div><div class="tw-exsets">4×15 cada perna </div></div><div class="tw-exkcal" style="color:#7A9E7E">60–75</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=coice+gluteo+mini+band+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">4</div><div class="tw-exinfo"><div class="tw-exname">Coice Mini Band</div><div class="tw-exsets">4×20 cada perna <span class="tw-btag">🟠 nos tornozelos</span></div></div><div class="tw-exkcal" style="color:#7A9E7E">50–62</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=elevacao+lateral+perna+mini+band" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">5</div><div class="tw-exinfo"><div class="tw-exname">Elevação Lateral</div><div class="tw-exsets">4×25 cada lado <span class="tw-btag">🟠 nos tornozelos</span></div></div><div class="tw-exkcal" style="color:#7A9E7E">35–45</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=stiff+posterior+coxa+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">6</div><div class="tw-exinfo"><div class="tw-exname">Stiff</div><div class="tw-exsets">4×15 reps </div></div><div class="tw-exkcal" style="color:#7A9E7E">50–62</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=agachamento+bulgaro+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">7</div><div class="tw-exinfo"><div class="tw-exname">Agachamento Búlgaro</div><div class="tw-exsets">3×12 cada perna </div></div><div class="tw-exkcal" style="color:#7A9E7E">55–68</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=prancha+lateral+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#7A9E7E">8</div><div class="tw-exinfo"><div class="tw-exname">Prancha Lateral</div><div class="tw-exsets">3×40s cada lado </div></div><div class="tw-exkcal" style="color:#7A9E7E">22–28</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a></div>
+      <div class="tw-total" style="background:linear-gradient(135deg,#5a7e5e,#7A9E7E)">
+        <div><div class="tw-tlbl">Treino B</div><div class="tw-tval">420–490 kcal</div><div class="tw-tsub">63kg · ~~55'</div></div>
+        <div class="tw-tico">🔥</div>
+      </div>
+      <div class="tw-tips"><div class="tw-tip"><div class="tw-tipdot" style="background:#7A9E7E"></div>Pausa 2s no topo da elevação — onde o glúteo mais trabalha</div><div class="tw-tip"><div class="tw-tipdot" style="background:#7A9E7E"></div>No stiff: costas retas, descer até sentir o posterior</div></div>
     </div>
-    <div class="kcal-badge"><div class="kcal-range" style="color:#E8614A">300–370</div><div class="kcal-unit">kcal</div></div>
   </div>
-  <div class="meta-row">
-    <div class="meta-item"><div class="meta-val">8</div><div class="meta-lbl">Exercícios</div></div>
-    <div class="meta-item"><div class="meta-val">~45'</div><div class="meta-lbl">Duração</div></div>
-    <div class="meta-item"><div class="meta-val">30s</div><div class="meta-lbl">Descanso</div></div>
-    <div class="meta-item"><div class="meta-val">Médio</div><div class="meta-lbl">Nível</div></div>
+</div>
+    <div class="tw-card" onclick="toggleTwCard(this)">
+  <div class="tw-head">
+    <div class="tw-letter" style="color:#9B89B4">C</div>
+    <div class="tw-name">Abdômen</div>
+    <div class="tw-day">Quarta</div>
+    <div class="tw-kcal-pill" style="background:#9B89B422;color:#9B89B4">310–390 kcal</div>
+    <div class="tw-hint">👆 ver exercícios ▾</div>
   </div>
-  <div class="ex-section-title">Exercícios</div>
-  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino A</div><div class="band-info-desc">Use nos exercícios marcados para ativar glúteo médio e intensificar a queima. Coloque acima dos joelhos.</div></div></div>
-  <div class="ex-list">
-    <a class="ex-card" href="https://youtube.com/results?search_query=polichinelo+exercicio+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">1</div><div><div class="ex-name-txt">Polichinelo</div><div class="ex-sets">4 × 40 reps · aquecimento</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">30–40</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=escalada+no+chao+abdominal+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">2</div><div><div class="ex-name-txt">Escalada no Chão</div><div class="ex-sets">5 × 30 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">50–65</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+abdominal+execucao+correta" target="_blank"><div class="ex-n" style="background:#E8614A">3</div><div><div class="ex-name-txt">Prancha</div><div class="ex-sets">4 × 50 segundos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">25–35</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank"><div class="ex-n" style="background:#E8614A">4</div><div><div class="ex-name-txt">Burpee</div><div class="ex-sets">4 × 12 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">55–70</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=abdominal+bicicleta+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">5</div><div><div class="ex-name-txt">Abdominal Bicicleta</div><div class="ex-sets">4 × 20 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+pernas+deitado+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">6</div><div><div class="ex-name-txt">Elevação de Pernas</div><div class="ex-sets">4 × 15 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">25–32</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=abducao+quadril+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">7</div><div><div class="ex-name-txt">Abdução com Mini Band</div><div class="ex-sets">4 × 25 reps · em pé</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">28–36</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#E8614A">8</div><div><div class="ex-name-txt">Agachamento com Mini Band</div><div class="ex-sets">4 × 20 reps · joelhos para fora</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#E8614A">35–45</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+  <div class="tw-drawer">
+    <div class="tw-din">
+      <div class="tw-focus">💜 Core completo — oblíquos, reto e transverso</div>
+      <div class="tw-meta">
+        <div class="tw-mi"><div class="tw-mv">8</div><div class="tw-ml">Exerc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">~50'</div><div class="tw-ml">Duração</div></div>
+        <div class="tw-mi"><div class="tw-mv">30s</div><div class="tw-ml">Desc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">Médio</div><div class="tw-ml">Nível</div></div>
+      </div>
+      
+      <div class="tw-exlist"><a class="tw-ex" href="https://youtube.com/results?search_query=polichinelo+exercicio+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">1</div><div class="tw-exinfo"><div class="tw-exname">Polichinelo</div><div class="tw-exsets">4×30 reps </div></div><div class="tw-exkcal" style="color:#9B89B4">22–28</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=abdominal+crunch+execucao+correta" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">2</div><div class="tw-exinfo"><div class="tw-exname">Abdominal Crunch</div><div class="tw-exsets">4×20 reps </div></div><div class="tw-exkcal" style="color:#9B89B4">28–35</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=obliquo+toque+calcanhar+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">3</div><div class="tw-exinfo"><div class="tw-exname">Oblíquo c/ Toque Calcanhar</div><div class="tw-exsets">4×20 cada lado </div></div><div class="tw-exkcal" style="color:#9B89B4">30–38</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=prancha+abdominal+execucao+correta" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">4</div><div class="tw-exinfo"><div class="tw-exname">Prancha</div><div class="tw-exsets">4×50 seg </div></div><div class="tw-exkcal" style="color:#9B89B4">25–32</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=elevacao+de+pernas+deitado+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">5</div><div class="tw-exinfo"><div class="tw-exname">Elevação de Pernas</div><div class="tw-exsets">4×15 reps </div></div><div class="tw-exkcal" style="color:#9B89B4">25–32</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=abdominal+bicicleta+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">6</div><div class="tw-exinfo"><div class="tw-exname">Abdominal Bicicleta</div><div class="tw-exsets">4×20 cada lado </div></div><div class="tw-exkcal" style="color:#9B89B4">30–38</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=tesoura+abdominal+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">7</div><div class="tw-exinfo"><div class="tw-exname">Tesoura</div><div class="tw-exsets">4×20 cada perna </div></div><div class="tw-exkcal" style="color:#9B89B4">28–35</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#9B89B4">8</div><div class="tw-exinfo"><div class="tw-exname">Burpee</div><div class="tw-exsets">3×10 reps </div></div><div class="tw-exkcal" style="color:#9B89B4">42–52</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a></div>
+      <div class="tw-total" style="background:linear-gradient(135deg,#7a68a0,#9B89B4)">
+        <div><div class="tw-tlbl">Treino C</div><div class="tw-tval">310–390 kcal</div><div class="tw-tsub">63kg · ~~50'</div></div>
+        <div class="tw-tico">🔥</div>
+      </div>
+      <div class="tw-tips"><div class="tw-tip"><div class="tw-tipdot" style="background:#9B89B4"></div>Expire no esforço — ativa o core mais profundo</div><div class="tw-tip"><div class="tw-tipdot" style="background:#9B89B4"></div>Prancha: não deixe o quadril afundar</div></div>
+    </div>
   </div>
-  <div class="total-bar" style="background:linear-gradient(135deg,#E8614A,#ff9a7a)"><div><div class="total-bar-label">Total · Treino A</div><div class="total-bar-val">300–370 kcal</div><div class="total-bar-sub">63kg · 165cm · ~45 min</div></div><div class="total-bar-icon">🔥</div></div>
-  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#E8614A"></div>Faça em circuito com 30s de descanso para manter o coração acelerado</div><div class="tip-line"><div class="tip-dot" style="background:#E8614A"></div>No agachamento com mini band: empurre os joelhos para fora ativamente</div><div class="tip-line"><div class="tip-dot" style="background:#E8614A"></div>💡 Combine com o cardáprio de Segunda da Dieta Maresinha!</div></div>
+</div>
+    <div class="tw-card" onclick="toggleTwCard(this)">
+  <div class="tw-head">
+    <div class="tw-letter" style="color:#5B8DB8">D</div>
+    <div class="tw-name">Glúteo II</div>
+    <div class="tw-day">Quinta</div>
+    <div class="tw-kcal-pill" style="background:#5B8DB822;color:#5B8DB8">510–600 kcal</div>
+    <div class="tw-hint">👆 ver exercícios ▾</div>
+  </div>
+  <div class="tw-drawer">
+    <div class="tw-din">
+      <div class="tw-focus">⚡ HIIT + Glúteo — o mais intenso da semana</div>
+      <div class="tw-meta">
+        <div class="tw-mi"><div class="tw-mv">9</div><div class="tw-ml">Exerc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">~60'</div><div class="tw-ml">Duração</div></div>
+        <div class="tw-mi"><div class="tw-mv">40s</div><div class="tw-ml">Desc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">Alto</div><div class="tw-ml">Nível</div></div>
+      </div>
+      <div class="tw-band">🟠 Mini Band acima dos joelhos e nos tornozelos</div>
+      <div class="tw-exlist"><a class="tw-ex" href="https://youtube.com/results?search_query=agachamento+sumo+salto+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">1</div><div class="tw-exinfo"><div class="tw-exname">Agachamento Sumô c/ Salto</div><div class="tw-exsets">4×15 reps <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#5B8DB8">80–100</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=elevacao+quadril+unilateral+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">2</div><div class="tw-exinfo"><div class="tw-exname">Elevação de Quadril Unilateral</div><div class="tw-exsets">4×15 cada lado <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#5B8DB8">50–62</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=agachamento+chute+lateral+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">3</div><div class="tw-exinfo"><div class="tw-exname">Agachamento c/ Chute Lateral</div><div class="tw-exsets">4×20 cada perna </div></div><div class="tw-exkcal" style="color:#5B8DB8">65–80</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=avanco+com+joelho+alto+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">4</div><div class="tw-exinfo"><div class="tw-exname">Avanço c/ Joelho Alto</div><div class="tw-exsets">4×20 cada perna </div></div><div class="tw-exkcal" style="color:#5B8DB8">65–80</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=coice+gluteo+mini+band+extensao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">5</div><div class="tw-exinfo"><div class="tw-exname">Coice + Extensão</div><div class="tw-exsets">4×20 cada perna <span class="tw-btag">🟠 nos tornozelos</span></div></div><div class="tw-exkcal" style="color:#5B8DB8">60–72</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=agachamento+bale+mini+band+pulso" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">6</div><div class="tw-exinfo"><div class="tw-exname">Agachamento Balé c/ Pulso</div><div class="tw-exsets">4×30 reps <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#5B8DB8">50–62</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=escalada+no+chao+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">7</div><div class="tw-exinfo"><div class="tw-exname">Escalada no Chão</div><div class="tw-exsets">4×30 cada lado </div></div><div class="tw-exkcal" style="color:#5B8DB8">45–55</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=abducao+lateral+mini+band+deitado" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">8</div><div class="tw-exinfo"><div class="tw-exname">Abdução Lateral Deitada</div><div class="tw-exsets">4×25 cada lado <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#5B8DB8">35–44</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=prancha+dinamica+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#5B8DB8">9</div><div class="tw-exinfo"><div class="tw-exname">Prancha Dinâmica</div><div class="tw-exsets">4×20 reps </div></div><div class="tw-exkcal" style="color:#5B8DB8">30–38</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a></div>
+      <div class="tw-total" style="background:linear-gradient(135deg,#3d6e99,#5B8DB8)">
+        <div><div class="tw-tlbl">Treino D</div><div class="tw-tval">510–600 kcal</div><div class="tw-tsub">63kg · ~~60'</div></div>
+        <div class="tw-tico">🔥</div>
+      </div>
+      <div class="tw-tips"><div class="tw-tip"><div class="tw-tipdot" style="background:#5B8DB8"></div>Treino mais intenso — hidrate-se muito antes e durante</div><div class="tw-tip"><div class="tw-tipdot" style="background:#5B8DB8"></div>Banana + pasta de amendoim 30 min antes = combustível ideal</div></div>
+    </div>
+  </div>
+</div>
+    <div class="tw-card" onclick="toggleTwCard(this)">
+  <div class="tw-head">
+    <div class="tw-letter" style="color:#C9933A">E</div>
+    <div class="tw-name">Corpo Todo</div>
+    <div class="tw-day">Sexta</div>
+    <div class="tw-kcal-pill" style="background:#C9933A22;color:#C9933A">450–540 kcal</div>
+    <div class="tw-hint">👆 ver exercícios ▾</div>
+  </div>
+  <div class="tw-drawer">
+    <div class="tw-din">
+      <div class="tw-focus">🌟 Corpo todo — queima final da semana</div>
+      <div class="tw-meta">
+        <div class="tw-mi"><div class="tw-mv">9</div><div class="tw-ml">Exerc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">~55'</div><div class="tw-ml">Duração</div></div>
+        <div class="tw-mi"><div class="tw-mv">40s</div><div class="tw-ml">Desc.</div></div>
+        <div class="tw-mi"><div class="tw-mv">Médio+</div><div class="tw-ml">Nível</div></div>
+      </div>
+      <div class="tw-band">🟠 Mini Band nos exercícios marcados</div>
+      <div class="tw-exlist"><a class="tw-ex" href="https://youtube.com/results?search_query=pular+corda+sem+corda+exercicio" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">1</div><div class="tw-exinfo"><div class="tw-exname">Pular Corda (simulado)</div><div class="tw-exsets">3×150 pulos </div></div><div class="tw-exkcal" style="color:#C9933A">60–75</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=agachamento+sumo+mini+band+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">2</div><div class="tw-exinfo"><div class="tw-exname">Agachamento Sumô</div><div class="tw-exsets">4×20 reps <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#C9933A">60–76</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=flexao+de+braco+execucao+iniciante" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">3</div><div class="tw-exinfo"><div class="tw-exname">Flexão de Braço</div><div class="tw-exsets">4×12 reps </div></div><div class="tw-exkcal" style="color:#C9933A">40–50</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=elevacao+de+quadril+mini+band+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">4</div><div class="tw-exinfo"><div class="tw-exname">Elevação de Quadril</div><div class="tw-exsets">4×20 reps <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#C9933A">60–75</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=escalada+no+chao+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">5</div><div class="tw-exinfo"><div class="tw-exname">Escalada no Chão</div><div class="tw-exsets">4×30 cada lado </div></div><div class="tw-exkcal" style="color:#C9933A">45–55</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=abdominal+bicicleta+execucao+correta" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">6</div><div class="tw-exinfo"><div class="tw-exname">Abdominal Bicicleta</div><div class="tw-exsets">4×25 cada lado </div></div><div class="tw-exkcal" style="color:#C9933A">35–45</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=avanco+mini+band+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">7</div><div class="tw-exinfo"><div class="tw-exname">Avanço</div><div class="tw-exsets">4×15 cada perna <span class="tw-btag">🟠 acima dos joelhos</span></div></div><div class="tw-exkcal" style="color:#C9933A">55–68</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=prancha+60+segundos+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">8</div><div class="tw-exinfo"><div class="tw-exname">Prancha</div><div class="tw-exsets">4×60 seg </div></div><div class="tw-exkcal" style="color:#C9933A">30–38</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a><a class="tw-ex" href="https://youtube.com/results?search_query=polichinelo+exercicio+execucao" target="_blank" onclick="event.stopPropagation()"><div class="tw-exn" style="background:#C9933A">9</div><div class="tw-exinfo"><div class="tw-exname">Polichinelo Final</div><div class="tw-exsets">3×50 reps </div></div><div class="tw-exkcal" style="color:#C9933A">25–32</div><div style="font-size:10px;color:var(--ink3);flex-shrink:0;">▶</div></a></div>
+      <div class="tw-total" style="background:linear-gradient(135deg,#a07020,#C9933A)">
+        <div><div class="tw-tlbl">Treino E</div><div class="tw-tval">450–540 kcal</div><div class="tw-tsub">63kg · ~~55'</div></div>
+        <div class="tw-tico">🔥</div>
+      </div>
+      <div class="tw-tips"><div class="tw-tip"><div class="tw-tipdot" style="background:#C9933A"></div>Fechamento da semana — celebre cada série concluída!</div><div class="tw-tip"><div class="tw-tipdot" style="background:#C9933A"></div>Mini band no avanço: puxe o joelho para fora ao subir</div></div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="tips-box" style="margin-top:0;">
+    <div class="tips-box-title">🚴 Regras da Bike + Treino</div>
+    <div class="tip-line"><div class="tip-dot" style="background:var(--rose)"></div>Bike <strong>1h/dia</strong> — pré: carboidrato leve. Pós: proteína + carboidrato em até 30 min.</div>
+    <div class="tip-line"><div class="tip-dot" style="background:var(--rose)"></div>Hidratação: <strong>500ml de água</strong> por hora de pedalada.</div>
+    <div class="tip-line"><div class="tip-dot" style="background:var(--rose)"></div>Bike pode ser feita antes ou depois do treino.</div>
+  </div>
+
 </div>
 
-<!-- TREINO B -->
-<div class="workout-panel" id="panel-1">
-  <div class="workout-header">
-    <div>
-      <div class="workout-label" style="color:#7A9E7E">Treino B · Terça-feira</div>
-      <div class="workout-name">Glúteo I + Posterior</div>
-      <div class="workout-focus">🍑 Foco: Glúteo + Posterior de coxa</div>
-    </div>
-    <div class="kcal-badge"><div class="kcal-range" style="color:#7A9E7E">420–490</div><div class="kcal-unit">kcal</div></div>
-  </div>
-  <div class="meta-row">
-    <div class="meta-item"><div class="meta-val">8</div><div class="meta-lbl">Exercícios</div></div>
-    <div class="meta-item"><div class="meta-val">~55'</div><div class="meta-lbl">Duração</div></div>
-    <div class="meta-item"><div class="meta-val">45s</div><div class="meta-lbl">Descanso</div></div>
-    <div class="meta-item"><div class="meta-val">Médio</div><div class="meta-lbl">Nível</div></div>
-  </div>
-  <div class="ex-section-title">Exercícios</div>
-  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino B</div><div class="band-info-desc">A mini band é essencial! Use nos exercícios marcados para maximizar ativação do glúteo médio e aumentar a queima em até 20%.</div></div></div>
-  <div class="ex-list">
-    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+sumo+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">1</div><div><div class="ex-name-txt">Agachamento Sumô</div><div class="ex-sets">5 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">75–92</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+quadril+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">2</div><div><div class="ex-name-txt">Elevação de Quadril</div><div class="ex-sets">5 × 15 reps · pausa 2s</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">70–88</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=avanco+execucao+correta" target="_blank"><div class="ex-n" style="background:#7A9E7E">3</div><div><div class="ex-name-txt">Avanço</div><div class="ex-sets">4 × 20 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">70–85</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+pelvica+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">4</div><div><div class="ex-name-txt">Elevação Pélvica</div><div class="ex-sets">4 × 20 reps · pausa 2s</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">48–60</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=coice+de+gluteo+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">5</div><div><div class="ex-name-txt">Coice de Glúteo</div><div class="ex-sets">4 × 20 cada perna</div><span class="band-tag">🟠 Mini Band nos tornozelos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">55–68</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+bulgaro+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">6</div><div><div class="ex-name-txt">Agachamento Búlgaro</div><div class="ex-sets">4 × 12 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">60–75</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=abducao+quadril+mini+band+deitado" target="_blank"><div class="ex-n" style="background:#7A9E7E">7</div><div><div class="ex-name-txt">Abdução de Quadril</div><div class="ex-sets">4 × 25 reps · deitada</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">35–44</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=subida+no+degrau+gluteo+execucao" target="_blank"><div class="ex-n" style="background:#7A9E7E">8</div><div><div class="ex-name-txt">Subida no Degrau</div><div class="ex-sets">4 × 15 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#7A9E7E">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-  </div>
-  <div class="total-bar" style="background:linear-gradient(135deg,#5a8060,#7A9E7E)"><div><div class="total-bar-label">Total · Treino B</div><div class="total-bar-val">420–490 kcal</div><div class="total-bar-sub">63kg · 165cm · ~55 min</div></div><div class="total-bar-icon">🍑</div></div>
-  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#7A9E7E"></div>Contraia o glúteo no pico de cada movimento por 1–2 segundos</div><div class="tip-line"><div class="tip-dot" style="background:#7A9E7E"></div>Na elevação de quadril com mini band: joelhos empurrados para fora o tempo todo</div><div class="tip-line"><div class="tip-dot" style="background:#7A9E7E"></div>💡 Combine com o salmão da Dieta de Terça — rico em ômega-3 para recuperação!</div></div>
-</div>
-
-<!-- TREINO C -->
-<div class="workout-panel" id="panel-2">
-  <div class="workout-header">
-    <div>
-      <div class="workout-label" style="color:#9B89B4">Treino C · Quarta-feira</div>
-      <div class="workout-name">Abdômen Completo</div>
-      <div class="workout-focus">💪 Foco: Núcleo profundo + definição</div>
-    </div>
-    <div class="kcal-badge"><div class="kcal-range" style="color:#9B89B4">310–390</div><div class="kcal-unit">kcal</div></div>
-  </div>
-  <div class="meta-row">
-    <div class="meta-item"><div class="meta-val">9</div><div class="meta-lbl">Exercícios</div></div>
-    <div class="meta-item"><div class="meta-val">~50'</div><div class="meta-lbl">Duração</div></div>
-    <div class="meta-item"><div class="meta-val">30s</div><div class="meta-lbl">Descanso</div></div>
-    <div class="meta-item"><div class="meta-val">Médio</div><div class="meta-lbl">Nível</div></div>
-  </div>
-  <div class="ex-section-title">Exercícios</div>
-  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino C</div><div class="band-info-desc">Adiciona resistência na elevação de pernas e inseto morto para ativar o núcleo profundo com mais intensidade.</div></div></div>
-  <div class="ex-list">
-    <a class="ex-card" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank"><div class="ex-n" style="background:#9B89B4">1</div><div><div class="ex-name-txt">Burpee</div><div class="ex-sets">4 × 12 reps · ativação</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">55–70</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=rolinho+abdominal+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">2</div><div><div class="ex-name-txt">Rolinho</div><div class="ex-sets">4 × 15 reps · pausa 2s frente</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">28–35</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+toque+ombro+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">3</div><div><div class="ex-name-txt">Prancha c/ Toque no Ombro</div><div class="ex-sets">4 × 25 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">30–40</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=inseto+morto+core+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">4</div><div><div class="ex-name-txt">Inseto Morto</div><div class="ex-sets">4 × 20 cada lado</div><span class="band-tag">🟠 Mini Band nos pés</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+pernas+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">5</div><div><div class="ex-name-txt">Elevação de Pernas</div><div class="ex-sets">4 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=abdominal+curto+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">6</div><div><div class="ex-name-txt">Abdominal Curto</div><div class="ex-sets">4 × 25 reps · pausa 5s</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">22–30</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+lateral+execucao+correta" target="_blank"><div class="ex-n" style="background:#9B89B4">7</div><div><div class="ex-name-txt">Prancha Lateral</div><div class="ex-sets">4 × 45s cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">25–32</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=giro+russo+abdominal+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">8</div><div><div class="ex-name-txt">Giro Russo</div><div class="ex-sets">4 × 20 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">28–35</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+60+segundos+execucao" target="_blank"><div class="ex-n" style="background:#9B89B4">9</div><div><div class="ex-name-txt">Prancha Final</div><div class="ex-sets">4 × 60 segundos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#9B89B4">25–32</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-  </div>
-  <div class="total-bar" style="background:linear-gradient(135deg,#7a6898,#9B89B4)"><div><div class="total-bar-label">Total · Treino C</div><div class="total-bar-val">310–390 kcal</div><div class="total-bar-sub">63kg · 165cm · ~50 min</div></div><div class="total-bar-icon">💪</div></div>
-  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#9B89B4"></div>Expire no esforço, inspire no retorno</div><div class="tip-line"><div class="tip-dot" style="background:#9B89B4"></div>Não puxe o pescoço no crunch — mãos atrás das orelhas levemente</div><div class="tip-line"><div class="tip-dot" style="background:#9B89B4"></div>💡 Combine com a Sopa Detox de Quarta — hidratante e leve!</div></div>
-</div>
-
-<!-- TREINO D -->
-<div class="workout-panel" id="panel-3">
-  <div class="workout-header">
-    <div>
-      <div class="workout-label" style="color:#5B8DB8">Treino D · Quinta-feira</div>
-      <div class="workout-name">Glúteo II + HIIT</div>
-      <div class="workout-focus">🔥🍑 Foco: Glúteo + Queima intensa</div>
-    </div>
-    <div class="kcal-badge"><div class="kcal-range" style="color:#5B8DB8">510–600</div><div class="kcal-unit">kcal</div></div>
-  </div>
-  <div class="meta-row">
-    <div class="meta-item"><div class="meta-val">9</div><div class="meta-lbl">Exercícios</div></div>
-    <div class="meta-item"><div class="meta-val">~60'</div><div class="meta-lbl">Duração</div></div>
-    <div class="meta-item"><div class="meta-val">30s</div><div class="meta-lbl">Descanso</div></div>
-    <div class="meta-item"><div class="meta-val">Alto</div><div class="meta-lbl">Nível</div></div>
-  </div>
-  <div class="ex-section-title">Exercícios</div>
-  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino D — HIIT</div><div class="band-info-desc">Treino mais intenso! A mini band eleva ainda mais a ativação muscular. Use em todos os exercícios marcados.</div></div></div>
-  <div class="ex-list">
-    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+jump+squat+mini+band" target="_blank"><div class="ex-n" style="background:#5B8DB8">1</div><div><div class="ex-name-txt">Agachamento com Salto</div><div class="ex-sets">5 × 15 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">90–108</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+quadril+unilateral+mini+band" target="_blank"><div class="ex-n" style="background:#5B8DB8">2</div><div><div class="ex-name-txt">Elevação de Quadril Unilateral</div><div class="ex-sets">4 × 15 cada perna</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">65–80</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=burpee+execucao+correta" target="_blank"><div class="ex-n" style="background:#5B8DB8">3</div><div><div class="ex-name-txt">Burpee</div><div class="ex-sets">4 × 15 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">70–90</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=avanco+com+joelho+alto+execucao" target="_blank"><div class="ex-n" style="background:#5B8DB8">4</div><div><div class="ex-name-txt">Avanço com Joelho Alto</div><div class="ex-sets">4 × 20 cada perna</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">65–80</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=coice+gluteo+mini+band+extensao" target="_blank"><div class="ex-n" style="background:#5B8DB8">5</div><div><div class="ex-name-txt">Coice + Extensão</div><div class="ex-sets">4 × 20 cada perna</div><span class="band-tag">🟠 Mini Band nos tornozelos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">60–72</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+bale+mini+band+pulso" target="_blank"><div class="ex-n" style="background:#5B8DB8">6</div><div><div class="ex-name-txt">Agachamento Balé com Pulso</div><div class="ex-sets">4 × 30 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">50–62</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=escalada+no+chao+execucao" target="_blank"><div class="ex-n" style="background:#5B8DB8">7</div><div><div class="ex-name-txt">Escalada no Chão</div><div class="ex-sets">4 × 30 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">45–55</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=abducao+lateral+mini+band+deitado" target="_blank"><div class="ex-n" style="background:#5B8DB8">8</div><div><div class="ex-name-txt">Abdução Lateral</div><div class="ex-sets">4 × 25 cada lado</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">35–44</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=prancha+dinamica+execucao" target="_blank"><div class="ex-n" style="background:#5B8DB8">9</div><div><div class="ex-name-txt">Prancha Dinâmica</div><div class="ex-sets">4 × 20 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#5B8DB8">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-  </div>
-  <div class="total-bar" style="background:linear-gradient(135deg,#3d6e99,#5B8DB8)"><div><div class="total-bar-label">Total · Treino D</div><div class="total-bar-val">510–600 kcal</div><div class="total-bar-sub">63kg · 165cm · ~60 min</div></div><div class="total-bar-icon">⚡</div></div>
-  <div class="tips-box"><div class="tips-box-title">💡 Dicas</div><div class="tip-line"><div class="tip-dot" style="background:#5B8DB8"></div>Treino mais intenso — hidrate-se muito bem</div><div class="tip-line"><div class="tip-dot" style="background:#5B8DB8"></div>Se ficar difícil, tire o salto do agachamento</div><div class="tip-line"><div class="tip-dot" style="background:#5B8DB8"></div>💡 Coma a banana com pasta de amendoim da Dieta de Quinta como pré-treino!</div></div>
-</div>
-
-<!-- TREINO E -->
-<div class="workout-panel" id="panel-4">
-  <div class="workout-header">
-    <div>
-      <div class="workout-label" style="color:#C9933A">Treino E · Sexta-feira</div>
-      <div class="workout-name">Corpo Todo + Finalização</div>
-      <div class="workout-focus">🌟 Foco: Corpo todo + queima final</div>
-    </div>
-    <div class="kcal-badge"><div class="kcal-range" style="color:#C9933A">450–540</div><div class="kcal-unit">kcal</div></div>
-  </div>
-  <div class="meta-row">
-    <div class="meta-item"><div class="meta-val">9</div><div class="meta-lbl">Exercícios</div></div>
-    <div class="meta-item"><div class="meta-val">~55'</div><div class="meta-lbl">Duração</div></div>
-    <div class="meta-item"><div class="meta-val">40s</div><div class="meta-lbl">Descanso</div></div>
-    <div class="meta-item"><div class="meta-val">Médio+</div><div class="meta-lbl">Nível</div></div>
-  </div>
-  <div class="ex-section-title">Exercícios</div>
-  <div class="band-info"><div class="band-icon">🟠</div><div><div class="band-info-title">Mini Band · Treino E</div><div class="band-info-desc">Fechamento da semana com mini band para manter intensidade alta. Você consegue! 💪</div></div></div>
-  <div class="ex-list">
-    <a class="ex-card" href="https://youtube.com/results?search_query=pular+corda+sem+corda+exercicio" target="_blank"><div class="ex-n" style="background:#C9933A">1</div><div><div class="ex-name-txt">Pular Corda (simulado)</div><div class="ex-sets">3 × 150 pulos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">60–75</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=agachamento+sumo+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">2</div><div><div class="ex-name-txt">Agachamento Sumô</div><div class="ex-sets">4 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">60–76</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=flexao+de+braco+execucao+iniciante" target="_blank"><div class="ex-n" style="background:#C9933A">3</div><div><div class="ex-name-txt">Flexão de Braço</div><div class="ex-sets">4 × 12 reps</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">40–50</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=elevacao+de+quadril+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">4</div><div><div class="ex-name-txt">Elevação de Quadril</div><div class="ex-sets">4 × 20 reps</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">60–75</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
-    <a class="ex-card" href="https://youtube.com/results?search_query=escalada+no+chao+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">5</div><div><div class="ex-name-txt">Escalada no Chão</div><div class="ex-sets">4 × 30 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">45–55</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
+nd:#C9933A">5</div><div><div class="ex-name-txt">Escalada no Chão</div><div class="ex-sets">4 × 30 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">45–55</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
     <a class="ex-card" href="https://youtube.com/results?search_query=abdominal+bicicleta+execucao+correta" target="_blank"><div class="ex-n" style="background:#C9933A">6</div><div><div class="ex-name-txt">Abdominal Bicicleta</div><div class="ex-sets">4 × 25 cada lado</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">35–45</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
     <a class="ex-card" href="https://youtube.com/results?search_query=avanco+mini+band+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">7</div><div><div class="ex-name-txt">Avanço</div><div class="ex-sets">4 × 15 cada perna</div><span class="band-tag">🟠 Mini Band acima dos joelhos</span></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">55–68</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
     <a class="ex-card" href="https://youtube.com/results?search_query=prancha+60+segundos+execucao" target="_blank"><div class="ex-n" style="background:#C9933A">8</div><div><div class="ex-name-txt">Prancha</div><div class="ex-sets">4 × 60 segundos</div></div><div class="ex-kcal-col"><div class="ex-kcal-val" style="color:#C9933A">30–38</div><div class="ex-kcal-lbl">kcal</div></div><div class="ex-yt">▶</div></a>
@@ -1825,6 +1772,8 @@ function showSection(sec) {
 }
 
 
+
+function toggleTwCard(card) { card.classList.toggle('topen'); }
 function toggleMealRecipe(btn) {
   const drawer = btn.nextElementSibling;
   const arrow = btn.querySelector('.meal-recipe-arrow');
