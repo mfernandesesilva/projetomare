@@ -13,18 +13,19 @@
 ═══════════════════════════════════════ */
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --ink:#1C1E21;--ink2:#5A5550;--ink3:#9A9490;
-  --bg:#FAF8F5;--surface:#FFFFFF;--cream:#F5F0EA;--border:rgba(28,30,33,0.10);
-  --shadow:0 4px 24px rgba(28,30,33,0.09);
-  --rose:#E8614A;--rose-l:#FFF0EE;--rose-m:#F5C5BB;
-  --green:#7A9E7E;--green-l:#EFF5F0;--green-m:#B5D5BC;
-  --blue:#5B8DB8;--blue-l:#EDF3F8;--blue-m:#ADC9E0;
-  --gold:#C9933A;--gold-l:#FBF5E3;--gold-d:#9A6E1A;
-  --purple:#9B89B4;--purple-l:#F3F0FA;--purple-m:#C5BBC5;
+  --ink:#F5F0E8;--ink2:rgba(245,240,232,0.62);--ink3:rgba(245,240,232,0.35);
+  --bg:#1C1E21;--surface:rgba(255,255,255,0.06);--cream:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.10);
+  --shadow:0 4px 24px rgba(0,0,0,0.4);
+  --rose:#E8614A;--rose-l:rgba(232,97,74,0.15);--rose-m:rgba(232,97,74,0.3);
+  --green:#7A9E7E;--green-l:rgba(122,158,126,0.15);--green-m:rgba(122,158,126,0.3);
+  --blue:#5B8DB8;--blue-l:rgba(91,141,184,0.15);--blue-m:rgba(91,141,184,0.3);
+  --gold:#C9933A;--gold-l:rgba(201,147,58,0.15);--gold-d:#F5D78A;
+  --purple:#9B89B4;--purple-l:rgba(155,137,180,0.15);--purple-m:rgba(155,137,180,0.3);
   --r:14px;--r-sm:9px;--r-lg:20px;
 }
 html,body{min-height:100%;overflow-x:hidden;}
-body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;}
+body{background:#1C1E21;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;}
 
 /* ═══ FLOATING NAV ═══ */
 .float-nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:rgba(28,30,33,0.94);backdrop-filter:blur(20px);border-radius:100px;padding:7px 9px;display:flex;gap:3px;z-index:1000;box-shadow:0 8px 40px rgba(0,0,0,0.32);border:1px solid rgba(255,255,255,0.08);}
@@ -39,13 +40,13 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .fn-btn:hover:not(.active){background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.72);}
 
 /* ═══ SECTIONS ═══ */
-.sec{display:none;min-height:100vh;padding-bottom:88px;}
+.sec{display:none;min-height:100vh;padding-bottom:88px;background:#1C1E21;}
 .sec.active{display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .sec.active{animation:fadeUp 0.3s ease both;}
 
 /* ═══ HERO ═══ */
-.hero{background:var(--ink);padding:44px 18px 50px;text-align:center;position:relative;overflow:hidden;}
+.hero{background:#1C1E21;padding:44px 18px 50px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 60%,rgba(232,97,74,0.26) 0%,transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(122,158,126,0.18) 0%,transparent 45%),radial-gradient(ellipse at 55% 90%,rgba(201,147,58,0.13) 0%,transparent 40%);}
 .hero-inner{position:relative;z-index:1;max-width:580px;margin:0 auto;}
 .hero-brand{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px;}
@@ -71,12 +72,12 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .tbtn-close{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);font-size:10px;width:100%;margin-top:2px;}
 
 /* ═══ TREINO SECTION ═══ */
-.treino-wrap{max-width:960px;margin:0 auto;padding:24px 14px 16px;}
+.treino-wrap{max-width:960px;margin:0 auto;padding:24px 14px 16px;background:#1C1E21;}
 
 /* Week bar */
-.week-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.week-bar{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
 .wb-left{flex:1;min-width:160px;}
-.wb-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:4px;}
+.wb-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,0.35);margin-bottom:4px;}
 .wb-title{font-family:'Playfair Display',serif;font-size:clamp(14px,2.5vw,18px);font-weight:700;}
 .wb-sub{font-size:11px;color:var(--ink2);margin-top:2px;}
 .wb-right{display:flex;gap:6px;flex-wrap:wrap;}
@@ -109,17 +110,17 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 
 /* Meta */
 .tw-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:9px;}
-.tw-mi{background:var(--cream);border-radius:7px;padding:5px 3px;text-align:center;}
+.tw-mi{background:rgba(255,255,255,0.07);border-radius:7px;padding:5px 3px;text-align:center;}
 .tw-mv{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .tw-ml{font-size:8px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.5px;margin-top:1px;}
 
 /* Band note */
-.tw-band{display:flex;align-items:center;gap:6px;background:#FFF8F0;border:1px solid #F5D5A8;border-radius:7px;padding:6px 9px;font-size:10px;color:#8A5A20;margin-bottom:9px;line-height:1.4;}
+.tw-band{display:flex;align-items:center;gap:6px;background:rgba(201,147,58,0.12);border:1px solid rgba(201,147,58,0.25);border-radius:7px;padding:6px 9px;font-size:10px;color:#F5D78A;margin-bottom:9px;line-height:1.4;}
 
 /* Exercise list */
 .tw-exlist{display:flex;flex-direction:column;gap:4px;margin-bottom:9px;}
 .tw-ex{display:flex;align-items:flex-start;gap:7px;padding:7px 8px;border-radius:8px;background:var(--cream);text-decoration:none;color:var(--ink);transition:background 0.15s;width:100%;}
-.tw-ex:hover{background:rgba(28,30,33,0.07);}
+.tw-ex:hover{background:rgba(255,255,255,0.09);}
 .tw-exn{width:20px;height:20px;min-width:20px;border-radius:5px;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .tw-exinfo{flex:1;min-width:0;overflow:hidden;}
 .tw-exname{font-size:11px;font-weight:700;line-height:1.35;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
@@ -132,9 +133,9 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 /* Checkboxes */
 .series-checks{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap;}
 .ser-cb{position:absolute;opacity:0;width:0;height:0;}
-.ser-lb{width:23px;height:23px;border-radius:6px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;font-weight:700;color:var(--ink3);transition:all 0.18s;user-select:none;background:var(--surface);flex-shrink:0;}
+.ser-lb{width:23px;height:23px;border-radius:6px;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);transition:all 0.18s;user-select:none;background:rgba(255,255,255,0.05);flex-shrink:0;}
 .ser-cb:checked+.ser-lb{background:var(--green);border-color:var(--green);color:#fff;}
-.ser-lb:hover{border-color:var(--green);color:var(--green);}
+.ser-lb:hover{border-color:#A8D5B0;color:#A8D5B0;}
 
 /* Cardio badge */
 .tw-cardio{background:linear-gradient(135deg,var(--blue-l),var(--green-l));border:1px solid var(--blue-m);border-radius:8px;padding:7px 10px;font-size:11px;color:var(--blue);line-height:1.5;margin-bottom:8px;}
@@ -148,18 +149,18 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 
 /* Tips */
 .tw-tips{display:flex;flex-direction:column;gap:4px;margin-top:4px;}
-.tw-tip{font-size:11px;color:var(--ink2);display:flex;gap:6px;line-height:1.5;align-items:flex-start;}
+.tw-tip{font-size:11px;color:rgba(245,240,232,0.5);display:flex;gap:6px;line-height:1.5;align-items:flex-start;}
 .tw-tipdot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:6px;display:inline-block;}
 
 /* Bike rules */
-.bike-rules{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;}
+.bike-rules{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);padding:14px 18px;}
 .bike-rules-title{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:9px;}
 .bike-rule{display:flex;gap:8px;font-size:12px;color:var(--ink2);margin-bottom:5px;line-height:1.5;align-items:flex-start;}
 .bdot{width:5px;height:5px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:5px;}
 
 /* ═══ DIETA SECTION ═══ */
-.dieta-wrap{max-width:820px;margin:0 auto;padding:24px 14px 16px;}
-.macro-section{background:var(--ink);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:20px;color:#fff;}
+.dieta-wrap{max-width:820px;margin:0 auto;padding:24px 14px 16px;background:#1C1E21;}
+.macro-section{background:#1C1E21;border-radius:var(--r-lg);padding:20px 22px;margin-bottom:20px;color:#fff;}
 .macro-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:9px;}
 .macro-kcal{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#A8D5B0;line-height:1;margin-bottom:3px;}
 .macro-kcal span{font-size:17px;color:rgba(255,255,255,0.25);}
@@ -171,18 +172,18 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .macro-val{font-size:12px;font-weight:700;}
 .day-tabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;margin-bottom:14px;padding-bottom:2px;}
 .day-tabs::-webkit-scrollbar{display:none;}
-.day-tab{flex-shrink:0;border:1.5px solid var(--border);background:var(--surface);border-radius:9px;padding:6px 13px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;color:var(--ink2);cursor:pointer;transition:all 0.2s;}
-.day-tab.active{background:var(--ink);border-color:var(--ink);color:#fff;}
-.day-tab:hover:not(.active){border-color:var(--ink);}
+.day-tab{flex-shrink:0;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);border-radius:9px;padding:6px 13px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;color:rgba(245,240,232,0.5);cursor:pointer;transition:all 0.2s;}
+.day-tab.active{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.25);color:#F5F0E8;}
+.day-tab:hover:not(.active){border-color:rgba(255,255,255,0.3);}
 .day-panel{display:none;}
 .day-panel.active{display:block;}
 
 /* Meal accordion */
 .meal-accordion{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
-.meal-acc-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:box-shadow 0.2s;}
+.meal-acc-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);overflow:hidden;transition:box-shadow 0.2s;}
 .meal-acc-item:hover{box-shadow:var(--shadow);}
 .meal-acc-head{display:flex;align-items:center;gap:10px;padding:11px 13px;cursor:pointer;user-select:none;transition:background 0.15s;}
-.meal-acc-head:hover{background:var(--cream);}
+.meal-acc-head:hover{background:rgba(255,255,255,0.04);}
 .meal-acc-ico{width:32px;height:32px;min-width:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
 .meal-acc-info{flex:1;min-width:0;overflow:hidden;}
 .meal-acc-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -192,31 +193,31 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .meal-acc-arrow{font-size:11px;color:var(--ink3);transition:transform 0.3s;flex-shrink:0;margin-left:4px;}
 .meal-acc-item.mopen .meal-acc-arrow,.meal-acc-item:hover .meal-acc-arrow{transform:rotate(180deg);}
 .meal-acc-body{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1);border-top:1px solid transparent;}
-.meal-acc-item.mopen .meal-acc-body,.meal-acc-item:hover .meal-acc-body{max-height:900px;border-top-color:var(--border);}
-.meal-acc-content{padding:12px 13px 14px;}
+.meal-acc-item.mopen .meal-acc-body,.meal-acc-item:hover .meal-acc-body{max-height:900px;border-top-color:rgba(255,255,255,0.09);}
+.meal-acc-content{padding:12px 13px 14px;background:transparent;}
 .meal-items{margin-bottom:9px;}
-.meal-item{display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--ink2);padding:4px 0;border-bottom:1px dashed rgba(28,30,33,0.07);line-height:1.4;}
+.meal-item{display:flex;align-items:flex-start;gap:6px;font-size:12px;color:rgba(245,240,232,0.55);padding:4px 0;border-bottom:1px dashed rgba(255,255,255,0.07);line-height:1.4;}
 .meal-item:last-child{border-bottom:none;}
 .mbullet{width:5px;height:5px;min-width:5px;border-radius:50%;flex-shrink:0;margin-top:6px;}
 .meal-foot{display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
 .mchip{font-size:10px;font-weight:600;padding:3px 8px;border-radius:14px;}
-.mc-kcal{background:var(--cream);color:var(--ink);}
-.mc-p{background:var(--blue-l);color:var(--blue);}
-.mc-c{background:var(--gold-l);color:var(--gold-d);}
-.mc-g{background:var(--green-l);color:var(--green);}
-.meal-recipe-btn{display:flex;align-items:center;justify-content:center;gap:5px;width:100%;padding:8px;background:var(--cream);border:none;border-top:1px solid var(--border);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;color:var(--ink2);cursor:pointer;transition:all 0.2s;}
-.meal-recipe-btn:hover{background:rgba(0,0,0,0.05);}
+.mc-kcal{background:rgba(255,255,255,0.07);color:#F5F0E8;}
+.mc-p{background:rgba(91,141,184,0.18);color:#A0C4E8;}
+.mc-c{background:rgba(201,147,58,0.18);color:#F5D78A;}
+.mc-g{background:rgba(122,158,126,0.18);color:#A8D5B0;}
+.meal-recipe-btn{display:flex;align-items:center;justify-content:center;gap:5px;width:100%;padding:8px;background:rgba(255,255,255,0.04);border:none;border-top:1px solid rgba(255,255,255,0.08);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;color:var(--ink2);cursor:pointer;transition:all 0.2s;}
+.meal-recipe-btn:hover{background:rgba(255,255,255,0.07);}
 .mrec-arrow{transition:transform 0.3s;}
 .mrec-arrow.ropen{transform:rotate(180deg);}
-.meal-recipe-drawer{display:none;background:var(--cream);border-top:1px solid var(--border);padding:13px 14px;}
+.meal-recipe-drawer{display:none;background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.07);padding:13px 14px;}
 .meal-recipe-drawer.ropen{display:block;}
-.mrd-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;}
+.mrd-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,0.35);margin-bottom:8px;}
 .mrd-ingr{display:flex;flex-direction:column;gap:4px;margin-bottom:11px;}
-.mrd-row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);padding:4px 0;border-bottom:1px dashed rgba(28,30,33,0.06);}
+.mrd-row{display:flex;justify-content:space-between;font-size:12px;color:rgba(245,240,232,0.55);padding:4px 0;border-bottom:1px dashed rgba(255,255,255,0.07);}
 .mrd-row:last-child{border-bottom:none;}
-.mrd-qty{font-weight:700;color:var(--ink);white-space:nowrap;margin-left:8px;}
+.mrd-qty{font-weight:700;color:#F5F0E8;white-space:nowrap;margin-left:8px;}
 .mrd-steps{display:flex;flex-direction:column;gap:6px;margin-bottom:8px;}
-.mrd-step{display:flex;gap:7px;font-size:12px;color:var(--ink2);line-height:1.6;}
+.mrd-step{display:flex;gap:7px;font-size:12px;color:rgba(245,240,232,0.55);line-height:1.6;}
 .mrd-num{width:18px;height:18px;min-width:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#fff;flex-shrink:0;margin-top:2px;}
 .mrd-tip{background:rgba(122,158,126,0.1);border:1px solid rgba(122,158,126,0.22);border-radius:7px;padding:7px 10px;font-size:11px;color:var(--green);line-height:1.6;display:flex;gap:6px;}
 .day-total{background:var(--green);color:#fff;border-radius:11px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;}
@@ -224,21 +225,21 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .dt-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1;}
 .dt-sub{font-size:10px;opacity:0.48;margin-top:2px;}
 .dt-icon{font-size:26px;opacity:0.18;}
-.week-summary{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
-.ws-card{background:var(--surface);border:1.5px solid var(--border);border-radius:9px;padding:8px 4px;text-align:center;cursor:pointer;transition:all 0.2s;}
-.ws-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--green);}
+.week-summary{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);}
+.ws-card{background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.09);border-radius:9px;padding:8px 4px;text-align:center;cursor:pointer;transition:all 0.2s;}
+.ws-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--green);background:rgba(122,158,126,0.12);}
 .ws-day{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink3);margin-bottom:2px;}
 .ws-kcal{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--green);}
 .ws-sub{font-size:8px;color:var(--ink3);}
-.rules-box{margin-top:18px;background:var(--cream);border-radius:var(--r);padding:16px 18px;}
-.rules-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:11px;}
+.rules-box{margin-top:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:16px 18px;}
+.rules-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:11px;color:#F5F0E8;}
 .rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
 .rule-item{background:var(--surface);border-radius:9px;padding:9px 11px;font-size:12px;color:var(--ink2);line-height:1.5;display:flex;gap:7px;}
-.avoid-section{margin-top:12px;background:#FDF1EB;border:1.5px solid #F5C5A8;border-radius:11px;padding:12px 15px;}
-.avoid-title{font-size:9px;font-weight:800;color:#C25B2A;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;}
+.avoid-section{margin-top:12px;background:rgba(232,97,74,0.1);border:1.5px solid rgba(232,97,74,0.22);border-radius:11px;padding:12px 15px;}
+.avoid-title{font-size:9px;font-weight:800;color:#F2A58E;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;}
 .avoid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;}
-.avoid-item{background:#fff;border-radius:6px;padding:6px;font-size:11px;color:#C25B2A;font-weight:600;text-align:center;border:1px solid #F5C5A8;}
-.goal-card{margin-top:14px;background:var(--ink);border-radius:var(--r);padding:18px 20px;color:#fff;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;}
+.avoid-item{background:rgba(232,97,74,0.1);border-radius:6px;padding:6px;font-size:11px;color:#F2A58E;font-weight:600;text-align:center;border:1px solid rgba(232,97,74,0.22);}
+.goal-card{margin-top:14px;background:#1C1E21;border-radius:var(--r);padding:18px 20px;color:#fff;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;}
 .gc-label{font-size:9px;opacity:0.3;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
 .gc-val{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:#A8D5B0;line-height:1;}
 .gc-sub{font-size:11px;opacity:0.32;margin-top:3px;}
@@ -247,90 +248,193 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .gc-badge-lbl{font-size:9px;opacity:0.3;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
 
 /* ═══ SNACKS ═══ */
-.snacks-wrap{max-width:860px;margin:0 auto;padding:24px 14px 16px;}
-.snk-fnav{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:22px;}
-.snk-ftab{border:1px solid var(--border);background:var(--surface);border-radius:100px;padding:6px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--ink2);cursor:pointer;transition:all 0.2s;}
-.snk-ftab:hover{border-color:var(--ink);color:var(--ink);}
-.snk-ftab.son{background:var(--ink);border-color:var(--ink);color:#fff;}
-.snk-ftab.sfru.son{background:var(--green);}
-.snk-ftab.screm.son{background:var(--gold);color:var(--ink);}
-.snk-ftab.sanx.son{background:var(--blue);}
-.snk-ftab.srot.son{background:var(--purple);}
+.snacks-wrap{max-width:860px;margin:0 auto;padding:24px 14px 16px;background:#1C1E21;}
+
+/* ═══════════════════════════════════════
+   SNACKS — DARK THEME (matches hero)
+═══════════════════════════════════════ */
+.snacks-wrap{max-width:860px;margin:0 auto;padding:24px 14px 16px;background:#1C1E21;}
+.snacks-content{/* wrapper */}
+
+/* Filter nav */
+.snk-fnav{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:24px;}
+.snk-ftab{border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.05);border-radius:100px;padding:6px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.2s;}
+.snk-ftab:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.85);}
+.snk-ftab.son{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.25);color:#fff;}
+.snk-ftab.sfru.son{background:rgba(122,158,126,0.25);border-color:var(--green);color:#A8D5B0;}
+.snk-ftab.screm.son{background:rgba(201,147,58,0.22);border-color:var(--gold);color:#F5D78A;}
+.snk-ftab.sanx.son{background:rgba(91,141,184,0.22);border-color:var(--blue);color:#A0C4E8;}
+.snk-ftab.srot.son{background:rgba(155,137,180,0.22);border-color:var(--purple);color:#C8B4E8;}
+
+/* Category show/hide */
 .snk-cat{display:none;}
 .snk-cat.sshow{display:block;}
+
+/* Category header */
+.snk-hd{margin-bottom:18px;}
 .snk-stag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:7px;}
-.snk-stitle{font-family:'Playfair Display',serif;font-size:clamp(17px,3.5vw,24px);font-weight:700;color:var(--ink);margin-bottom:4px;}
-.snk-ssub{font-size:12px;color:var(--ink3);margin-bottom:16px;}
-.snk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:11px;margin-bottom:32px;}
-.snk-rcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform 0.22s,box-shadow 0.22s;}
-.snk-rcard:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.snk-stitle{font-family:'Playfair Display',serif;font-size:clamp(18px,3.5vw,26px);font-weight:700;color:#F5F0E8;margin-bottom:4px;}
+.snk-ssub{font-size:12px;color:rgba(255,255,255,0.38);margin-bottom:16px;}
+
+/* ── RECIPE CARDS (schoc/sfru/screm) — dark, hover expands ── */
+.snk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:28px;}
+
+.snk-rcard{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s;
+  position:relative;
+}
+.snk-rcard:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.4);
+  border-color:rgba(255,255,255,0.18);
+}
+
+/* Collapsed visible area */
 .snk-rcard-top{padding:14px 14px 0;display:flex;justify-content:space-between;align-items:flex-start;}
 .snk-rcard-emoji{font-size:28px;}
 .snk-rcard-kcal{text-align:right;}
 .snk-rkv{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1;}
-.snk-rkl{font-size:9px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;}
+.snk-rkl{font-size:9px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;}
+
 .snk-rcard-body{padding:10px 14px 14px;flex:1;display:flex;flex-direction:column;}
-.snk-rcard-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:4px;}
-.snk-rcard-desc{font-size:12px;color:var(--ink2);line-height:1.6;margin-bottom:8px;flex:1;}
+.snk-rcard-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#F5F0E8;margin-bottom:4px;}
+.snk-rcard-desc{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:8px;flex:1;}
 .snk-rcard-tags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:10px;}
 .snk-rtag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:100px;}
-.snk-rcard-macros{display:flex;gap:5px;border-top:1px solid var(--border);padding-top:10px;}
+.snk-rcard-macros{display:flex;gap:5px;border-top:1px solid rgba(255,255,255,0.07);padding-top:10px;}
 .snk-rmacro{text-align:center;flex:1;}
 .snk-rmv{font-size:12px;font-weight:700;}
-.snk-rml{font-size:9px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.8px;margin-top:1px;}
-.snk-expand-btn{display:flex;align-items:center;justify-content:center;gap:5px;width:100%;padding:9px;background:var(--cream);border:none;border-top:1px solid var(--border);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;color:var(--ink2);cursor:pointer;transition:all 0.2s;}
-.snk-expand-btn:hover{background:rgba(0,0,0,0.04);}
+.snk-rml{font-size:9px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.8px;margin-top:1px;}
+
+/* Expand button */
+.snk-expand-btn{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  width:100%;padding:9px;
+  background:rgba(255,255,255,0.04);
+  border:none;border-top:1px solid rgba(255,255,255,0.07);
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
+  color:rgba(255,255,255,0.35);cursor:pointer;transition:all 0.2s;
+}
+.snk-expand-btn:hover{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);}
 .snk-exp-arrow{transition:transform 0.3s;}
 .snk-exp-arrow.sopen{transform:rotate(180deg);}
-.snk-rdetail{display:none;background:var(--cream);border-top:1px solid var(--border);padding:13px 14px;}
+
+/* Recipe detail drawer */
+.snk-rdetail{
+  display:none;
+  background:rgba(255,255,255,0.04);
+  border-top:1px solid rgba(255,255,255,0.07);
+  padding:13px 14px;
+}
 .snk-rdetail.sopen{display:block;}
-.snk-det-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;}
+.snk-det-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:8px;}
 .snk-ingr-list{display:flex;flex-direction:column;gap:4px;margin-bottom:11px;}
-.snk-ingr-item{display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);padding:4px 0;border-bottom:1px dashed rgba(28,30,33,0.06);}
+.snk-ingr-item{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.45);padding:4px 0;border-bottom:1px dashed rgba(255,255,255,0.07);}
 .snk-ingr-item:last-child{border-bottom:none;}
-.snk-ingr-qty{font-weight:700;color:var(--ink);white-space:nowrap;margin-left:7px;}
+.snk-ingr-qty{font-weight:700;color:rgba(255,255,255,0.8);white-space:nowrap;margin-left:7px;}
 .snk-steps{display:flex;flex-direction:column;gap:6px;margin-bottom:9px;}
-.snk-step{display:flex;gap:7px;font-size:12px;color:var(--ink2);line-height:1.6;}
+.snk-step{display:flex;gap:7px;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;}
+.snk-step strong{color:rgba(255,255,255,0.8);}
 .snk-snum{width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
-.snk-tip{background:rgba(122,158,126,0.1);border:1px solid rgba(122,158,126,0.22);border-radius:7px;padding:7px 10px;font-size:11px;color:var(--green);line-height:1.6;display:flex;gap:6px;}
-.snk-strip{display:flex;flex-direction:column;gap:7px;margin-bottom:32px;}
-.snk-item{background:var(--surface);border:1px solid var(--border);border-radius:11px;display:flex;align-items:center;gap:11px;padding:11px 13px;transition:transform 0.2s;}
-.snk-item:hover{transform:translateX(3px);}
-.snk-ico{font-size:22px;flex-shrink:0;}
-.snk-iname{font-size:13px;font-weight:600;margin-bottom:2px;}
-.snk-idesc{font-size:12px;color:var(--ink2);line-height:1.5;}
-.snk-iright{text-align:right;flex-shrink:0;margin-left:auto;}
-.snk-ikv{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;}
-.snk-ikl{font-size:8px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;}
-.snk-itags{display:flex;gap:3px;margin-top:3px;justify-content:flex-end;flex-wrap:wrap;}
-.snk-stag2{font-size:10px;font-weight:600;padding:2px 6px;border-radius:100px;}
-.snk-anx{background:linear-gradient(135deg,rgba(122,158,126,0.07),rgba(91,141,184,0.07));border:1.5px solid rgba(122,158,126,0.18);border-radius:var(--r);padding:18px;margin-bottom:26px;}
-.snk-anx-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:11px;}
-.snk-anx-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
-.snk-anx-item{background:rgba(255,255,255,0.7);border-radius:9px;padding:10px 11px;display:flex;gap:7px;align-items:flex-start;}
-.snk-anx-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
-.snk-anx-text{font-size:12px;color:var(--ink2);line-height:1.65;}
-.snk-rot{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:22px;}
-.snk-rot-head{padding:14px 18px;border-bottom:1px solid var(--border);}
-.snk-rot-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;}
-.snk-rot-sub{font-size:11px;color:var(--ink3);margin-top:2px;}
-.snk-rot-item{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:10px;padding:11px 18px;border-bottom:1px solid var(--border);}
+.snk-tip{background:rgba(122,158,126,0.12);border:1px solid rgba(122,158,126,0.2);border-radius:7px;padding:7px 10px;font-size:11px;color:#A8D5B0;line-height:1.6;display:flex;gap:6px;}
+
+/* ── QUICK SNACKS (ssnack) — dark hover accordion ── */
+.qs-list{display:flex;flex-direction:column;gap:7px;margin-bottom:28px;}
+.qs-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:var(--r);overflow:hidden;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.qs-card:hover{
+  border-color:rgba(255,255,255,0.18);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35);
+}
+.qs-head{display:flex;align-items:flex-start;gap:12px;padding:13px 14px;cursor:pointer;transition:background 0.15s;user-select:none;}
+.qs-head:hover{background:rgba(255,255,255,0.04);}
+.qs-ico{font-size:24px;flex-shrink:0;margin-top:2px;}
+.qs-info{flex:1;min-width:0;}
+.qs-name{font-size:13px;font-weight:700;color:#F5F0E8;margin-bottom:3px;line-height:1.35;}
+.qs-desc{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.5;margin-bottom:7px;}
+.qs-macros{display:flex;flex-wrap:wrap;gap:4px;}
+.qs-chip{font-size:10px;font-weight:600;padding:2px 8px;border-radius:100px;}
+.qs-tag{background:rgba(255,255,255,0.07)!important;color:rgba(255,255,255,0.45)!important;}
+.qs-arrow{font-size:14px;color:rgba(255,255,255,0.3);transition:transform 0.3s;flex-shrink:0;margin-top:4px;padding-left:6px;}
+.qs-arrow.open,.qs-card:hover .qs-arrow{transform:rotate(180deg);}
+.qs-drawer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1),border-top-color 0.3s;
+  border-top:1px solid transparent;
+}
+.qs-drawer.open,.qs-card:hover .qs-drawer{max-height:600px;border-top-color:rgba(255,255,255,0.07);}
+.qs-drawer-inner{padding:13px 14px 15px;}
+
+/* ── ANTI-ANXIETY SECTION (dark, readable) ── */
+.sanx-info{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:18px 20px;margin-bottom:22px;}
+.sanx-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#F5F0E8;margin-bottom:14px;}
+.sanx-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.sanx-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:11px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;}
+.sanx-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.sanx-text{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.65;}
+.sanx-text strong{color:#F5F0E8;}
+.sanx-strategies-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#F5F0E8;margin-bottom:12px;}
+.sanx-strategies{display:flex;flex-direction:column;gap:9px;margin-bottom:28px;}
+.sanx-strategy{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:14px 16px;}
+.sanx-strategy-top{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.sanx-medal{font-size:20px;flex-shrink:0;}
+.sanx-strategy-name{font-size:14px;font-weight:700;color:#F5F0E8;flex:1;}
+.sanx-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;flex-shrink:0;white-space:nowrap;}
+.sanx-strategy-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;padding-left:30px;}
+
+/* ── ROTINA (srot) — dark ── */
+.snk-rot{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);overflow:hidden;margin-bottom:22px;}
+.snk-rot-head{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.snk-rot-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#F5F0E8;}
+.snk-rot-sub{font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px;}
+.snk-rot-item{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:10px;padding:11px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
 .snk-rot-item:last-child{border-bottom:none;}
-.snk-rot-time{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--ink3);}
-.snk-rot-meal{font-size:13px;color:var(--ink);line-height:1.4;}
-.snk-rot-meal span{font-size:11px;color:var(--ink3);display:block;margin-top:1px;}
+.snk-rot-time{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.3);}
+.snk-rot-meal{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.4;}
+.snk-rot-meal span{font-size:11px;color:rgba(255,255,255,0.35);display:block;margin-top:1px;}
 .snk-rot-k{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
 
-/* ═══ STATS ═══ */
-.stats-wrap{max-width:820px;margin:0 auto;padding:24px 14px 16px;}
-.stats-hero{background:var(--ink);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px;color:#fff;}
+/* ── STRIP items (for anxiety strategies if still used) ── */
+.snk-strip{display:flex;flex-direction:column;gap:7px;margin-bottom:28px;}
+.snk-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:11px;display:flex;align-items:center;gap:11px;padding:11px 13px;transition:transform 0.2s,border-color 0.2s;}
+.snk-item:hover{transform:translateX(3px);border-color:rgba(255,255,255,0.18);}
+.snk-ico{font-size:22px;flex-shrink:0;}
+.snk-iname{font-size:13px;font-weight:600;color:#F5F0E8;margin-bottom:2px;}
+.snk-idesc{font-size:12px;color:rgba(255,255,255,0.42);line-height:1.5;}
+.snk-iright{text-align:right;flex-shrink:0;margin-left:auto;}
+.snk-ikv{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;}
+.snk-ikl{font-size:8px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;}
+.snk-itags{display:flex;gap:3px;margin-top:3px;justify-content:flex-end;flex-wrap:wrap;}
+.snk-stag2{font-size:10px;font-weight:600;padding:2px 6px;border-radius:100px;}
+
+/* Mobile snacks */
+@media(max-width:580px){
+  .sanx-grid{grid-template-columns:1fr;}
+  .snk-grid{grid-template-columns:1fr;}
+  .sanx-strategy-top{flex-wrap:wrap;}
+  .qs-head{gap:9px;padding:11px 12px;}
+  .qs-ico{font-size:20px;}
+  .qs-name{font-size:12px;}
+  .snk-rot-item{grid-template-columns:52px 1fr auto;}
+}
+
+.stats-wrap{max-width:820px;margin:0 auto;padding:24px 14px 16px;background:#1C1E21;}
+.stats-hero{background:#1C1E21;border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px;color:#fff;}
 .stats-hero-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:12px;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px;}
 .stat-box{background:rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:center;}
 .stat-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#A8D5B0;line-height:1;}
 .stat-lbl{font-size:9px;color:rgba(255,255,255,0.32);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
-.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:14px;}
-.chart-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:3px;}
+.chart-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);padding:18px;margin-bottom:14px;}
+.chart-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:3px;color:#F5F0E8;}
 .chart-sub{font-size:11px;color:var(--ink3);margin-bottom:16px;}
 .bar-chart{display:flex;align-items:flex-end;gap:2px;height:110px;padding:0 2px 22px;position:relative;overflow:hidden;}
 .bar-chart::after{content:'';position:absolute;bottom:20px;left:0;right:0;height:1px;background:var(--border);}
@@ -339,23 +443,23 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .bar-fill:hover{opacity:0.72;}
 .bar-label{position:absolute;bottom:0;font-size:7px;color:var(--ink3);white-space:nowrap;text-align:center;}
 .achievements-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px;}
-.ach-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;display:flex;gap:10px;align-items:center;}
-.ach-card.earned{background:linear-gradient(135deg,var(--gold-l),#fff);border-color:var(--gold);}
+.ach-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);padding:12px 14px;display:flex;gap:10px;align-items:center;}
+.ach-card.earned{background:linear-gradient(135deg,rgba(201,147,58,0.2),rgba(201,147,58,0.08));border-color:var(--gold);}
 .ach-icon{font-size:26px;flex-shrink:0;}
 .ach-name{font-size:13px;font-weight:700;}
 .ach-desc{font-size:11px;color:var(--ink3);margin-top:2px;}
 .ach-card.earned .ach-desc{color:var(--gold-d);}
-.recent-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
-.recent-head{padding:13px 16px;border-bottom:1px solid var(--border);}
-.recent-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;}
-.recent-item{display:flex;align-items:center;gap:11px;padding:11px 16px;border-bottom:1px solid var(--border);}
+.recent-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);overflow:hidden;}
+.recent-head{padding:13px 16px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.recent-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#F5F0E8;}
+.recent-item{display:flex;align-items:center;gap:11px;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
 .recent-item:last-child{border-bottom:none;}
 .recent-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
 .recent-info{flex:1;min-width:0;}
 .recent-name{font-size:12px;font-weight:600;}
 .recent-date{font-size:11px;color:var(--ink3);}
 .recent-badge{font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px;flex-shrink:0;}
-.stats-reset-btn{background:none;border:1.5px solid var(--border);border-radius:9px;padding:9px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--ink3);cursor:pointer;transition:all 0.2s;margin-top:7px;}
+.stats-reset-btn{background:none;border:1.5px solid rgba(255,255,255,0.12);border-radius:9px;padding:9px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.35);cursor:pointer;transition:all 0.2s;margin-top:7px;}
 .stats-reset-btn:hover{border-color:#C25B2A;color:#C25B2A;}
 
 /* ═══ MOBILE ═══ */
@@ -414,6 +518,56 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
   .tw-meta{grid-template-columns:repeat(4,1fr);}
   .stats-grid{grid-template-columns:1fr 1fr;}
 }
+
+
+/* ── ANTI-ANXIETY REDESIGN (light, readable) ── */
+.sanx-info{background:var(--cream);border-radius:var(--r);padding:18px 20px;margin-bottom:22px;}
+.sanx-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:14px;}
+.sanx-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.sanx-card{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;}
+.sanx-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.sanx-text{font-size:13px;color:var(--ink2);line-height:1.65;}
+.sanx-text strong{color:var(--ink);}
+.sanx-strategies-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.sanx-strategies{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.sanx-strategy{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;}
+.sanx-strategy-top{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.sanx-medal{font-size:20px;flex-shrink:0;}
+.sanx-strategy-name{font-size:14px;font-weight:700;color:var(--ink);flex:1;}
+.sanx-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;flex-shrink:0;white-space:nowrap;}
+.sanx-strategy-desc{font-size:13px;color:var(--ink2);line-height:1.65;padding-left:30px;}
+
+/* ── QUICK SNACKS ACCORDION ── */
+.qs-list{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;}
+.qs-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:box-shadow 0.2s;}
+.qs-card:hover{box-shadow:var(--shadow);}
+.qs-head{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;cursor:pointer;transition:background 0.15s;user-select:none;}
+.qs-head:hover{background:var(--cream);}
+.qs-ico{font-size:24px;flex-shrink:0;margin-top:2px;}
+.qs-info{flex:1;min-width:0;}
+.qs-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.35;}
+.qs-desc{font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:7px;}
+.qs-macros{display:flex;flex-wrap:wrap;gap:4px;}
+.qs-chip{font-size:10px;font-weight:600;padding:2px 8px;border-radius:100px;}
+.qs-tag{background:var(--cream)!important;color:var(--ink2)!important;}
+.qs-arrow{font-size:14px;color:var(--ink3);transition:transform 0.3s;flex-shrink:0;margin-top:4px;padding-left:6px;}
+.qs-arrow.open{transform:rotate(180deg);}
+.qs-drawer{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1);border-top:1px solid transparent;}
+.qs-drawer.open{max-height:600px;border-top-color:var(--border);}
+/* Also open on hover */
+.qs-card:hover .qs-drawer{max-height:600px;border-top-color:var(--border);}
+.qs-card:hover .qs-arrow{transform:rotate(180deg);}
+.qs-drawer-inner{padding:14px 15px 16px;}
+
+@media(max-width:580px){
+  .sanx-grid{grid-template-columns:1fr;}
+  .sanx-strategy-top{flex-wrap:wrap;}
+  .qs-head{gap:9px;padding:11px 12px;}
+  .qs-ico{font-size:20px;}
+  .qs-name{font-size:12px;}
+  .qs-desc{font-size:11px;}
+}
+
 
 </style>
 </head>
@@ -477,7 +631,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     <div class="wb-right">
       <div class="wb-stat"><div class="wb-stat-v">5</div><div class="wb-stat-l">Treinos</div></div>
       <div class="wb-stat"><div class="wb-stat-v">1–2,5h</div><div class="wb-stat-l">Por dia</div></div>
-      <div class="wb-stat" style="background:#FFF8F0;border:1px solid #F5D5A8;"><div class="wb-stat-v">🟠</div><div class="wb-stat-l" style="color:#8A5A20;">Mini Band</div></div>
+      <div class="wb-stat" style="background:rgba(201,147,58,0.15);border:1px solid rgba(201,147,58,0.3);"><div class="wb-stat-v">🟠</div><div class="wb-stat-l" style="color:#8A5A20;">Mini Band</div></div>
     </div>
   </div>
 
@@ -1015,11 +1169,11 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
   </div>
 
   <div class="day-panel active" id="day-0">
-  <div style="background:#FFF5F0;border:1.5px solid #F5C5BB;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">💪 <strong>Treino A hoje!</strong> Mingau proteico de manhã + shake pós-bike. 6 refeições para não passar fome.</div>
+  <div style="background:rgba(232,97,74,0.12);border:1.5px solid rgba(232,97,74,0.25);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">💪 <strong>Treino A hoje!</strong> Mingau proteico de manhã + shake pós-bike. 6 refeições para não passar fome.</div>
   <div class="meal-accordion">
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FBF5E6;">☀️</div>
+        <div class="meal-acc-ico" style="background:rgba(201,147,58,0.18);">☀️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#C9933A;">Café da manhã</div>
           <div class="meal-acc-name">Mingau de Aveia com Whey e Banana</div>
@@ -1048,7 +1202,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2EC;">🍎</div>
+        <div class="meal-acc-ico" style="background:rgba(122,158,126,0.18);">🍎</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#7A9E7E;">Lanche manhã</div>
           <div class="meal-acc-name">Ovo Cozido com Fruta</div>
@@ -1077,7 +1231,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">🍽️</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">🍽️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#5B8DB8;">Almoço</div>
           <div class="meal-acc-name">Frango Grelhado com Arroz Integral e Feijão</div>
@@ -1106,7 +1260,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">🌿</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">🌿</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Lanche tarde</div>
           <div class="meal-acc-name">Shake Pós-Bike (Proteína + Carboidrato)</div>
@@ -1135,7 +1289,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#F3F0FA;">🌙</div>
+        <div class="meal-acc-ico" style="background:rgba(155,137,180,0.18);">🌙</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#9B89B4;">Jantar</div>
           <div class="meal-acc-name">Omelete de Legumes com Frango</div>
@@ -1164,7 +1318,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">✨</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">✨</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#3A6B8A;">Ceia</div>
           <div class="meal-acc-name">Iogurte Zero Lactose com Frutas Vermelhas</div>
@@ -1195,11 +1349,11 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 
 </div>
 <div class="day-panel" id="day-1">
-  <div style="background:#FFF5F0;border:1.5px solid #F5C5BB;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🍑 <strong>Treino B hoje — Glúteo!</strong> Salmão com ômega-3 acelera a recuperação muscular. Proteína em todas as 6 refeições.</div>
+  <div style="background:rgba(232,97,74,0.12);border:1.5px solid rgba(232,97,74,0.25);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🍑 <strong>Treino B hoje — Glúteo!</strong> Salmão com ômega-3 acelera a recuperação muscular. Proteína em todas as 6 refeições.</div>
   <div class="meal-accordion">
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FBF5E6;">☀️</div>
+        <div class="meal-acc-ico" style="background:rgba(201,147,58,0.18);">☀️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#C9933A;">Café da manhã</div>
           <div class="meal-acc-name">Tapioca Proteica com Ovo e Ricota Zero Lactose</div>
@@ -1228,7 +1382,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2EC;">🍎</div>
+        <div class="meal-acc-ico" style="background:rgba(122,158,126,0.18);">🍎</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#7A9E7E;">Lanche manhã</div>
           <div class="meal-acc-name">Castanhas + Iogurte Zero Lactose</div>
@@ -1257,7 +1411,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">🍽️</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">🍽️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#5B8DB8;">Almoço</div>
           <div class="meal-acc-name">Salmão Assado com Quinoa e Brócolis</div>
@@ -1286,7 +1440,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">🌿</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">🌿</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Lanche tarde</div>
           <div class="meal-acc-name">Shake de Morango com Leite Zero Lactose</div>
@@ -1315,7 +1469,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#F3F0FA;">🌙</div>
+        <div class="meal-acc-ico" style="background:rgba(155,137,180,0.18);">🌙</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#9B89B4;">Jantar</div>
           <div class="meal-acc-name">Frango ao Curry com Abobrinha e Arroz</div>
@@ -1344,7 +1498,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">✨</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">✨</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#3A6B8A;">Ceia</div>
           <div class="meal-acc-name">Banana com Cacau e Pasta de Amendoim</div>
@@ -1378,7 +1532,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
   <div class="meal-accordion">
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FBF5E6;">☀️</div>
+        <div class="meal-acc-ico" style="background:rgba(201,147,58,0.18);">☀️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#C9933A;">Café da manhã</div>
           <div class="meal-acc-name">Panqueca de Banana com Whey</div>
@@ -1407,7 +1561,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2EC;">🍎</div>
+        <div class="meal-acc-ico" style="background:rgba(122,158,126,0.18);">🍎</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#7A9E7E;">Lanche manhã</div>
           <div class="meal-acc-name">Vitamina de Frutas Vermelhas com Leite Zero Lactose</div>
@@ -1436,7 +1590,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">🍽️</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">🍽️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#5B8DB8;">Almoço</div>
           <div class="meal-acc-name">Carne Magra com Lentilha e Legumes Assados</div>
@@ -1465,7 +1619,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">🌿</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">🌿</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Lanche tarde</div>
           <div class="meal-acc-name">Ovo Cozido com Homus e Cenoura</div>
@@ -1494,7 +1648,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#F3F0FA;">🌙</div>
+        <div class="meal-acc-ico" style="background:rgba(155,137,180,0.18);">🌙</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#9B89B4;">Jantar</div>
           <div class="meal-acc-name">Sopa Detox de Legumes com Frango</div>
@@ -1523,7 +1677,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">✨</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">✨</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#3A6B8A;">Ceia</div>
           <div class="meal-acc-name">Mousse de Cacau com Abacate</div>
@@ -1554,11 +1708,11 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 
 </div>
 <div class="day-panel" id="day-3">
-  <div style="background:#FFF5F0;border:1.5px solid #F5C5BB;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">⚡ <strong>Treino D hoje — o mais intenso!</strong> Açaí bowl carrega energia para o treino. Pré-treino com banana às 16h.</div>
+  <div style="background:rgba(232,97,74,0.12);border:1.5px solid rgba(232,97,74,0.25);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">⚡ <strong>Treino D hoje — o mais intenso!</strong> Açaí bowl carrega energia para o treino. Pré-treino com banana às 16h.</div>
   <div class="meal-accordion">
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FBF5E6;">☀️</div>
+        <div class="meal-acc-ico" style="background:rgba(201,147,58,0.18);">☀️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#C9933A;">Café da manhã</div>
           <div class="meal-acc-name">Açaí Bowl Proteico com Granola</div>
@@ -1587,7 +1741,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2EC;">🍎</div>
+        <div class="meal-acc-ico" style="background:rgba(122,158,126,0.18);">🍎</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#7A9E7E;">Lanche manhã</div>
           <div class="meal-acc-name">Queijo Cottage Zero Lactose com Fruta</div>
@@ -1616,7 +1770,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">🍽️</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">🍽️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#5B8DB8;">Almoço</div>
           <div class="meal-acc-name">Tilápia com Batata Doce e Aspargos</div>
@@ -1645,7 +1799,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">⚡</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">⚡</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Pré-treino D</div>
           <div class="meal-acc-name">Banana com Pasta de Amendoim (Pré-treino)</div>
@@ -1674,7 +1828,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">💪</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">💪</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Jantar pós-treino</div>
           <div class="meal-acc-name">Omelete de Atum com Salada Completa</div>
@@ -1703,7 +1857,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">✨</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">✨</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#3A6B8A;">Ceia</div>
           <div class="meal-acc-name">Leite Morno Zero Lactose com Mel e Canela</div>
@@ -1734,11 +1888,11 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 
 </div>
 <div class="day-panel" id="day-4">
-  <div style="background:#FFF5F0;border:1.5px solid #F5C5BB;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🌟 <strong>Treino E hoje — Corpo Todo!</strong> Overnight oats pronto de ontem. Smoothie proteico pós-bike.</div>
+  <div style="background:rgba(232,97,74,0.12);border:1.5px solid rgba(232,97,74,0.25);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🌟 <strong>Treino E hoje — Corpo Todo!</strong> Overnight oats pronto de ontem. Smoothie proteico pós-bike.</div>
   <div class="meal-accordion">
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FBF5E6;">☀️</div>
+        <div class="meal-acc-ico" style="background:rgba(201,147,58,0.18);">☀️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#C9933A;">Café da manhã</div>
           <div class="meal-acc-name">Overnight Oats de Chocolate (Preparo na véspera)</div>
@@ -1767,7 +1921,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2EC;">🍎</div>
+        <div class="meal-acc-ico" style="background:rgba(122,158,126,0.18);">🍎</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#7A9E7E;">Lanche manhã</div>
           <div class="meal-acc-name">Fruta + Queijo Cottage Zero Lactose</div>
@@ -1796,7 +1950,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">🍽️</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">🍽️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#5B8DB8;">Almoço</div>
           <div class="meal-acc-name">Bowl de Frango com Grão-de-bico e Arroz</div>
@@ -1825,7 +1979,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">💪</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">💪</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Pós-treino E</div>
           <div class="meal-acc-name">Smoothie de Abacate e Cacau (Pós-treino E)</div>
@@ -1854,7 +2008,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#F3F0FA;">🌙</div>
+        <div class="meal-acc-ico" style="background:rgba(155,137,180,0.18);">🌙</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#9B89B4;">Jantar</div>
           <div class="meal-acc-name">Wrap de Frango com Legumes</div>
@@ -1883,7 +2037,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">✨</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">✨</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#3A6B8A;">Ceia</div>
           <div class="meal-acc-name">Pudim de Chia com Leite Zero Lactose</div>
@@ -1914,11 +2068,11 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 
 </div>
 <div class="day-panel" id="day-5">
-  <div style="background:#FFF5F0;border:1.5px solid #F5C5BB;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🎉 <strong>Sábado!</strong> Treino livre + bike. Almoço social estratégico. 6 refeições para não cair em compulsão no final de semana.</div>
+  <div style="background:rgba(232,97,74,0.12);border:1.5px solid rgba(232,97,74,0.25);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🎉 <strong>Sábado!</strong> Treino livre + bike. Almoço social estratégico. 6 refeições para não cair em compulsão no final de semana.</div>
   <div class="meal-accordion">
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FBF5E6;">☀️</div>
+        <div class="meal-acc-ico" style="background:rgba(201,147,58,0.18);">☀️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#C9933A;">Café da manhã</div>
           <div class="meal-acc-name">Tapioca Doce com Cottage e Frutas</div>
@@ -1947,7 +2101,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2EC;">🍎</div>
+        <div class="meal-acc-ico" style="background:rgba(122,158,126,0.18);">🍎</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#7A9E7E;">Lanche manhã</div>
           <div class="meal-acc-name">Iogurte Zero Lactose com Granola e Morango</div>
@@ -1976,7 +2130,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">🍽️</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">🍽️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#5B8DB8;">Almoço</div>
           <div class="meal-acc-name">Almoço Social — Escolhas Inteligentes</div>
@@ -2005,7 +2159,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">🌿</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">🌿</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Lanche tarde</div>
           <div class="meal-acc-name">Shake Pós-Bike com Frutas Vermelhas</div>
@@ -2034,7 +2188,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#F3F0FA;">🌙</div>
+        <div class="meal-acc-ico" style="background:rgba(155,137,180,0.18);">🌙</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#9B89B4;">Jantar</div>
           <div class="meal-acc-name">Salmão Grelhado com Batata Doce e Salada</div>
@@ -2063,7 +2217,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">✨</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">✨</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#3A6B8A;">Ceia</div>
           <div class="meal-acc-name">2 Quadradinhos Chocolate 70% + Chá</div>
@@ -2094,11 +2248,11 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 
 </div>
 <div class="day-panel" id="day-6">
-  <div style="background:#FFF5F0;border:1.5px solid #F5C5BB;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🏠 <strong>Domingo — Descanso ativo + Prep semanal!</strong> 1h de prep hoje economiza decisões de segunda a sexta.</div>
+  <div style="background:rgba(232,97,74,0.12);border:1.5px solid rgba(232,97,74,0.25);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#C4674A;display:flex;align-items:center;gap:8px;">🏠 <strong>Domingo — Descanso ativo + Prep semanal!</strong> 1h de prep hoje economiza decisões de segunda a sexta.</div>
   <div class="meal-accordion">
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FBF5E6;">☀️</div>
+        <div class="meal-acc-ico" style="background:rgba(201,147,58,0.18);">☀️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#C9933A;">Café da manhã</div>
           <div class="meal-acc-name">Vitamina Especial Domingo com Leite Zero Lactose</div>
@@ -2127,7 +2281,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2EC;">🍎</div>
+        <div class="meal-acc-ico" style="background:rgba(122,158,126,0.18);">🍎</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#7A9E7E;">Lanche manhã</div>
           <div class="meal-acc-name">Ovos Mexidos com Queijo Zero Lactose e Torrada</div>
@@ -2156,7 +2310,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">🍽️</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">🍽️</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#5B8DB8;">Almoço</div>
           <div class="meal-acc-name">Clássico Saudável de Domingo</div>
@@ -2185,7 +2339,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#FFF0EE;">🌿</div>
+        <div class="meal-acc-ico" style="background:rgba(232,97,74,0.18);">🌿</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#E8614A;">Lanche tarde</div>
           <div class="meal-acc-name">Cottage Zero Lactose com Castanhas</div>
@@ -2214,7 +2368,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#F3F0FA;">🌙</div>
+        <div class="meal-acc-ico" style="background:rgba(155,137,180,0.18);">🌙</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#9B89B4;">Jantar</div>
           <div class="meal-acc-name">Sopa Creme de Cenoura com Frango e Gengibre</div>
@@ -2243,7 +2397,7 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
     </div>
 <div class="meal-acc-item">
       <div class="meal-acc-head" onclick="toggleMeal(this)">
-        <div class="meal-acc-ico" style="background:#EAF2F8;">✨</div>
+        <div class="meal-acc-ico" style="background:rgba(91,141,184,0.18);">✨</div>
         <div class="meal-acc-info">
           <div class="meal-acc-label" style="color:#3A6B8A;">Ceia + Prep semanal</div>
           <div class="meal-acc-name">Trufas de Tâmara e Cacau (2 unidades)</div>
@@ -2703,45 +2857,270 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
   <!-- ══ SNACKS RÁPIDOS ══ -->
   <div class="snk-cat sshow" id="snk-ssnack">
     <div class="snk-hd">
-      <div class="snk-stag" style="background:rgba(78,143,168,0.15);color:#8EC4D8;">⚡ Snacks Rápidos</div>
+      <div class="snk-stag" style="background:rgba(91,141,184,0.12);color:var(--blue);">⚡ Snacks Rápidos</div>
       <div class="snk-stitle">Para o dia todo — sem decisão, sem culpa</div>
-      <div class="snk-ssub">Já calculados para caber nos 1.800 kcal + bike. Pega e come, sem pensar.</div>
+      <div class="snk-ssub">Calculados para 1.500 kcal + bike. Ingredientes ao passar o mouse · Receita completa no botão ▾</div>
     </div>
-    <div class="snk-strip">
-      <div class="snk-item"><div class="snk-ico">🍫</div><div><div class="snk-iname">2 quadradinhos chocolate 70% + 10 amêndoas</div><div class="snk-idesc">A gordura das amêndoas freia a absorção do açúcar do chocolate. Saciedade de 2h.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#C8622A">165</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(200,98,42,0.15);color:#E8956A;">P:4g</span></div></div></div>
-      <div class="snk-item"><div class="snk-ico">🥚</div><div><div class="snk-iname">2 ovos cozidos com sal e limão</div><div class="snk-idesc">Alta proteína, zero carboidrato, máxima saciedade. Faça 6 ovos de uma vez e guarde na geladeira.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#5E9E6A">145</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(94,158,106,0.12);color:#8EC89A;">P:12g</span></div></div></div>
-      <div class="snk-item"><div class="snk-ico">🍎</div><div><div class="snk-iname">Maçã verde + 1,5 col. pasta de amendoim</div><div class="snk-idesc">Fibra da maçã + gordura do amendoim = saciedade de 2–3 horas. Melhor que qualquer biscoito.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#C4A55A">195</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(196,165,90,0.15);color:#D4C07A;">P:5g</span></div></div></div>
-      <div class="snk-item"><div class="snk-ico">🫐</div><div><div class="snk-iname">150g frutas vermelhas + 1 col. pasta de amendoim</div><div class="snk-idesc">Antioxidantes + gordura boa. O doce natural das frutas vermelhas satisfaz melhor que qualquer doce processado.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#5E9E6A">175</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(94,158,106,0.12);color:#8EC89A;">P:5g</span></div></div></div>
-      <div class="snk-item"><div class="snk-ico">🥤</div><div><div class="snk-iname">Whey shake simples + gelo</div><div class="snk-idesc">200ml leite de amêndoas + 1 scoop whey + gelo. 28g de proteína em 2 minutos — mata a fome sem peso.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#4E8FA8">160</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(78,143,168,0.15);color:#8EC4D8;">P:28g</span></div></div></div>
-      <div class="snk-item"><div class="snk-ico">🫙</div><div><div class="snk-iname">20g mix de castanhas (nozes + castanha-do-pará + amêndoa)</div><div class="snk-idesc">Porcionado num potinho. Selênio, magnésio e gordura boa que acalmam o sistema nervoso.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#C4A55A">130</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(196,165,90,0.15);color:#D4C07A;">🧠 Antiansied.</span></div></div></div>
-      <div class="snk-item"><div class="snk-ico">🫚</div><div><div class="snk-iname">Cenoura + pepino + homus caseiro</div><div class="snk-idesc">Mastigar coisas crocantes é um mecanismo natural de alívio de tensão. Pode comer bastante.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#5E9E6A">150</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(94,158,106,0.12);color:#8EC89A;">P:6g</span></div></div></div>
-      <div class="snk-item"><div class="snk-ico">🍌</div><div><div class="snk-iname">Banana + 1 col. cacau em pó polvilhado</div><div class="snk-idesc">Descasca, polvilha cacau e come. O cacau muda completamente o sabor — parece doce de confeitaria.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#C8622A">110</div><div class="snk-ikl">kcal</div><div class="snk-itags"><span class="snk-stag2" style="background:rgba(200,98,42,0.15);color:#E8956A;">⚡ 30 seg</span></div></div></div>
+    <div class="qs-list">
+      <div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-0')">
+        <div class="qs-ico">🍫</div>
+        <div class="qs-info">
+          <div class="qs-name">2 Quadradinhos Chocolate 70% + Amêndoas</div>
+          <div class="qs-desc">A gordura das amêndoas freia a absorção do açúcar do chocolate. Saciedade de 2h.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(200,98,42,0.12);color:#C8622A;">165 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 4g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 16g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 9g</span>
+            <span class="qs-chip qs-tag">⚡ 2 min</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-0-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-0-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Chocolate 70% sem lactose</span><span class="mrd-qty">2 quadradinhos (~20g)</span></div><div class="mrd-row"><span>Amêndoas cruas</span><span class="mrd-qty">10 unidades</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">1</div><div>Separe os quadradinhos e as amêndoas num potinho.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">2</div><div>Coma devagar — deixe o chocolate derreter na boca. O sabor dura mais.</div></div></div>
+          <div class="mrd-tip">💡 Come alternando: um quadradinho, depois amêndoas. A gordura das amêndoas desacelera a glicose.</div>
+        </div>
+      </div>
+    </div>
+<div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-1')">
+        <div class="qs-ico">🥚</div>
+        <div class="qs-info">
+          <div class="qs-name">2 Ovos Cozidos com Sal e Limão</div>
+          <div class="qs-desc">Alta proteína, zero carboidrato, máxima saciedade. Faça 6 ovos de uma vez e guarde.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(94,158,106,0.12);color:#5E9E6A;">145 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 12g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 2g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 10g</span>
+            <span class="qs-chip qs-tag">⏱ 10 min</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-1-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-1-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Ovos</span><span class="mrd-qty">2 unidades</span></div><div class="mrd-row"><span>Sal e pimenta-do-reino</span><span class="mrd-qty">a gosto</span></div><div class="mrd-row"><span>Limão</span><span class="mrd-qty">gotas a gosto</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#5E9E6A">1</div><div>Coloque os ovos em água fria. Leve ao fogo.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#5E9E6A">2</div><div>Quando ferver, marque 8 minutos (gema firme) ou 6 min (cremosa).</div></div><div class="mrd-step"><div class="mrd-num" style="background:#5E9E6A">3</div><div>Resfrie em água gelada por 2 minutos — descasca fácil.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#5E9E6A">4</div><div>Tempere com sal, pimenta e gotas de limão.</div></div></div>
+          <div class="mrd-tip">💡 Faça 6 de uma vez domingo e guarde na geladeira. Snack pronto para a semana toda.</div>
+        </div>
+      </div>
+    </div>
+<div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-2')">
+        <div class="qs-ico">🍎</div>
+        <div class="qs-info">
+          <div class="qs-name">Maçã Verde + Pasta de Amendoim</div>
+          <div class="qs-desc">Fibra da maçã + gordura do amendoim = saciedade de 2–3 horas. Melhor que qualquer biscoito.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(196,165,90,0.15);color:#C4A55A;">195 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 5g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 22g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 9g</span>
+            <span class="qs-chip qs-tag">⏱ 1 min</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-2-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-2-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Maçã verde média</span><span class="mrd-qty">1 unidade</span></div><div class="mrd-row"><span>Pasta de amendoim integral</span><span class="mrd-qty">1,5 col. sopa (~25g)</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#C4A55A">1</div><div>Corte a maçã em fatias — com casca para mais fibra.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C4A55A">2</div><div>Coloque a pasta de amendoim numa tigela pequena.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C4A55A">3</div><div>Coma mergulhando as fatias na pasta.</div></div></div>
+          <div class="mrd-tip">💡 Maçã verde tem menos açúcar que a vermelha. A casca tem pectina que aumenta a saciedade.</div>
+        </div>
+      </div>
+    </div>
+<div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-3')">
+        <div class="qs-ico">🫐</div>
+        <div class="qs-info">
+          <div class="qs-name">150g Frutas Vermelhas + Pasta de Amendoim</div>
+          <div class="qs-desc">Antioxidantes + gordura boa. O doce natural das frutas satisfaz melhor que doces processados.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(94,158,106,0.12);color:#5E9E6A;">175 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 5g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 20g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 8g</span>
+            <span class="qs-chip qs-tag">⏱ 2 min</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-3-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-3-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Frutas vermelhas (morango, mirtilo, framboesa)</span><span class="mrd-qty">150g</span></div><div class="mrd-row"><span>Pasta de amendoim integral</span><span class="mrd-qty">1 col. sopa (~15g)</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#5E9E6A">1</div><div>Separe as frutas lavadas numa tigela.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#5E9E6A">2</div><div>Coloque a pasta de amendoim ao lado para mergulhar.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#5E9E6A">3</div><div>Se as frutas estiverem congeladas, espere 5 min para descongelar parcialmente.</div></div></div>
+          <div class="mrd-tip">💡 Mirtilos têm os maiores índices de antioxidantes entre as frutas vermelhas — eles combatem o cortisol.</div>
+        </div>
+      </div>
+    </div>
+<div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-4')">
+        <div class="qs-ico">🥤</div>
+        <div class="qs-info">
+          <div class="qs-name">Whey Shake Simples + Gelo</div>
+          <div class="qs-desc">28g de proteína em 2 minutos — mata a fome sem peso. Pós-bike ou emergência.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(78,143,168,0.15);color:#4E8FA8;">160 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 28g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 6g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 3g</span>
+            <span class="qs-chip qs-tag">⚡ 2 min</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-4-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-4-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Leite zero lactose ou água</span><span class="mrd-qty">200ml</span></div><div class="mrd-row"><span>Whey isolado sem lactose</span><span class="mrd-qty">1 scoop (30g)</span></div><div class="mrd-row"><span>Gelo</span><span class="mrd-qty">4–6 cubos</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#4E8FA8">1</div><div>Coloque o líquido, o whey e o gelo na coqueteleira ou liquidificador.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#4E8FA8">2</div><div>Agite bem por 20–30 segundos.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#4E8FA8">3</div><div>Beba imediatamente — o gelo ajuda a cremosidade.</div></div></div>
+          <div class="mrd-tip">💡 Pós-bike: beba nos primeiros 30 min para máxima síntese proteica e recuperação.</div>
+        </div>
+      </div>
+    </div>
+<div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-5')">
+        <div class="qs-ico">🫙</div>
+        <div class="qs-info">
+          <div class="qs-name">20g Mix de Castanhas</div>
+          <div class="qs-desc">Selênio, magnésio e gordura boa que acalmam o sistema nervoso. Porcionado num potinho.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(196,165,90,0.15);color:#C4A55A;">130 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 3g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 5g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 11g</span>
+            <span class="qs-chip qs-tag">🧠 Anti-ansiedade</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-5-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-5-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Nozes</span><span class="mrd-qty">8g (2 metades)</span></div><div class="mrd-row"><span>Castanha-do-pará</span><span class="mrd-qty">4g (1 unidade)</span></div><div class="mrd-row"><span>Amêndoas cruas</span><span class="mrd-qty">8g (~8 amêndoas)</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#C4A55A">1</div><div>Pese ou meça 20g de castanhas variadas.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C4A55A">2</div><div>Coloque em potinhos individuais no domingo.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C4A55A">3</div><div>Guarde na geladeira ou armário. Pega e come.</div></div></div>
+          <div class="mrd-tip">💡 Castanha-do-pará: 1 unidade por dia já supre 100% do selênio diário. Não exagere.</div>
+        </div>
+      </div>
+    </div>
+<div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-6')">
+        <div class="qs-ico">🥕</div>
+        <div class="qs-info">
+          <div class="qs-name">Cenoura + Pepino + Homus Caseiro</div>
+          <div class="qs-desc">Mastigar coisas crocantes é alívio natural de tensão. Pode comer bastante volume.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(200,98,42,0.12);color:#C8622A;">150 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 6g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 18g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 6g</span>
+            <span class="qs-chip qs-tag">⏱ 5 min</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-6-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-6-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Cenoura</span><span class="mrd-qty">1 média em palitos</span></div><div class="mrd-row"><span>Pepino</span><span class="mrd-qty">½ unidade em fatias</span></div><div class="mrd-row"><span>Homus caseiro (ou comprado)</span><span class="mrd-qty">3 col. sopa (~60g)</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">1</div><div>Corte a cenoura em palitos finos e o pepino em fatias ou palitos.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">2</div><div>Sirva com o homus numa tigelinha para mergulhar.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">3</div><div>Arrume numa tigela bonita — o visual importa.</div></div></div>
+          <div class="mrd-tip">💡 Homus caseiro: bata grão-de-bico cozido com tahine, azeite, limão e sal. Dura 5 dias na geladeira.</div>
+        </div>
+      </div>
+    </div>
+<div class="qs-card">
+      <div class="qs-head" onclick="toggleQsRecipe('qs-7')">
+        <div class="qs-ico">🍌</div>
+        <div class="qs-info">
+          <div class="qs-name">Banana + Cacau em Pó Polvilhado</div>
+          <div class="qs-desc">Descasca, polvilha cacau e come. O cacau muda completamente o sabor — parece doce de confeitaria.</div>
+          <div class="qs-macros">
+            <span class="qs-chip" style="background:rgba(200,98,42,0.12);color:#C8622A;">110 kcal</span>
+            <span class="qs-chip" style="background:rgba(91,141,184,0.12);color:var(--blue);">P: 1g</span>
+            <span class="qs-chip" style="background:rgba(201,147,58,0.12);color:var(--gold-d);">C: 26g</span>
+            <span class="qs-chip" style="background:rgba(122,158,126,0.12);color:var(--green);">G: 1g</span>
+            <span class="qs-chip qs-tag">⚡ 30 seg</span>
+          </div>
+        </div>
+        <div class="qs-arrow" id="qs-7-arrow">▾</div>
+      </div>
+      <div class="qs-drawer" id="qs-7-drawer">
+        <div class="qs-drawer-inner">
+          <div class="mrd-title">Ingredientes</div>
+          <div class="mrd-ingr"><div class="mrd-row"><span>Banana madura</span><span class="mrd-qty">1 unidade</span></div><div class="mrd-row"><span>Cacau em pó 100%</span><span class="mrd-qty">1 col. chá rasa</span></div></div>
+          <div class="mrd-title">Preparo</div>
+          <div class="mrd-steps"><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">1</div><div>Descasque a banana.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">2</div><div>Polvilhe o cacau por toda a superfície.</div></div><div class="mrd-step"><div class="mrd-num" style="background:#C8622A">3</div><div>Coma inteira ou em fatias.</div></div></div>
+          <div class="mrd-tip">💡 Banana madura tem mais açúcar natural e triptofano. O cacau adiciona magnésio anti-ansiedade.</div>
+        </div>
+      </div>
+    </div>
     </div>
   </div><!-- /snk-ssnack -->
 
   <!-- ══ ANTI-ANSIEDADE ══ -->
   <div class="snk-cat sshow" id="snk-sanx">
     <div class="snk-hd">
-      <div class="snk-stag" style="background:rgba(78,143,168,0.15);color:#8EC4D8;">🧠 Anti-ansiedade</div>
+      <div class="snk-stag" style="background:rgba(91,141,184,0.12);color:var(--blue);">🧠 Anti-ansiedade</div>
       <div class="snk-stitle">Alimentos que acalmam de verdade</div>
       <div class="snk-ssub">Não é sobre força de vontade. É sobre entender como os alimentos afetam seu sistema nervoso.</div>
     </div>
-    <div class="snk-anx">
-      <div class="snk-anx-title">🧠 O que acontece no seu cérebro quando vem a ansiedade</div>
-      <div class="snk-anx-grid">
-        <div class="snk-anx-item"><div class="snk-anx-icon">⚡</div><div class="snk-anx-text">O cortisol (hormônio do estresse) <strong>aumenta a vontade de açúcar e gordura</strong> — é neurobiologia, não falta de willpower.</div></div>
-        <div class="snk-anx-item"><div class="snk-anx-icon">🩸</div><div class="snk-anx-text">Ficar mais de 3h sem comer <strong>baixa a glicose</strong> e dispara o ciclo: ansiedade → compulsão → culpa → mais ansiedade.</div></div>
-        <div class="snk-anx-item"><div class="snk-anx-icon">🍫</div><div class="snk-anx-text">O <strong>magnésio do cacau</strong> regula os receptores GABA — o mesmo mecanismo dos ansiolíticos naturais. Cacau 100%, não chocolate ao leite.</div></div>
-        <div class="snk-anx-item"><div class="snk-anx-icon">🌙</div><div class="snk-anx-text">Carboidratos à noite <strong>aumentam a serotonina</strong>. Não são inimigos — são aliados do sono e da calma. O erro é a qualidade, não o horário.</div></div>
-        <div class="snk-anx-item"><div class="snk-anx-icon">🥜</div><div class="snk-anx-text">As <strong>castanhas têm triptofano</strong> — precursor da serotonina. 20g no lanche da tarde reduz a compulsão noturna.</div></div>
-        <div class="snk-anx-item"><div class="snk-anx-icon">🚴</div><div class="snk-anx-text">A bike que você já faz <strong>reduz o cortisol em até 48%</strong>. O exercício é o ansiolítico mais poderoso — você já está fazendo.</div></div>
+
+    <!-- Info grid: light cards on cream background -->
+    <div class="sanx-info">
+      <div class="sanx-title">🧠 O que acontece no seu cérebro quando vem a ansiedade</div>
+      <div class="sanx-grid">
+        <div class="sanx-card"><div class="sanx-icon">⚡</div><div class="sanx-text">O cortisol (hormônio do estresse) <strong>aumenta a vontade de açúcar e gordura</strong> — é neurobiologia, não falta de willpower.</div></div>
+        <div class="sanx-card"><div class="sanx-icon">🩸</div><div class="sanx-text">Ficar mais de 3h sem comer <strong>baixa a glicose</strong> e dispara o ciclo: ansiedade → compulsão → culpa → mais ansiedade.</div></div>
+        <div class="sanx-card"><div class="sanx-icon">🍫</div><div class="sanx-text">O <strong>magnésio do cacau</strong> regula os receptores GABA — o mesmo mecanismo dos ansiolíticos naturais. Cacau 100%, não chocolate ao leite.</div></div>
+        <div class="sanx-card"><div class="sanx-icon">🌙</div><div class="sanx-text">Carboidratos à noite <strong>aumentam a serotonina</strong>. Não são inimigos — são aliados do sono e da calma. O erro é a qualidade, não o horário.</div></div>
+        <div class="sanx-card"><div class="sanx-icon">🥜</div><div class="sanx-text">As <strong>castanhas têm triptofano</strong> — precursor da serotonina. 20g no lanche da tarde reduz a compulsão noturna.</div></div>
+        <div class="sanx-card"><div class="sanx-icon">🚴</div><div class="sanx-text">A bike que você já faz <strong>reduz o cortisol em até 48%</strong>. O exercício é o ansiolítico mais poderoso — você já está fazendo.</div></div>
       </div>
     </div>
-    <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#F5F0E8;margin-bottom:12px;">🛡️ As 3 Estratégias para a Crise de Doce</div>
-    <div class="snk-strip">
-      <div class="snk-item" style="background:linear-gradient(90deg,rgba(200,98,42,0.08),#1C1C1F);"><div class="snk-ico">🥇</div><div><div class="snk-iname">Estratégia 1 — O "Pré-decidido"</div><div class="snk-idesc">Tenha sempre trufas de tâmara, brownie de banana ou overnight oats prontos na geladeira. Quando a ansiedade bater, você não decide — você só pega.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#C8622A">✓</div><div class="snk-ikl">Efetivo</div></div></div>
-      <div class="snk-item" style="background:linear-gradient(90deg,rgba(94,158,106,0.08),#1C1C1F);"><div class="snk-ico">🥈</div><div><div class="snk-iname">Estratégia 2 — Os 10 Minutos</div><div class="snk-idesc">Quando vier a vontade de algo não planejado, prepare o chocolate quente proteico. O ritual de preparar + os 10 minutos fazem o pico de cortisol passar.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#5E9E6A">✓</div><div class="snk-ikl">Efetivo</div></div></div>
-      <div class="snk-item" style="background:linear-gradient(90deg,rgba(78,143,168,0.08),#1C1C1F);"><div class="snk-ico">🥉</div><div><div class="snk-iname">Estratégia 3 — Proteína Primeiro</div><div class="snk-idesc">Antes de qualquer doce, coma 2 ovos ou um shake de whey. A proteína sinaliza saciedade em 15 min — a vontade de doce cai pela metade.</div></div><div class="snk-iright"><div class="snk-ikv" style="color:#4E8FA8">✓</div><div class="snk-ikl">Efetivo</div></div></div>
+
+    <!-- 3 strategies: clear light cards -->
+    <div class="sanx-strategies-title">🛡️ As 3 Estratégias para a Crise de Doce</div>
+    <div class="sanx-strategies">
+      <div class="sanx-strategy" style="border-left:4px solid #C8622A;">
+        <div class="sanx-strategy-top">
+          <span class="sanx-medal">🥇</span>
+          <div class="sanx-strategy-name">Estratégia 1 — O "Pré-decidido"</div>
+          <span class="sanx-badge" style="background:rgba(200,98,42,0.12);color:#C8622A;">✓ Efetivo</span>
+        </div>
+        <div class="sanx-strategy-desc">Tenha sempre trufas de tâmara, brownie de banana ou overnight oats prontos na geladeira. Quando a ansiedade bater, você não decide — você só pega.</div>
+      </div>
+      <div class="sanx-strategy" style="border-left:4px solid #5E9E6A;">
+        <div class="sanx-strategy-top">
+          <span class="sanx-medal">🥈</span>
+          <div class="sanx-strategy-name">Estratégia 2 — Os 10 Minutos</div>
+          <span class="sanx-badge" style="background:rgba(94,158,106,0.12);color:#3A7E44;">✓ Efetivo</span>
+        </div>
+        <div class="sanx-strategy-desc">Quando vier a vontade de algo não planejado, prepare o chocolate quente proteico. O ritual de preparar + os 10 minutos fazem o pico de cortisol passar.</div>
+      </div>
+      <div class="sanx-strategy" style="border-left:4px solid #4E8FA8;">
+        <div class="sanx-strategy-top">
+          <span class="sanx-medal">🥉</span>
+          <div class="sanx-strategy-name">Estratégia 3 — Proteína Primeiro</div>
+          <span class="sanx-badge" style="background:rgba(78,143,168,0.12);color:#2E6F88;">✓ Efetivo</span>
+        </div>
+        <div class="sanx-strategy-desc">Antes de qualquer doce, coma 2 ovos ou um shake de whey. A proteína sinaliza saciedade em 15 min — a vontade de doce cai pela metade.</div>
+      </div>
     </div>
   </div><!-- /snk-sanx -->
 
@@ -3135,6 +3514,16 @@ window.addEventListener('load', () => {
   const disp = document.getElementById('tw-disp');
   if(disp) disp.textContent = '00:00';
 });
+
+
+function toggleQsRecipe(uid) {
+  const drawer = document.getElementById(uid + '-drawer');
+  const arrow  = document.getElementById(uid + '-arrow');
+  if (!drawer) return;
+  const isOpen = drawer.classList.contains('open');
+  drawer.classList.toggle('open', !isOpen);
+  if (arrow) arrow.classList.toggle('open', !isOpen);
+}
 
 </script>
 </body>
